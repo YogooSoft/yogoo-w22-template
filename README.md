@@ -28,7 +28,7 @@ w22-template 是一个免费开源的中后台模板，采用最新的 Vue3、we
 ## 快速上手
 
 ### 安装
-Clone 或者 fork 这个项目，在根目录执行：
+Clone 或者 Fork 这个项目，在根目录执行：
 ```shell
 yarn install
 ```
