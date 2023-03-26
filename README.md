@@ -59,7 +59,7 @@ yarn build
 
 版权所有 Yogoo, Inc. 保留所有权利。
 
-使用 [MIT 许可证](/LICENSE)
+使用 [MIT 许可证](/LICENSE.txt)
 
 
 
