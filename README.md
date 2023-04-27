@@ -6,10 +6,11 @@
 |__/|__//____//____/            \__/ \___//_/ /_/ /_// .___//_/ \__,_/ \__/ \___/ 
                                                     /_/                         
 ```
-
-[![license](https://img.shields.io/badge/license-MIT-yellowgreen)](LICENSE)
-![version](https://img.shields.io/badge/version-0.0.1-blue)
-
+<p align="center">
+<a href="https://github.com/YogooSoft/yogoo-w22-template/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-yellowgreen?style=flat-square" alt="GitHub tag"></a>
+<a href=""><img src="https://img.shields.io/badge/version-0.0.1-blue?style=flat-square" alt="GitHub tag"></a>
+<img src="https://img.shields.io/github/last-commit/cool-team-official/cool-admin-midway?style=flat-square" alt="GitHub tag"></a>
+</p>
 
 
 ## 简介
@@ -48,7 +49,7 @@ yarn build
 
 ## 代码贡献者
 
-感谢所有为 w22-template 做出过贡献的人！
+感谢所有为 w22 做出过贡献的人！
 
 ## 团队介绍
 
@@ -59,6 +60,8 @@ w22 团队是悦高软件集互联网上的技术大牛，本着共同的爱好�
 培养更多 w22 的开发者
 
 如果你一样有这样的喜好，可以考虑加入我们成为我们当中的一员
+
+## 微信群
 
 
 ## 免责声明
