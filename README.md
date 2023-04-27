@@ -7,7 +7,9 @@
                                                     /_/                         
 ```
 
-[![license](https://img.shields.io/badge/yogoo--w22--template-MIT-yellowgreen)](LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-yellowgreen)](LICENSE)
+![version](https://img.shields.io/badge/version-0.0.1-blue)
+
 
 
 ## 简介
@@ -48,6 +50,16 @@ yarn build
 
 感谢所有为 w22 做出过贡献的人！
 
+## 团队介绍
+
+w22 团队是悦高软件集互联网上的技术大牛，本着共同的爱好，收集广大程序员的开发诉求，不断开发能帮助程序员与企业快速开发迭代他们的软件产品。
+
+我们的主旨：让软件开发快一点
+
+培养更多 w22 的开发者
+
+如果你一样有这样的喜好，可以考虑加入我们成为我们当中的一员
+
 
 ## 免责声明
 
@@ -60,6 +72,3 @@ yarn build
 版权所有 Yogoo, Inc. 保留所有权利。
 
 使用 [MIT 许可证](/LICENSE.txt)
-
-
-
