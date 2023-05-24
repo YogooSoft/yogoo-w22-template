@@ -1,0 +1,12 @@
+<template>
+  <span :class="$attrs.class">
+    <Icon :icon="icon" />
+  </span>
+</template>
+<script lang="ts" setup>
+  import { Icon } from '@iconify/vue';
+  
+  defineProps({
+    icon: String,
+  });
+</script>

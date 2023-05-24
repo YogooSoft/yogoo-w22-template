@@ -7,9 +7,11 @@
                                                     /_/                         
 ```
 <p align="center">
-<a href="https://github.com/YogooSoft/yogoo-w22-template/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-yellowgreen?style=flat-square" alt="GitHub tag"></a>
-<a href=""><img src="https://img.shields.io/badge/version-0.0.1-blue?style=flat-square" alt="GitHub tag"></a>
-<img src="https://img.shields.io/github/last-commit/cool-team-official/cool-admin-midway?style=flat-square" alt="GitHub tag"></a>
+<a href="https://github.com/YogooSoft/yogoo-w22-template/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellowgreen.svg" alt="GitHub tag"></a>
+<a href="https://www.yogoo.net"><img src="https://img.shields.io/badge/Author-悦高软件-orange.svg" alt=""></a>
+<a href=""><img src="https://img.shields.io/badge/Blog-官方博客-blue.svg" alt="GitHub tag"></a>
+<a href=""><img src="https://img.shields.io/badge/Version-0.0.1-blue.svg" alt="GitHub tag"></a>
+<img src="https://img.shields.io/github/last-commit/YogooSoft/yogoo-w22-template.svg" alt="GitHub tag"></a>
 </p>
 
 

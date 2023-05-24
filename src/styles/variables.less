@@ -1,0 +1,61 @@
+@namespace: 'YOGOO-W22-TEMPLATE';
+
+// base color
+@blue:#324157;
+@light-blue:#3A71A8;
+@red:#C03639;
+@pink: #E65D6E;
+@green: #30B08F;
+@tiffany: #4AB7BD;
+@yellow:#FEC171;
+@panGreen: #30B08F;
+
+// sidebar
+@menuText:#bfcbd9;
+@menuActiveText:#409EFF;
+@subMenuActiveText:#f4f4f5; // https://github.com/ElemeFE/element/issues/12951
+
+@menuBg:#304156;
+@menuHover:#263445;
+
+@subMenuBg:#ffffff1A; //#1f2d3d;
+@subMenuHover:#001528;
+
+//#001528;
+
+// 菜单默认宽度
+@sideBarWidth: 210px;
+
+// 自定义颜色
+@text-color-help-dark: #909399;
+@primary-color: #409EFF;
+@text-color:#606266;
+@text-color-base: @text-color;
+//组件背景
+@component-background: #fafafa;
+@border-color-light:#c9d1d9;
+
+
+
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+  namespace: @namespace;
+  menuText: @menuText;
+  menuActiveText: @menuActiveText;
+  subMenuActiveText: @subMenuActiveText;
+  menuBg: @menuBg;
+  menuHover: @menuHover;
+  subMenuBg: @subMenuBg;
+  subMenuHover: @subMenuHover;
+  sideBarWidth: @sideBarWidth;
+
+  // text-color-help-dark: @text-color-help-dark;
+  // primary-color: @primary-color;
+  // text-color:@text-color;
+  // text-color-base:@text-color-base;
+  // component-background:@component-background;
+  // border-color-light:@border-color-light;
+
+}
