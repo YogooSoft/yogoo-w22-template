@@ -8,6 +8,8 @@ test/
 .DS_Store
 node_modules
 /dist
+run.bat
+msdos.bat
 
 
 
