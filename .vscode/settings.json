@@ -1,0 +1,30 @@
+{
+  //控制输入时是否显示快速建议
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  // 重新设定tabsize
+  "editor.tabSize": 2,
+  // vscode默认启用了根据文件类型自动设置tabsize的选项
+  "editor.detectIndentation": false,
+  // 代码保存时，自动进行格式化
+  "editor.formatOnSave": true,
+  // 默认打开，左侧资源管理器中右键删除时会跳出一个确认窗口。fase:不提示，直接删除
+  "explorer.confirmDelete": false,
+  // 是否阻止快速建议
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  // 文件失去焦点时,自动保存文件
+  "files.autoSave": "onFocusChange",
+  // 在VsCode新版本中按Tab不再默认启用Emmet展开缩写!需要在首选项配置中将emmet.triggerExpansionOnTab设置为true值! 次配置只对.html .css文件有效
+  "emmet.triggerExpansionOnTab": true,
+  // git相关配置
+  // "git.enableSmartCommit": true,
+  // "git.autofetch": true,
+  // "git.confirmSync": false,
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // 设置默认格式化工具为 prettier
+  // 针对特定的语言进行单独配置
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // 设置 javascript 的默认格式化工具
+  }
+}
