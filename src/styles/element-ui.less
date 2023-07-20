@@ -72,7 +72,7 @@
 // dropdown
 .el-dropdown-menu {
   a {
-    display: block
+    display: block;
   }
 }
 
@@ -205,11 +205,10 @@
 }
 
 // 重新覆盖element-ui 组件 el-descriptions 的样式
-.el-descriptions__body
-.el-descriptions__table
-.el-descriptions__label {
+.el-descriptions__body .el-descriptions__table .el-descriptions__label {
   font-size: 14px;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, Arial, sans-serif;
   // font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   // color: #909399;
@@ -342,28 +341,32 @@ ygFix:
 //  font-size: var(--theme-size) !important;
 //}
 
-// 增加el-table大小控制 
+// 增加el-table大小控制
 // el-table大小样式：大
-.el-table.tableLineLarge th, .tableLineLarge td {
+.el-table.tableLineLarge th,
+.tableLineLarge td {
   padding-top: 9px !important;
   padding-bottom: 9px !important;
   font-size: 18px !important;
 }
 
 // el-table大小样式：中
-.el-table.tableLineMedium th, .tableLineMedium td {
+.el-table.tableLineMedium th,
+.tableLineMedium td {
   padding-top: 8px !important;
   padding-bottom: 8px !important;
 }
 
 // el-table大小样式：小
-.el-table.tableLineSmall th, .tableLineSmall td {
+.el-table.tableLineSmall th,
+.tableLineSmall td {
   padding-top: 4px !important;
   padding-bottom: 4px !important;
 }
 
 // el-table大小样式：极小
-.el-table.tableLineExtraSmall th, .tableLineExtraSmall td {
+.el-table.tableLineExtraSmall th,
+.tableLineExtraSmall td {
   padding-top: 2px !important;
   padding-bottom: 2px !important;
 }
@@ -380,112 +383,132 @@ ygFix:
 
 // 覆盖el-descriptions size 样式
 .is-el-descriptions--small .el-descriptions__label:not(.is-bordered-label) {
-    margin-right: 12px
+  margin-right: 12px;
 }
 
-.is-el-descriptions--small .el-descriptions__label.el-descriptions__cell:not(.is-bordered-label).is-vertical-label {
-    padding-bottom: 4px
+.is-el-descriptions--small
+  .el-descriptions__label.el-descriptions__cell:not(.is-bordered-label).is-vertical-label {
+  padding-bottom: 4px;
 }
 
 .is-el-descriptions--small {
-    font-size: 12px
+  font-size: 12px;
 }
 
 .is-el-descriptions--small .el-descriptions__header {
-    margin-bottom: 12px
+  margin-bottom: 12px;
 }
 
 .is-el-descriptions--small .el-descriptions__header .el-descriptions__title {
-    font-size: 12px
+  font-size: 12px;
 }
 
-.is-el-descriptions--small .el-descriptions__body .el-descriptions__table .el-descriptions__cell {
-    font-size: 12px
+.is-el-descriptions--small
+  .el-descriptions__body
+  .el-descriptions__table
+  .el-descriptions__cell {
+  font-size: 12px;
 }
 
-.is-el-descriptions--small .el-descriptions__body .el-descriptions__table.is-bordered .el-descriptions__cell {
-    padding: 4px 7px
+.is-el-descriptions--small
+  .el-descriptions__body
+  .el-descriptions__table.is-bordered
+  .el-descriptions__cell {
+  padding: 4px 7px;
 }
 
-.is-el-descriptions--small .el-descriptions__body .el-descriptions__table:not(.is-bordered) .el-descriptions__cell {
-    padding-bottom: 8px
+.is-el-descriptions--small
+  .el-descriptions__body
+  .el-descriptions__table:not(.is-bordered)
+  .el-descriptions__cell {
+  padding-bottom: 8px;
 }
-
-
-
 
 // 覆盖el-descriptions large 样式
 .is-el-descriptions--large .el-descriptions__label:not(.is-bordered-label) {
-    margin-right: 16px
+  margin-right: 16px;
 }
 
-.is-el-descriptions--large .el-descriptions__label.el-descriptions__cell:not(.is-bordered-label).is-vertical-label {
-    padding-bottom: 8px
+.is-el-descriptions--large
+  .el-descriptions__label.el-descriptions__cell:not(.is-bordered-label).is-vertical-label {
+  padding-bottom: 8px;
 }
 
 .is-el-descriptions--large {
-    font-size: 12px
+  font-size: 12px;
 }
 
 .is-el-descriptions--large .el-descriptions__header {
-    margin-bottom: 16px
+  margin-bottom: 16px;
 }
 
 .is-el-descriptions--large .el-descriptions__header .el-descriptions__title {
-    font-size: 14px
+  font-size: 14px;
 }
 
-.is-el-descriptions--large .el-descriptions__body .el-descriptions__table .el-descriptions__cell {
-    font-size: 14px
+.is-el-descriptions--large
+  .el-descriptions__body
+  .el-descriptions__table
+  .el-descriptions__cell {
+  font-size: 14px;
 }
 
-.is-el-descriptions--large .el-descriptions__body .el-descriptions__table.is-bordered .el-descriptions__cell {
-    padding: 8px 11px
+.is-el-descriptions--large
+  .el-descriptions__body
+  .el-descriptions__table.is-bordered
+  .el-descriptions__cell {
+  padding: 8px 11px;
 }
 
-.is-el-descriptions--large .el-descriptions__body .el-descriptions__table:not(.is-bordered) .el-descriptions__cell {
-    padding-bottom: 12px
+.is-el-descriptions--large
+  .el-descriptions__body
+  .el-descriptions__table:not(.is-bordered)
+  .el-descriptions__cell {
+  padding-bottom: 12px;
 }
-
-
-
 
 // 覆盖el-descriptions default 样式
 .is-el-descriptions--default .el-descriptions__label:not(.is-bordered-label) {
-    margin-right: 14px
+  margin-right: 14px;
 }
 
-.is-el-descriptions--default .el-descriptions__label.el-descriptions__cell:not(.is-bordered-label).is-vertical-label {
-    padding-bottom: 6px
+.is-el-descriptions--default
+  .el-descriptions__label.el-descriptions__cell:not(.is-bordered-label).is-vertical-label {
+  padding-bottom: 6px;
 }
 
 .is-el-descriptions--default {
-    font-size: 12px
+  font-size: 12px;
 }
 
 .is-el-descriptions--default .el-descriptions__header {
-    margin-bottom: 14px
+  margin-bottom: 14px;
 }
 
 .is-el-descriptions--default .el-descriptions__header .el-descriptions__title {
-    font-size: 13px
+  font-size: 13px;
 }
 
-.is-el-descriptions--default .el-descriptions__body .el-descriptions__table .el-descriptions__cell {
-    font-size: 13px
+.is-el-descriptions--default
+  .el-descriptions__body
+  .el-descriptions__table
+  .el-descriptions__cell {
+  font-size: 13px;
 }
 
-.is-el-descriptions--default .el-descriptions__body .el-descriptions__table.is-bordered .el-descriptions__cell {
-    padding: 6px 9px
+.is-el-descriptions--default
+  .el-descriptions__body
+  .el-descriptions__table.is-bordered
+  .el-descriptions__cell {
+  padding: 6px 9px;
 }
 
-.is-el-descriptions--default .el-descriptions__body .el-descriptions__table:not(.is-bordered) .el-descriptions__cell {
-    padding-bottom: 10px
+.is-el-descriptions--default
+  .el-descriptions__body
+  .el-descriptions__table:not(.is-bordered)
+  .el-descriptions__cell {
+  padding-bottom: 10px;
 }
-
-
-
-
 
 //
 //// 覆盖el-descriptions large 样式
@@ -524,7 +547,7 @@ ygFix:
 
 // 覆盖el-divider default 样式
 .el-divider--horizontal {
-  margin:14px 0;
+  margin: 14px 0;
 }
 
 // 覆盖el-divider default 样式,fix:解决默认样式存在位置偏下的bug
@@ -535,241 +558,305 @@ ygFix:
 }
 
 // 覆盖el-select-v2 default 样式,fix:解决默认样式存在位置偏上的bug
-.el-select-v2__suffix
-{
+.el-select-v2__suffix {
   align-items: center;
 }
 
-
 // 覆盖el-link样式
 .el-link.is-disabled {
-    color: var(--el-link-disabled-text-color) !important;
-    cursor: not-allowed
+  color: var(--el-link-disabled-text-color) !important;
+  cursor: not-allowed;
 }
 
 .el-link.el-link--default.is-disabled {
-    cursor: not-allowed
+  cursor: not-allowed;
 }
 
 .el-link.el-link--primary.is-disabled {
-    cursor: not-allowed
+  cursor: not-allowed;
 }
 
 .el-link.el-link--success.is-disabled {
-    cursor: not-allowed
+  cursor: not-allowed;
 }
 
 .el-link.el-link--warning.is-disabled {
-    cursor: not-allowed
+  cursor: not-allowed;
 }
 
 .el-link.el-link--danger.is-disabled {
-    cursor: not-allowed
+  cursor: not-allowed;
 }
 
 .el-link.el-link--error.is-disabled {
-    cursor: not-allowed
+  cursor: not-allowed;
 }
 
 .el-link.el-link--info.is-disabled {
-    cursor: not-allowed
+  cursor: not-allowed;
 }
 
 .el-link.el-link--default:hover {
-    color: var(--el-color-primary-light-3);
+  color: var(--el-color-primary-light-3);
 }
 
 .el-link.el-link--primary {
-    color: var(--el-color-primary);
-    --el-link-hover-text-color: var(--el-color-primary-light-3);
-    --el-link-disabled-text-color: var(--el-color-primary-light-5);
+  color: var(--el-color-primary);
+  --el-link-hover-text-color: var(--el-color-primary-light-3);
+  --el-link-disabled-text-color: var(--el-color-primary-light-5);
 }
 
-
 .el-link.el-link--primary:hover {
-    color: var(--el-color-primary-light-3);
+  color: var(--el-color-primary-light-3);
 }
 
 .el-link.el-link--success {
-    color: var(--el-color-success);
-    --el-link-hover-text-color: var(--el-color-success-light-3);
-    --el-link-disabled-text-color: var(--el-color-success-light-5);
+  color: var(--el-color-success);
+  --el-link-hover-text-color: var(--el-color-success-light-3);
+  --el-link-disabled-text-color: var(--el-color-success-light-5);
 }
 
 .el-link.el-link--success:hover {
-    color: var(--el-color-success-light-3);
+  color: var(--el-color-success-light-3);
 }
 
 .el-link.el-link--warning {
-    color: var(--el-color-warning);
-    --el-link-hover-text-color: var(--el-color-warning-light-3);
-    --el-link-disabled-text-color: var(--el-color-warning-light-5);
+  color: var(--el-color-warning);
+  --el-link-hover-text-color: var(--el-color-warning-light-3);
+  --el-link-disabled-text-color: var(--el-color-warning-light-5);
 }
 
 .el-link.el-link--warning:hover {
-    color: var(--el-color-warning-light-3);
+  color: var(--el-color-warning-light-3);
 }
 
 .el-link.el-link--danger {
-    color: var(--el-color-danger);
-    --el-link-hover-text-color: var(--el-color-danger-light-3);
-    --el-link-disabled-text-color: var(--el-color-danger-light-5);
+  color: var(--el-color-danger);
+  --el-link-hover-text-color: var(--el-color-danger-light-3);
+  --el-link-disabled-text-color: var(--el-color-danger-light-5);
 }
 
 .el-link.el-link--danger:hover {
-    color: var(--el-color-danger-light-3);
+  color: var(--el-color-danger-light-3);
 }
 
 .el-link.el-link--error {
-    color: var(--el-color-error);
-    --el-link-hover-text-color: var(--el-color-error-light-3);
-    --el-link-disabled-text-color: var(--el-color-error-light-5);
+  color: var(--el-color-error);
+  --el-link-hover-text-color: var(--el-color-error-light-3);
+  --el-link-disabled-text-color: var(--el-color-error-light-5);
 }
 
 .el-link.el-link--error:hover {
-    color: var(--el-color-error-light-3);
+  color: var(--el-color-error-light-3);
 }
 
 .el-link.el-link--info {
-    color: var(--el-color-info);
-    --el-link-hover-text-color: var(--el-color-info-light-3);
-    --el-link-disabled-text-color: var(--el-color-info-light-5);
+  color: var(--el-color-info);
+  --el-link-hover-text-color: var(--el-color-info-light-3);
+  --el-link-disabled-text-color: var(--el-color-info-light-5);
 }
 
 .el-link.el-link--info:hover {
-    color: var(--el-color-info-light-3);
+  color: var(--el-color-info-light-3);
 }
-
-
 
 .el-button.is-link {
-    border-color: transparent;
-    color: var(--el-button-text-color);
-    background: 0 0;
-    padding: 2px;
-    height: auto;
+  border-color: transparent;
+  color: var(--el-button-text-color);
+  background: 0 0;
+  padding: 2px;
+  height: auto;
 }
 
-.el-button.is-link:focus, .el-button.is-link:hover {
-    color: var(--el-button-hover-link-text-color)
+.el-button.is-link:focus,
+.el-button.is-link:hover {
+  color: var(--el-button-hover-link-text-color);
 }
 
 .el-button.is-link.is-disabled {
-    color: var(--el-button-disabled-text-color);
-    background-color: transparent !important;
-    border-color: transparent !important;
+  color: var(--el-button-disabled-text-color);
+  background-color: transparent !important;
+  border-color: transparent !important;
 }
 
-.el-button.is-link:not(.is-disabled):focus, .el-button.is-link:not(.is-disabled):hover {
-    border-color: transparent;
-    background-color: transparent;
+.el-button.is-link:not(.is-disabled):focus,
+.el-button.is-link:not(.is-disabled):hover {
+  border-color: transparent;
+  background-color: transparent;
 }
 
 .el-button.is-link:not(.is-disabled):active {
-    color: var(--el-button-active-color);
-    border-color: transparent;
-    background-color: transparent;
+  color: var(--el-button-active-color);
+  border-color: transparent;
+  background-color: transparent;
 }
 
-
-.el-button--primary.is-link, .el-button--primary.is-plain, .el-button--primary.is-text {
-    --el-button-text-color: var(--el-color-primary);
-    --el-button-bg-color: var(--el-color-primary-light-9);
-    --el-button-border-color: var(--el-color-primary-light-5);
-    --el-button-hover-text-color: var(--el-color-white);
-    --el-button-hover-bg-color: var(--el-color-primary);
-    --el-button-hover-border-color: var(--el-color-primary);
-    --el-button-active-text-color: var(--el-color-white);
+.el-button--primary.is-link,
+.el-button--primary.is-plain,
+.el-button--primary.is-text {
+  --el-button-text-color: var(--el-color-primary);
+  --el-button-bg-color: var(--el-color-primary-light-9);
+  --el-button-border-color: var(--el-color-primary-light-5);
+  --el-button-hover-text-color: var(--el-color-white);
+  --el-button-hover-bg-color: var(--el-color-primary);
+  --el-button-hover-border-color: var(--el-color-primary);
+  --el-button-active-text-color: var(--el-color-white);
 }
 
-.el-button--primary.is-link.is-disabled, .el-button--primary.is-link.is-disabled:active, .el-button--primary.is-link.is-disabled:focus, .el-button--primary.is-link.is-disabled:hover, .el-button--primary.is-plain.is-disabled, .el-button--primary.is-plain.is-disabled:active, .el-button--primary.is-plain.is-disabled:focus, .el-button--primary.is-plain.is-disabled:hover, .el-button--primary.is-text.is-disabled, .el-button--primary.is-text.is-disabled:active, .el-button--primary.is-text.is-disabled:focus, .el-button--primary.is-text.is-disabled:hover {
-    color: var(--el-color-primary-light-5);
-    background-color: var(--el-color-primary-light-9);
-    border-color: var(--el-color-primary-light-8);
+.el-button--primary.is-link.is-disabled,
+.el-button--primary.is-link.is-disabled:active,
+.el-button--primary.is-link.is-disabled:focus,
+.el-button--primary.is-link.is-disabled:hover,
+.el-button--primary.is-plain.is-disabled,
+.el-button--primary.is-plain.is-disabled:active,
+.el-button--primary.is-plain.is-disabled:focus,
+.el-button--primary.is-plain.is-disabled:hover,
+.el-button--primary.is-text.is-disabled,
+.el-button--primary.is-text.is-disabled:active,
+.el-button--primary.is-text.is-disabled:focus,
+.el-button--primary.is-text.is-disabled:hover {
+  color: var(--el-color-primary-light-5);
+  background-color: var(--el-color-primary-light-9);
+  border-color: var(--el-color-primary-light-8);
 }
 
-.el-button--success.is-link, .el-button--success.is-plain, .el-button--success.is-text {
-    --el-button-text-color: var(--el-color-success);
-    --el-button-bg-color: var(--el-color-success-light-9);
-    --el-button-border-color: var(--el-color-success-light-5);
-    --el-button-hover-text-color: var(--el-color-white);
-    --el-button-hover-bg-color: var(--el-color-success);
-    --el-button-hover-border-color: var(--el-color-success);
-    --el-button-active-text-color: var(--el-color-white);
+.el-button--success.is-link,
+.el-button--success.is-plain,
+.el-button--success.is-text {
+  --el-button-text-color: var(--el-color-success);
+  --el-button-bg-color: var(--el-color-success-light-9);
+  --el-button-border-color: var(--el-color-success-light-5);
+  --el-button-hover-text-color: var(--el-color-white);
+  --el-button-hover-bg-color: var(--el-color-success);
+  --el-button-hover-border-color: var(--el-color-success);
+  --el-button-active-text-color: var(--el-color-white);
 }
 
-.el-button--success.is-link.is-disabled, .el-button--success.is-link.is-disabled:active, .el-button--success.is-link.is-disabled:focus, .el-button--success.is-link.is-disabled:hover, .el-button--success.is-plain.is-disabled, .el-button--success.is-plain.is-disabled:active, .el-button--success.is-plain.is-disabled:focus, .el-button--success.is-plain.is-disabled:hover, .el-button--success.is-text.is-disabled, .el-button--success.is-text.is-disabled:active, .el-button--success.is-text.is-disabled:focus, .el-button--success.is-text.is-disabled:hover {
-    color: var(--el-color-success-light-5);
-    background-color: var(--el-color-success-light-9);
-    border-color: var(--el-color-success-light-8);
+.el-button--success.is-link.is-disabled,
+.el-button--success.is-link.is-disabled:active,
+.el-button--success.is-link.is-disabled:focus,
+.el-button--success.is-link.is-disabled:hover,
+.el-button--success.is-plain.is-disabled,
+.el-button--success.is-plain.is-disabled:active,
+.el-button--success.is-plain.is-disabled:focus,
+.el-button--success.is-plain.is-disabled:hover,
+.el-button--success.is-text.is-disabled,
+.el-button--success.is-text.is-disabled:active,
+.el-button--success.is-text.is-disabled:focus,
+.el-button--success.is-text.is-disabled:hover {
+  color: var(--el-color-success-light-5);
+  background-color: var(--el-color-success-light-9);
+  border-color: var(--el-color-success-light-8);
 }
 
-
-.el-button--warning.is-link, .el-button--warning.is-plain, .el-button--warning.is-text {
-    --el-button-text-color: var(--el-color-warning);
-    --el-button-bg-color: var(--el-color-warning-light-9);
-    --el-button-border-color: var(--el-color-warning-light-5);
-    --el-button-hover-text-color: var(--el-color-white);
-    --el-button-hover-bg-color: var(--el-color-warning);
-    --el-button-hover-border-color: var(--el-color-warning);
-    --el-button-active-text-color: var(--el-color-white);
+.el-button--warning.is-link,
+.el-button--warning.is-plain,
+.el-button--warning.is-text {
+  --el-button-text-color: var(--el-color-warning);
+  --el-button-bg-color: var(--el-color-warning-light-9);
+  --el-button-border-color: var(--el-color-warning-light-5);
+  --el-button-hover-text-color: var(--el-color-white);
+  --el-button-hover-bg-color: var(--el-color-warning);
+  --el-button-hover-border-color: var(--el-color-warning);
+  --el-button-active-text-color: var(--el-color-white);
 }
 
-.el-button--warning.is-link.is-disabled, .el-button--warning.is-link.is-disabled:active, .el-button--warning.is-link.is-disabled:focus, .el-button--warning.is-link.is-disabled:hover, .el-button--warning.is-plain.is-disabled, .el-button--warning.is-plain.is-disabled:active, .el-button--warning.is-plain.is-disabled:focus, .el-button--warning.is-plain.is-disabled:hover, .el-button--warning.is-text.is-disabled, .el-button--warning.is-text.is-disabled:active, .el-button--warning.is-text.is-disabled:focus, .el-button--warning.is-text.is-disabled:hover {
-    color: var(--el-color-warning-light-5);
-    background-color: var(--el-color-warning-light-9);
-    border-color: var(--el-color-warning-light-8);
+.el-button--warning.is-link.is-disabled,
+.el-button--warning.is-link.is-disabled:active,
+.el-button--warning.is-link.is-disabled:focus,
+.el-button--warning.is-link.is-disabled:hover,
+.el-button--warning.is-plain.is-disabled,
+.el-button--warning.is-plain.is-disabled:active,
+.el-button--warning.is-plain.is-disabled:focus,
+.el-button--warning.is-plain.is-disabled:hover,
+.el-button--warning.is-text.is-disabled,
+.el-button--warning.is-text.is-disabled:active,
+.el-button--warning.is-text.is-disabled:focus,
+.el-button--warning.is-text.is-disabled:hover {
+  color: var(--el-color-warning-light-5);
+  background-color: var(--el-color-warning-light-9);
+  border-color: var(--el-color-warning-light-8);
 }
 
-.el-button--danger.is-link, .el-button--danger.is-plain, .el-button--danger.is-text {
-    --el-button-text-color: var(--el-color-danger);
-    --el-button-bg-color: var(--el-color-danger-light-9);
-    --el-button-border-color: var(--el-color-danger-light-5);
-    --el-button-hover-text-color: var(--el-color-white);
-    --el-button-hover-bg-color: var(--el-color-danger);
-    --el-button-hover-border-color: var(--el-color-danger);
-    --el-button-active-text-color: var(--el-color-white);
+.el-button--danger.is-link,
+.el-button--danger.is-plain,
+.el-button--danger.is-text {
+  --el-button-text-color: var(--el-color-danger);
+  --el-button-bg-color: var(--el-color-danger-light-9);
+  --el-button-border-color: var(--el-color-danger-light-5);
+  --el-button-hover-text-color: var(--el-color-white);
+  --el-button-hover-bg-color: var(--el-color-danger);
+  --el-button-hover-border-color: var(--el-color-danger);
+  --el-button-active-text-color: var(--el-color-white);
 }
 
-.el-button--danger.is-link.is-disabled, .el-button--danger.is-link.is-disabled:active, .el-button--danger.is-link.is-disabled:focus, .el-button--danger.is-link.is-disabled:hover, .el-button--danger.is-plain.is-disabled, .el-button--danger.is-plain.is-disabled:active, .el-button--danger.is-plain.is-disabled:focus, .el-button--danger.is-plain.is-disabled:hover, .el-button--danger.is-text.is-disabled, .el-button--danger.is-text.is-disabled:active, .el-button--danger.is-text.is-disabled:focus, .el-button--danger.is-text.is-disabled:hover {
-    color: var(--el-color-danger-light-5);
-    background-color: var(--el-color-danger-light-9);
-    border-color: var(--el-color-danger-light-8);
+.el-button--danger.is-link.is-disabled,
+.el-button--danger.is-link.is-disabled:active,
+.el-button--danger.is-link.is-disabled:focus,
+.el-button--danger.is-link.is-disabled:hover,
+.el-button--danger.is-plain.is-disabled,
+.el-button--danger.is-plain.is-disabled:active,
+.el-button--danger.is-plain.is-disabled:focus,
+.el-button--danger.is-plain.is-disabled:hover,
+.el-button--danger.is-text.is-disabled,
+.el-button--danger.is-text.is-disabled:active,
+.el-button--danger.is-text.is-disabled:focus,
+.el-button--danger.is-text.is-disabled:hover {
+  color: var(--el-color-danger-light-5);
+  background-color: var(--el-color-danger-light-9);
+  border-color: var(--el-color-danger-light-8);
 }
 
-.el-button--info.is-link, .el-button--info.is-plain, .el-button--info.is-text {
-    --el-button-text-color: var(--el-color-info);
-    --el-button-bg-color: var(--el-color-info-light-9);
-    --el-button-border-color: var(--el-color-info-light-5);
-    --el-button-hover-text-color: var(--el-color-white);
-    --el-button-hover-bg-color: var(--el-color-info);
-    --el-button-hover-border-color: var(--el-color-info);
-    --el-button-active-text-color: var(--el-color-white);
+.el-button--info.is-link,
+.el-button--info.is-plain,
+.el-button--info.is-text {
+  --el-button-text-color: var(--el-color-info);
+  --el-button-bg-color: var(--el-color-info-light-9);
+  --el-button-border-color: var(--el-color-info-light-5);
+  --el-button-hover-text-color: var(--el-color-white);
+  --el-button-hover-bg-color: var(--el-color-info);
+  --el-button-hover-border-color: var(--el-color-info);
+  --el-button-active-text-color: var(--el-color-white);
 }
 
-.el-button--info.is-link.is-disabled, .el-button--info.is-link.is-disabled:active, .el-button--info.is-link.is-disabled:focus, .el-button--info.is-link.is-disabled:hover, .el-button--info.is-plain.is-disabled, .el-button--info.is-plain.is-disabled:active, .el-button--info.is-plain.is-disabled:focus, .el-button--info.is-plain.is-disabled:hover, .el-button--info.is-text.is-disabled, .el-button--info.is-text.is-disabled:active, .el-button--info.is-text.is-disabled:focus, .el-button--info.is-text.is-disabled:hover {
-    color: var(--el-color-info-light-5);
-    background-color: var(--el-color-info-light-9);
-    border-color: var(--el-color-info-light-8);
+.el-button--info.is-link.is-disabled,
+.el-button--info.is-link.is-disabled:active,
+.el-button--info.is-link.is-disabled:focus,
+.el-button--info.is-link.is-disabled:hover,
+.el-button--info.is-plain.is-disabled,
+.el-button--info.is-plain.is-disabled:active,
+.el-button--info.is-plain.is-disabled:focus,
+.el-button--info.is-plain.is-disabled:hover,
+.el-button--info.is-text.is-disabled,
+.el-button--info.is-text.is-disabled:active,
+.el-button--info.is-text.is-disabled:focus,
+.el-button--info.is-text.is-disabled:hover {
+  color: var(--el-color-info-light-5);
+  background-color: var(--el-color-info-light-9);
+  border-color: var(--el-color-info-light-8);
 }
 
-.el-button--success.is-link:hover{
+.el-button--success.is-link:hover {
   color: var(--el-color-success-light-5);
 }
-.el-button--warning.is-link:hover{
+.el-button--warning.is-link:hover {
   color: var(--el-color-warning-light-5);
 }
-.el-button--danger.is-link:hover{
+.el-button--danger.is-link:hover {
   color: var(--el-color-danger-light-5);
 }
-.el-button--info.is-link:hover{
+.el-button--info.is-link:hover {
   color: var(--el-color-info-light-5);
 }
-.el-button--primary.is-link:hover{
+.el-button--primary.is-link:hover {
   color: var(--el-color-primary-light-5);
 }
-.el-button--plain.is-link:hover{
+.el-button--plain.is-link:hover {
   color: var(--el-color-info);
 }
 
-
+// 覆盖el-card default 样式 ，字体颜色设置为默认
+.el-card {
+  //color: #606266;
+  color: var(--el-text-color-regular);
+}

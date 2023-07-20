@@ -1,99 +1,79 @@
 <template>
-  <!-- <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div> -->
-  <!-- <el-input v-model="input_text.user" placeholder="Please input" type = "text"  />
-    <el-input v-model="input" placeholder="Please input" type = "text"  /> -->
   <div class="layout">
-  <!-- <div> -->
-  <el-card class="box-card" shadow="hover">
-    <template #header>
-      <div class="card-header">
-        <div><span>访问数</span></div>
-        <div><span><el-tag size="small">周</el-tag></span></div>
-        <!-- <span>访问数</span>
-        <span><el-tag size="small">周</el-tag></span> -->
+    <!-- <el-card class="box-card" shadow="hover">
+      <template #header>
+        <div class="card-header">
+          <div><span>访问数</span></div>
+          <div>
+            <span><el-tag size="small">周</el-tag></span>
+          </div>
+        </div>
+      </template>
+    </el-card>
+    <el-card class="box-card" shadow="hover">
+      <template #header>
+        <div class="card-header">
+          <span>成交额</span>
+          <span><el-tag size="small" type="danger">月</el-tag></span>
+        </div>
+      </template>
+      <div v-for="o in 4" :key="o" class="text item">
+        {{ "List item " + o }}
       </div>
-    </template>
-    <div v-for="o in 4" :key="o" class="text item">
-      {{ "List item " + o }}
-    </div>
-  </el-card>
-  <!-- </div>
-    <div> -->
-  <el-card class="box-card" shadow="hover">
-    <template #header>
-      <div class="card-header">
-        <span>成交额</span>
-        <span><el-tag size="small" type="danger">月</el-tag></span>
+    </el-card>
+    <el-card class="box-card" shadow="hover">
+      <template #header>
+        <div class="card-header">
+          <span>下载量</span>
+          <span><el-tag size="small" type="warning">年</el-tag></span>
+        </div>
+      </template>
+    </el-card>
+    <el-card class="box-card" shadow="hover">
+      <template #header>
+        <div class="card-header">
+          <span>Card name</span>
+        </div>
+      </template>
+    </el-card> -->
+    <el-card class="box-card view-home" shadow="hover">
+      <template #header>
+        <div class="card-header">
+          <span>全站流量</span>
+        </div>
+      </template>
+      <div class="card"><count-flow /></div>
+    </el-card>
+    <el-card class="box-card view-home" shadow="hover">
+      <template #header>
+        <div class="card-header">
+          <span>全站日活</span>
+        </div>
+      </template>
+      <div class="card">
+        <count-daily />
       </div>
-    </template>
-    <div v-for="o in 4" :key="o" class="text item">
-      {{ "List item " + o }}
-    </div>
-  </el-card>
-  <el-card class="box-card" shadow="hover">
-    <template #header>
-      <div class="card-header">
-        <span>下载量</span>
-        <span><el-tag size="small" type="warning">年</el-tag></span>
+    </el-card>
+    <el-card class="box-card view-home" shadow="hover">
+      <template #header>
+        <div class="card-header">
+          <span>注册用户数</span>
+        </div>
+      </template>
+      <div class="card">
+        <count-regusers />
       </div>
-    </template>
-    <div v-for="o in 4" :key="o" class="text item">
-      {{ "List item " + o }}
-    </div>
-  </el-card>
-  <el-card class="box-card" shadow="hover">
-    <template #header>
-      <div class="card-header">
-        <span>Card name</span>
+    </el-card>
+    <el-card class="box-card view-home" shadow="hover">
+      <template #header>
+        <div class="card-header">
+          <span>下单人数</span>
+        </div>
+      </template>
+      <div class="card">
+        <count-sales />
       </div>
-    </template>
-    <div v-for="o in 4" :key="o" class="text item">
-      {{ "List item " + o }}
-    </div>
-  </el-card>
-  <el-card class="box-card" shadow="hover">
-    <template #header>
-      <div class="card-header">
-        <span>Card name</span>
-      </div>
-    </template>
-    <div v-for="o in 4" :key="o" class="text item">
-      {{ "List item " + o }}
-    </div>
-  </el-card>
-  <el-card class="box-card" shadow="hover">
-    <template #header>
-      <div class="card-header">
-        <span>Card name</span>
-      </div>
-    </template>
-    <div v-for="o in 4" :key="o" class="text item">
-      {{ "List item " + o }}
-    </div>
-  </el-card>
-  <el-card class="box-card" shadow="hover">
-    <template #header>
-      <div class="card-header">
-        <span>Card name</span>
-      </div>
-    </template>
-    <div v-for="o in 4" :key="o" class="text item">
-      {{ "List item " + o }}
-    </div>
-  </el-card>
-  <el-card class="box-card" shadow="hover">
-    <template #header>
-      <div class="card-header">
-        <span>Card name</span>
-      </div>
-    </template>
-    <div v-for="o in 4" :key="o" class="text item">
-      {{ "List item " + o }}
-    </div>
-  </el-card>
+    </el-card>
   </div>
   <!-- </div> -->
 </template>
@@ -103,48 +83,14 @@ import { Options, Vue } from "vue-class-component";
 
 import { defineComponent, computed, ref, reactive } from "vue";
 
-
-// export function createFakeUserList() {
-//   return [
-//     {
-//       userId: "1",
-//       username: "admin",
-//       realname: "超级管理员",
-//       avatar: "",
-//       desc: "manager",
-//       password: "123456",
-//       token: "fakeToken1",
-//       homePath: "/dashboard/analysis",
-//       roles: [
-//         {
-//           roleName: "Super Admin",
-//           value: "super",
-//         },
-//       ],
-//     },
-//     {
-//       userId: "2",
-//       username: "test",
-//       password: "123456",
-//       realname: "测试用户",
-//       avatar: "",
-//       desc: "tester",
-//       token: "fakeToken2",
-//       homePath: "/dashboard/workbench",
-//       roles: [
-//         {
-//           roleName: "Tester",
-//           value: "test",
-//         },
-//       ],
-//     },
-//   ];
-// }
+import CountSales from "./components/count-sales.vue";
+import CountFlow from "./components/count-flow.vue";
+import CountDaily from "./components/count-daily.vue";
+import CountRegusers from "./components/count-regusers.vue";
 
 export default defineComponent({
   name: "LockModal",
-  components: {},
-  //export default defineComponent({
+  components: { CountSales, CountFlow, CountDaily, CountRegusers },
   setup() {
     const input = ref("");
     const input_text = reactive({ user: "" });
@@ -158,10 +104,10 @@ export default defineComponent({
 </script>
 <style lang="less" scoped>
 .el-card {
-    --el-card-border-color: var(--el-border-color-light, #ebeef5);
-    --el-card-border-radius: 4px;
-    --el-card-padding: 8px;
-    --el-card-bg-color: var(--el-fill-color-blank);
+  --el-card-border-color: var(--el-border-color-light, #ebeef5);
+  --el-card-border-radius: 4px;
+  --el-card-padding: 8px;
+  --el-card-bg-color: var(--el-fill-color-blank);
 }
 .el-card__header {
   height: 32px !important;
@@ -169,10 +115,11 @@ export default defineComponent({
 .el-card__body {
   padding: 10px 10px 0px 10px !important;
 }
+
 .card-header {
   display: flex;
   justify-content: space-between;
-  align-items:center;
+  align-items: center;
   height: 20px !important;
 }
 
@@ -204,5 +151,56 @@ export default defineComponent({
   // height: 100px;
   // background-color: rgb(5, 196, 187);
 }
-</style>
 
+.view-home {
+  .card {
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: #000;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      height: 30px;
+      padding: 0 0px;
+
+      .label {
+        font-size: 12px;
+      }
+
+      .value {
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 10px;
+      }
+    }
+
+    // &__container {
+    //   padding: 0 10px;
+    //   height: 30px;
+    // }
+
+    // &__footer {
+    //   display: flex;
+    //   align-items: center;
+    //   height: 30px;
+    //   border-top: 1px solid #f7f7f7;
+    //   font-size: 12px;
+    //   margin: 0 5px;
+    //   padding: 0 5px;
+    //   box-sizing: border-box;
+
+    //   .label {
+    //     margin-right: 10px;
+    //   }
+
+    //   .value {
+    //     font-size: 13px;
+    //   }
+    // }
+  }
+}
+</style>

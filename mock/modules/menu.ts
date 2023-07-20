@@ -1651,6 +1651,35 @@ const menus: any = [
         },
         children: [],
       },
+      {
+        menuId: 500600000,
+        parentId: 500000000,
+        path: "/comp/chart",
+        name: "图表",
+        component: "LAYOUTEMPTY",
+        meta: {
+          title: "图表",
+          icon: "",
+          hideMenu: false,
+          hideclose: false,
+        },
+        children: [
+          {
+            menuId: 500600010,
+            parentId: 500000000,
+            path: "/comp/chart/index",
+            name: "echarts图表",
+            component: "/demo/comp/chart/echarts/index.vue",
+            meta: {
+              title: "echarts图表",
+              icon: "",
+              hideMenu: false,
+              hideclose: false,
+            },
+            children: [],
+          },
+        ],
+      },
     ],
   },
   {

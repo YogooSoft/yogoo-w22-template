@@ -29,6 +29,11 @@ w22-template 是一个免费开源的中后台模板，采用最新的 Vue3、We
 - 修补了各种组件已知的 BUG,保证了组件的稳定性和可靠性。
 - 提供了丰富的组件示例代码与文档,方便开发者进行学习和使用。
 
+## 案例截图
+
+<img src="resources/imageA.png" width="80%">
+<img src="resources/imageB.png" width="80%">
+
 ## 快速上手
 
 ### 安装
