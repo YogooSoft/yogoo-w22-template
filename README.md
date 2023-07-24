@@ -11,7 +11,7 @@
 <a href="https://github.com/YogooSoft/yogoo-w22-template/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellowgreen.svg" alt="GitHub tag"></a>
 <a href="https://www.yogoo.net"><img src="https://img.shields.io/badge/Author-悦高软件-orange.svg" alt=""></a>
 <a href=""><img src="https://img.shields.io/badge/Blog-官方博客-blue.svg" alt="GitHub tag"></a>
-<a href=""><img src="https://img.shields.io/badge/Version-0.0.1-blue.svg" alt="GitHub tag"></a>
+<a href=""><img src="https://img.shields.io/badge/Version-1.1.9-blue.svg" alt="GitHub tag"></a>
 <img src="https://img.shields.io/github/last-commit/YogooSoft/yogoo-w22-template.svg" alt="GitHub tag"></a>
 </p>
 
@@ -28,6 +28,13 @@ w22-template 是一个免费开源的中后台模板，采用最新的 Vue3、We
 - 对多个常用组件进行了二次封装,提高了组件的性能和可维护性。
 - 修补了各种组件已知的 BUG,保证了组件的稳定性和可靠性。
 - 提供了丰富的组件示例代码与文档,方便开发者进行学习和使用。
+
+## 演示
+
+[http://opensource.yogoo.net/yogoo-w22-template/](http://opensource.yogoo.net/yogoo-w22-template/)
+
+- 账户：admin
+- 密码：123456
 
 ## 案例截图
 
@@ -78,7 +85,7 @@ yarn build
 - 我们的团队氛围和谐，充满了活力和创造力，让你在工作的同时也能享受愉悦的办公环境。
 - 如果对我们的开源 W22 框架团队感兴趣，欢迎随时联系我们。我们期待你的加入！
 
-## 微信群
+## 技术交流微信群
 
 <!-- ![图片名称](resources/w22-template-QQ-QRcode.png) -->
 <img src="resources/w22-template-QQ-QRcode.png" width="20%">

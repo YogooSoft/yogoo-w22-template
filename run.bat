@@ -21,6 +21,6 @@ pause
 exit
 
 :a2
-rem yarn build
+yarn build
 pause
 
