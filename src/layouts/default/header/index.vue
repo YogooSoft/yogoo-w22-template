@@ -62,6 +62,9 @@
               <!-- <el-dropdown-item >Action 2</el-dropdown-item>
               <el-dropdown-item >Action 3</el-dropdown-item> -->
               <!-- <el-dropdown-item icon="Lock" disabled>锁定屏幕</el-dropdown-item> -->
+              <el-dropdown-item icon="Bell" @click="GB_push"
+                >广播推送</el-dropdown-item
+              >
               <el-dropdown-item icon="Lock" @click="LockScreenFn"
                 >锁定屏幕</el-dropdown-item
               >
@@ -80,7 +83,15 @@
 <script lang="ts">
 var { appVersion } = require("@/config");
 
-import { defineComponent, computed, ref, inject, reactive,onBeforeMount,onMounted } from "vue";
+import {
+  defineComponent,
+  computed,
+  ref,
+  inject,
+  reactive,
+  onBeforeMount,
+  onMounted,
+} from "vue";
 import { ElMessage } from "element-plus";
 import Hamburger from "@/components/Hamburger/index.vue";
 import Breadcrumb from "@/components/Breadcrumb/index.vue";
@@ -98,6 +109,8 @@ import { useRouter } from "vue-router";
 import type { LockInfo } from "#/store";
 import { useDesign } from "@/hooks/web/useDesign";
 import SvgIcon from "@/components/SvgIcon/index.vue";
+import { useEventbus } from "@/components/Mitt";
+// import { getCurrentInstance, onBeforeMount } from "vue";
 
 export default defineComponent({
   name: "HeaderModal",
@@ -109,8 +122,6 @@ export default defineComponent({
     AppSearch,
     SvgIcon,
   },
-
-
 
   setup() {
     const version = appVersion;
@@ -126,6 +137,33 @@ export default defineComponent({
     const { prefixCls } = useDesign("layout-header");
 
     const isDot = ref(true);
+
+    // MITT组件
+    const {
+      customEmit,
+      customOn,
+      customOff,
+      customAll,
+      toOutLine,
+      reOutLine,
+      customEmitGB,
+      customOnGB,
+    } = useEventbus();
+    // const { Bus } = getCurrentInstance().appContext.config.globalProperties;
+    function GB_push() {
+      // let t = new Date();
+
+      let t = parseInt(new Date().getTime() / 1000) + "";
+      customEmitGB("EventGB_A", "这是一条广播信息：" + t.toString());
+      // toOutLine();
+    }
+
+    // customOn("EventB", GBCF_out);
+    reOutLine(GBCF_out);
+
+    function GBCF_out() {
+      userStore.logout(true);
+    }
 
     /**
      * 获取是否折叠
@@ -159,7 +197,7 @@ export default defineComponent({
       lockStore.setLockInfo(lockInfo);
     };
     //const lockStoreFn = lockStore.unLock();
-    
+
     const quit = () => {
       messageBox
         .confirm("您确认要退出系统吗？", "提示", {
@@ -194,6 +232,7 @@ export default defineComponent({
       refreshFrame,
       logout,
       LockScreenFn,
+      GB_push,
       prefixCls,
       isDot,
     };

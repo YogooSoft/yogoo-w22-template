@@ -27,7 +27,7 @@
         :value="item.value"
       />
     </el-select>
-    <el-button plain @click="custom_theme()">自定义主题</el-button>    
+    <el-button plain @click="custom_theme()">自定义主题</el-button>
     <el-button plain @click="getValue()">获取内容</el-button>
     <el-button plain @click="getSelection()">获取选中的位置</el-button>
     <el-button plain @click="getSelectionInRange()">获取选中的文本</el-button>
@@ -45,6 +45,9 @@
   <div class="fix">
     <el-button plain @click="handleFormat()">代码格式化</el-button>
     <el-button plain @click="CodeCompletion()">注册语言提示器</el-button>
+    <el-button plain @click="SqlCodeCompletion()"
+      >批量注册Sql语言提示器</el-button
+    >
     <el-button plain @click="registerHover()">注册鼠标悬停提示</el-button>
   </div>
 
@@ -249,6 +252,217 @@ function CodeCompletion() {
   );
 }
 
+// 批量注册sql语言
+function SqlCodeCompletion() {
+  if (!monaco.languages.registerCompletionItemProvider["sql"]) {
+    monaco.languages.registerCompletionItemProvider["sql"] = true;
+    monaco.languages.registerCompletionItemProvider("sql", {
+      provideCompletionItems(model, pos) {
+        const suggestions: any[] = [];
+        const keys = [
+          "DESCRIBE",
+          "SELECT",
+          "TOP",
+          "FROM",
+          "WHERE",
+          "GROUP BY",
+          "HAVING",
+          "ORDER BY",
+          "ASC",
+          "DESC",
+          "LIMIT",
+          "PIVOT",
+          "FOR COLUMN IN ",
+          "AS",
+          "BETWEEN ",
+          "AND",
+          "MATCH(FIELD, 'VALUE')",
+          "LIKE",
+          "SHOW COLUMNS",
+          "SHOW CATALOGS",
+          "SHOW FUNCTIONS",
+          "SHOW TABLES",
+          "AVG",
+          " COUNT",
+          " FIRST",
+          " FIRST_VALUE",
+          " LAST",
+          " LAST_VALUE",
+          " MAX",
+          " MIN",
+          " SUM",
+          " KURTOSIS",
+          " MAD",
+          " PERCENTILE",
+          " PERCENTILE_RANK",
+          " SKEWNESS",
+          " STDDEV_POP",
+          " STDDEV_SAMP",
+          " SUM_OF_SQUARES",
+          " VAR_POP",
+          " VAR_SAMP",
+          " HISTOGRAM",
+          " CASE",
+          " COALESCE",
+          " GREATEST",
+          " IFNULL",
+          " IIF",
+          " ISNULL",
+          " LEAST",
+          " NULLIF",
+          " NVL",
+          " CURDATE",
+          " CURRENT_DATE",
+          " CURRENT_TIME",
+          " CURRENT_TIMESTAMP",
+          " CURTIME",
+          " DATEADD",
+          " DATEDIFF",
+          " DATEPART",
+          " DATETIME_FORMAT",
+          " DATETIME_PARSE",
+          " DATETRUNC",
+          " DATE_ADD",
+          " DATE_DIFF",
+          " DATE_FORMAT",
+          " DATE_PARSE",
+          " DATE_PART",
+          " DATE_TRUNC",
+          " DAY",
+          " DAYNAME",
+          " DAYOFMONTH",
+          " DAYOFWEEK",
+          " DAYOFYEAR",
+          " DAY_NAME",
+          " DAY_OF_MONTH",
+          " DAY_OF_WEEK",
+          " DAY_OF_YEAR",
+          " DOM",
+          " DOW",
+          " DOY",
+          " FORMAT",
+          " HOUR",
+          " HOUR_OF_DAY",
+          " IDOW",
+          " ISODAYOFWEEK",
+          " ISODOW",
+          " ISOWEEK",
+          " ISOWEEKOFYEAR",
+          " ISO_DAY_OF_WEEK",
+          " ISO_WEEK_OF_YEAR",
+          " IW",
+          " IWOY",
+          " MINUTE",
+          " MINUTE_OF_DAY",
+          " MINUTE_OF_HOUR",
+          " MONTH",
+          " MONTHNAME",
+          " MONTH_NAME",
+          " MONTH_OF_YEAR",
+          " NOW",
+          " QUARTER",
+          " SECOND",
+          " SECOND_OF_MINUTE",
+          " TIMESTAMPADD",
+          " TIMESTAMPDIFF",
+          " TIMESTAMP_ADD",
+          " TIMESTAMP_DIFF",
+          " TIME_PARSE",
+          " TODAY",
+          " TO_CHAR",
+          " WEEK",
+          " WEEK_OF_YEAR",
+          " YEAR",
+          " ABS",
+          " ACOS",
+          " ASIN",
+          " ATAN",
+          " ATAN2",
+          " CBRT",
+          " CEIL",
+          " CEILING",
+          " COS",
+          " COSH",
+          " COT",
+          " DEGREES",
+          " E",
+          " EXP",
+          " EXPM1",
+          " FLOOR",
+          " LOG",
+          " LOG10",
+          " MOD",
+          " PI",
+          " POWER",
+          " RADIANS",
+          " RAND",
+          " RANDOM",
+          " ROUND",
+          " SIGN",
+          " SIGNUM",
+          " SIN",
+          " SINH",
+          " SQRT",
+          " TAN",
+          " TRUNC",
+          " TRUNCATE",
+          " ASCII",
+          " BIT_LENGTH",
+          " CHAR",
+          " CHARACTER_LENGTH",
+          " CHAR_LENGTH",
+          " CONCAT",
+          " INSERT",
+          " LCASE",
+          " LEFT",
+          " LENGTH",
+          " LOCATE",
+          " LTRIM",
+          " OCTET_LENGTH",
+          " POSITION",
+          " REPEAT",
+          " REPLACE",
+          " RIGHT",
+          " RTRIM",
+          " SPACE",
+          " STARTS_WITH",
+          " SUBSTRING",
+          " TRIM",
+          " UCASE",
+          " CAST",
+          " CONVERT",
+          " DATABASE",
+          " USER",
+          " ST_ASTEXT",
+          " ST_ASWKT",
+          " ST_DISTANCE",
+          " ST_GEOMETRYTYPE",
+          " ST_GEOMFROMTEXT",
+          " ST_WKTTOSQL",
+          " ST_X",
+          " ST_Y",
+          " ST_Z",
+          " SCORE",
+        ];
+        for (let i = 0; i < keys.length; i++) {
+          const obj = {
+            label: keys[i],
+            insertText: keys[i],
+            kind: monaco.languages.CompletionItemKind["Snippet"],
+            detail: keys[i],
+          };
+          suggestions.push(obj);
+        }
+
+        return {
+          suggestions: suggestions,
+        };
+      },
+    });
+  }
+  Notification.success("", "在编辑器中输入sql相关语法,可提示补全关键字");
+}
+
 let registerHoverCount = 0;
 // 注册鼠标悬停提示
 function registerHover() {
@@ -307,10 +521,7 @@ function custom_theme() {
   });
 
   setTheme("Yogoo");
-  Notification.success(
-    "",
-    "现在正在使用定义主题 “Yogoo” "
-  );
+  Notification.success("", "现在正在使用定义主题 “Yogoo” ");
 }
 
 // 设置主题样式
@@ -415,9 +626,7 @@ function load() {
     language: "javascript,typescript",
     automaticLayout: true,
   });
-
 }
-
 
 onUnmounted(() => {
   console.log("=============onUnmounted===============");

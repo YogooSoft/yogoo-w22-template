@@ -34,6 +34,14 @@ import { updateColorWeak } from "@/utils/theme/updateColorWeak";
 // import * as echarts from "echarts";
 import VChart from "vue-echarts";
 
+// 引入瀑布流
+import { VueMasonryPlugin } from "vue-masonry";
+// 引入控制台模拟插件
+import Terminal from "vue-web-terminal";
+
+// 引入MITT
+import mitt from "mitt";
+
 // 灰色模式
 updateGrayMode(false);
 // 色弱模式
@@ -84,9 +92,17 @@ app.component("svg-icon", SvgIcon);
 
 // app.component("echarts",echarts);
 app.component("VChart", VChart);
+// app.component("vMasonry", VueMasonryPlugin);
 
 // setupRouter(app);
 // app.use(setupStore);
 // app.use(router);
+
+// vue3挂载到全局
+app.config.globalProperties.Bus = mitt();
+
 app.use(ElementPlus, { locale: zhcn });
+
+app.use(VueMasonryPlugin);
+app.use(Terminal);
 app.mount("#app", true);

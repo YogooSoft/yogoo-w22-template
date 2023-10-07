@@ -6054,6 +6054,1820 @@ const diagnose_last_7d: any = {
   },
 };
 
+// fisl 营业部下拉选择框模拟数据
+
+const fisl_branch_list: any = {
+  data: [
+    {
+      value: 12,
+      label: "上海XX路B营业部",
+    },
+    {
+      value: 51,
+      label: "天津XX路A营业部",
+    },
+    {
+      value: 52,
+      label: "北京XX路B营业部",
+    },
+    {
+      value: 55,
+      label: "青岛XX路A营业部",
+    },
+    {
+      value: 67,
+      label: "重庆XX路A营业部",
+    },
+    {
+      value: 14,
+      label: "上海XX路E营业部",
+    },
+  ],
+};
+// fisl 营业部余额模拟数据
+const fisl_branch_balance_data: any = {
+  tableData: [
+    {
+      branch: "9010",
+      brh_name: "上海XX路C营业部",
+      balance_avg_day: "322,187,562.89",
+      balance_avg_day_tb: "340,688,567.89",
+      accrued_int: "62,478.69",
+      accrued_int_tb: "66,318.47",
+      int_rate_avg: 0.0001939202,
+      int_rate_avg_tb: 0.0001946601,
+      int_rate_avg_year: "7.078",
+      int_rate_avg_year_tb: "7.125",
+    },
+    {
+      branch: "9011",
+      brh_name: "上海XX路A营业部",
+      balance_avg_day: "772,159,206.51",
+      balance_avg_day_tb: "886,028,869.41",
+      accrued_int: "137,621.29",
+      accrued_int_tb: "163,673.67",
+      int_rate_avg: 0.0001782292,
+      int_rate_avg_tb: 0.0001847272,
+      int_rate_avg_year: "6.505",
+      int_rate_avg_year_tb: "6.761",
+    },
+    {
+      branch: "9012",
+      brh_name: "上海XX路B营业部",
+      balance_avg_day: "484,897,150.98",
+      balance_avg_day_tb: "431,766,330.32",
+      accrued_int: "124,455.49",
+      accrued_int_tb: "84,134.55",
+      int_rate_avg: 0.0002566637,
+      int_rate_avg_tb: 0.0001948613,
+      int_rate_avg_year: "9.368",
+      int_rate_avg_year_tb: "7.132",
+    },
+    {
+      branch: "9013",
+      brh_name: "上海XX路D营业部",
+      balance_avg_day: "86,421,005.65",
+      balance_avg_day_tb: "158,709,411.40",
+      accrued_int: "12,890.95",
+      accrued_int_tb: "28,155.27",
+      int_rate_avg: 0.0001491645,
+      int_rate_avg_tb: 0.0001774014,
+      int_rate_avg_year: "5.445",
+      int_rate_avg_year_tb: "6.493",
+    },
+    {
+      branch: "9014",
+      brh_name: "上海XX路E营业部",
+      balance_avg_day: "273,911,129.88",
+      balance_avg_day_tb: "164,545,686.34",
+      accrued_int: "52,290.48",
+      accrued_int_tb: "32,897.46",
+      int_rate_avg: 0.0001909031,
+      int_rate_avg_tb: 0.000199929,
+      int_rate_avg_year: "6.968",
+      int_rate_avg_year_tb: "7.317",
+    },
+    {
+      branch: "9015",
+      brh_name: "深圳XX路A营业部",
+      balance_avg_day: "234,888,572.36",
+      balance_avg_day_tb: "148,798,276.81",
+      accrued_int: "56,581.70",
+      accrued_int_tb: "36,449.54",
+      int_rate_avg: 0.0002408874,
+      int_rate_avg_tb: 0.0002449594,
+      int_rate_avg_year: "8.792",
+      int_rate_avg_year_tb: "8.966",
+    },
+    {
+      branch: "9016",
+      brh_name: "深圳XX路B营业部",
+      balance_avg_day: "375,369,849.19",
+      balance_avg_day_tb: "201,512,648.84",
+      accrued_int: "68,717.75",
+      accrued_int_tb: "39,648.76",
+      int_rate_avg: 0.0001830668,
+      int_rate_avg_tb: 0.0001967557,
+      int_rate_avg_year: "6.682",
+      int_rate_avg_year_tb: "7.201",
+    },
+    {
+      branch: "9017",
+      brh_name: "广州XX路A营业部",
+      balance_avg_day: "466,536,754.29",
+      balance_avg_day_tb: "238,142,045.37",
+      accrued_int: "103,392.41",
+      accrued_int_tb: "50,945.56",
+      int_rate_avg: 0.0002216169,
+      int_rate_avg_tb: 0.0002139293,
+      int_rate_avg_year: "8.089",
+      int_rate_avg_year_tb: "7.830",
+    },
+    {
+      branch: "9018",
+      brh_name: "上海XX路Z营业部",
+      balance_avg_day: "272,657,345.86",
+      balance_avg_day_tb: "230,176,167.32",
+      accrued_int: "60,840.88",
+      accrued_int_tb: "45,184.04",
+      int_rate_avg: 0.0002231404,
+      int_rate_avg_tb: 0.000196302,
+      int_rate_avg_year: "8.145",
+      int_rate_avg_year_tb: "7.185",
+    },
+    {
+      branch: "9022",
+      brh_name: "上海XX路X营业部",
+      balance_avg_day: "1,038,696,107.99",
+      balance_avg_day_tb: "965,752,392.32",
+      accrued_int: "159,846.29",
+      accrued_int_tb: "158,491.79",
+      int_rate_avg: 0.0001538913,
+      int_rate_avg_tb: 0.0001641122,
+      int_rate_avg_year: "5.617",
+      int_rate_avg_year_tb: "6.007",
+    },
+    {
+      branch: "9034",
+      brh_name: "北京XX路A营业部",
+      balance_avg_day: "430,632,215.81",
+      balance_avg_day_tb: "174,545,766.39",
+      accrued_int: "81,630.23",
+      accrued_int_tb: "42,421.25",
+      int_rate_avg: 0.000189559,
+      int_rate_avg_tb: 0.000243038,
+      int_rate_avg_year: "6.919",
+      int_rate_avg_year_tb: "8.895",
+    },
+
+    {
+      branch: "9051",
+      brh_name: "天津XX路A营业部",
+      balance_avg_day: "303,876,963.65",
+      balance_avg_day_tb: "159,512,868.92",
+      accrued_int: "56,480.33",
+      accrued_int_tb: "33,267.99",
+      int_rate_avg: 0.0001858658,
+      int_rate_avg_tb: 0.0002085599,
+      int_rate_avg_year: "6.784",
+      int_rate_avg_year_tb: "7.633",
+    },
+    {
+      branch: "9052",
+      brh_name: "北京XX路B营业部",
+      balance_avg_day: "259,429,389.47",
+      balance_avg_day_tb: "208,018,039.41",
+      accrued_int: "56,532.92",
+      accrued_int_tb: "44,251.55",
+      int_rate_avg: 0.0002179126,
+      int_rate_avg_tb: 0.0002127294,
+      int_rate_avg_year: "7.954",
+      int_rate_avg_year_tb: "7.786",
+    },
+    {
+      branch: "9053",
+      brh_name: "沈阳XX路A营业部",
+      balance_avg_day: "70,334,283.47",
+      balance_avg_day_tb: "58,787,491.42",
+      accrued_int: "15,380.84",
+      accrued_int_tb: "13,165.04",
+      int_rate_avg: 0.000218682,
+      int_rate_avg_tb: 0.0002239429,
+      int_rate_avg_year: "7.982",
+      int_rate_avg_year_tb: "8.196",
+    },
+    {
+      branch: "9055",
+      brh_name: "青岛XX路A营业部",
+      balance_avg_day: "121,260,937.97",
+      balance_avg_day_tb: "94,977,521.72",
+      accrued_int: "25,812.52",
+      accrued_int_tb: "21,662.39",
+      int_rate_avg: 0.0002128676,
+      int_rate_avg_tb: 0.0002280791,
+      int_rate_avg_year: "7.770",
+      int_rate_avg_year_tb: "8.348",
+    },
+    {
+      branch: "9056",
+      brh_name: "青岛XX路B营业部",
+      balance_avg_day: "176,729,995.63",
+      balance_avg_day_tb: "135,117,674.14",
+      accrued_int: "40,805.35",
+      accrued_int_tb: "30,762.32",
+      int_rate_avg: 0.0002308909,
+      int_rate_avg_tb: 0.0002276706,
+      int_rate_avg_year: "8.428",
+      int_rate_avg_year_tb: "8.333",
+    },
+
+    {
+      branch: "9061",
+      brh_name: "杭州XX路A营业部",
+      balance_avg_day: "341,013,926.33",
+      balance_avg_day_tb: "206,645,191.76",
+      accrued_int: "68,541.71",
+      accrued_int_tb: "42,710.87",
+      int_rate_avg: 0.0002009939,
+      int_rate_avg_tb: 0.000206687,
+      int_rate_avg_year: "7.336",
+      int_rate_avg_year_tb: "7.565",
+    },
+
+    {
+      branch: "9065",
+      brh_name: "大连XX路A营业部",
+      balance_avg_day: "80,839,580.10",
+      balance_avg_day_tb: "63,518,441.09",
+      accrued_int: "17,108.26",
+      accrued_int_tb: "13,760.18",
+      int_rate_avg: 0.0002116322,
+      int_rate_avg_tb: 0.0002166328,
+      int_rate_avg_year: "7.725",
+      int_rate_avg_year_tb: "7.929",
+    },
+    {
+      branch: "9066",
+      brh_name: "江苏XX路A营业部",
+      balance_avg_day: "100,747,080.62",
+      balance_avg_day_tb: "81,578,723.19",
+      accrued_int: "21,797.57",
+      accrued_int_tb: "26,058.26",
+      int_rate_avg: 0.0002163593,
+      int_rate_avg_tb: 0.0003194247,
+      int_rate_avg_year: "7.897",
+      int_rate_avg_year_tb: "11.691",
+    },
+    {
+      branch: "9067",
+      brh_name: "重庆XX路A营业部",
+      balance_avg_day: "219,173,142.46",
+      balance_avg_day_tb: "148,668,751.98",
+      accrued_int: "46,397.21",
+      accrued_int_tb: "33,636.71",
+      int_rate_avg: 0.000211692,
+      int_rate_avg_tb: 0.0002262527,
+      int_rate_avg_year: "7.727",
+      int_rate_avg_year_tb: "8.281",
+    },
+    {
+      branch: "9068",
+      brh_name: "珠海XX路A营业部",
+      balance_avg_day: 0,
+      balance_avg_day_tb: "27,337,479.61",
+      accrued_int: 0,
+      accrued_int_tb: "5,063.94",
+      int_rate_avg: 0,
+      int_rate_avg_tb: 0.000185238,
+      int_rate_avg_year: 0,
+      int_rate_avg_year_tb: "6.780",
+    },
+    {
+      branch: "9069",
+      brh_name: "上海XX路Y营业部",
+      balance_avg_day: "625,199,862.68",
+      balance_avg_day_tb: "59,124,390.27",
+      accrued_int: "112,957.57",
+      accrued_int_tb: "13,321.40",
+      int_rate_avg: 0.0001806743,
+      int_rate_avg_tb: 0.0002253114,
+      int_rate_avg_year: "6.595",
+      int_rate_avg_year_tb: "8.246",
+    },
+    {
+      branch: "9083",
+      brh_name: "郑州XX路A营业部",
+      balance_avg_day: "128,157,764.87",
+      balance_avg_day_tb: "93,867,670.52",
+      accrued_int: "26,327.80",
+      accrued_int_tb: "16,609.22",
+      int_rate_avg: 0.0002054327,
+      int_rate_avg_tb: 0.0001769429,
+      int_rate_avg_year: "7.498",
+      int_rate_avg_year_tb: "6.476",
+    },
+    {
+      branch: "9085",
+      brh_name: "贵阳XX路A营业部",
+      balance_avg_day: "26,584,096.37",
+      balance_avg_day_tb: "10,677,210.07",
+      accrued_int: "5,306.68",
+      accrued_int_tb: "2,237.24",
+      int_rate_avg: 0.0001996186,
+      int_rate_avg_tb: 0.0002095341,
+      int_rate_avg_year: "7.286",
+      int_rate_avg_year_tb: "7.669",
+    },
+    {
+      branch: "9086",
+      brh_name: "广州XX路B营业部",
+      balance_avg_day: "142,689,035.60",
+      balance_avg_day_tb: "85,905,213.00",
+      accrued_int: "25,949.13",
+      accrued_int_tb: "18,391.69",
+      int_rate_avg: 0.0001818579,
+      int_rate_avg_tb: 0.0002140928,
+      int_rate_avg_year: "6.638",
+      int_rate_avg_year_tb: "7.836",
+    },
+
+    {
+      branch: "90259",
+      brh_name: "无锡XX路A营业部",
+      balance_avg_day: "3,537,731.27",
+      balance_avg_day_tb: "184,739.10",
+      accrued_int: "781.54",
+      accrued_int_tb: "217.13",
+      int_rate_avg: 0.0002209156,
+      int_rate_avg_tb: 0.0011753332,
+      int_rate_avg_year: "8.063",
+      int_rate_avg_year_tb: "43.017",
+    },
+    {
+      branch: "90260",
+      brh_name: "青岛XX路B营业部",
+      balance_avg_day: "23,389,434.71",
+      balance_avg_day_tb: "10,748,499.17",
+      accrued_int: "4,845.19",
+      accrued_int_tb: "2,400.42",
+      int_rate_avg: 0.0002071529,
+      int_rate_avg_tb: 0.0002233261,
+      int_rate_avg_year: "7.561",
+      int_rate_avg_year_tb: "8.174",
+    },
+
+    {
+      branch: "90301",
+      brh_name: "武汉XX路A营业部",
+      balance_avg_day: "1,721,601.83",
+      balance_avg_day_tb: "1,016,409.89",
+      accrued_int: "344.30",
+      accrued_int_tb: "720.05",
+      int_rate_avg: 0.0001999882,
+      int_rate_avg_tb: 0.0007084248,
+      int_rate_avg_year: "7.300",
+      int_rate_avg_year_tb: "25.928",
+    },
+
+    {
+      branch: "90303",
+      brh_name: "厦门XX路A营业部",
+      balance_avg_day: "14,586,247.67",
+      balance_avg_day_tb: "9,941,693.24",
+      accrued_int: "2,833.94",
+      accrued_int_tb: "1,978.46",
+      int_rate_avg: 0.0001942885,
+      int_rate_avg_tb: 0.0001990063,
+      int_rate_avg_year: "7.092",
+      int_rate_avg_year_tb: "7.284",
+    },
+  ],
+  headerData: [
+    {
+      id: 100,
+      label: "代码",
+      prop: "branch",
+      width: "100",
+    },
+    {
+      id: 210,
+      label: "分支机构",
+      prop: "brh_name",
+      width: "150",
+    },
+    {
+      id: 220,
+      label: "日均余额(元)",
+      prop: "balance_avg_day",
+    },
+    {
+      id: 220,
+      label: "日均余额同期(元)",
+      prop: "balance_avg_day_tb",
+    },
+    {
+      id: 220,
+      label: "应计利息(元)",
+      prop: "accrued_int",
+    },
+    {
+      id: 220,
+      label: "应计利息同期(元)",
+      prop: "accrued_int_tb",
+    },
+    {
+      id: 220,
+      label: "年化利率(%)",
+      prop: "int_rate_avg_year",
+    },
+    {
+      id: 220,
+      label: "年化利率同期(%)",
+      prop: "int_rate_avg_year_tb",
+    },
+  ],
+  controlAtrr: {
+    pageObj: {
+      //分页对象
+      position: "left", //分页组件位置 right left
+      background: false, // 带有背景色的分页 false / true
+      small: false, // 小型分页 false / true
+      hide_on_single_page: false, // 当只有一页时隐藏分页
+      pager_count: 8, // 设置最大页码按钮数
+      page_sizes: [10, 15, 20, 30, 50, 200], // 接受一个整型数组，数组元素为展示的选择每页显示个数的选项
+      layout: "total,sizes,prev, pager, next,jumper", // 表示需要显示的内容，用逗号分隔，布局元素会依次显示。
+      total: rowDataFake02.length, // 总条数
+      pageData: {
+        page: 1, // 页数
+        size: 10, // 每页条数
+      },
+    },
+  },
+};
+
+// fisl 客户余额模拟数据
+const fisl_account_balance_data: any = {
+  tableData: [
+    {
+      branch: "9043",
+      brh_name: "上海XX路X营业部",
+      account: "8742000029",
+      cust_code: "126229044",
+      cust_name: "潘X英",
+      balance_avg_day: "275,141.91",
+      balance_avg_day_tq: "623,849.41",
+    },
+    {
+      branch: "9043",
+      brh_name: "上海XX路X营业部",
+      account: "2379000755",
+      cust_code: "750258679",
+      cust_name: "何X娟",
+      balance_avg_day: "993,998.11",
+      balance_avg_day_tq: "993,998.11",
+    },
+    {
+      branch: "9078",
+      brh_name: "上海XX路B营业部",
+      account: "8764000005",
+      cust_code: "168159295",
+      cust_name: "陈X生",
+      balance_avg_day: "168,891.83",
+      balance_avg_day_tq: "159,433.97",
+    },
+    {
+      branch: "9043",
+      brh_name: "上海XX路X营业部",
+      account: "4523000403",
+      cust_code: "380242017",
+      cust_name: "伍X银",
+      balance_avg_day: "173,536.75",
+      balance_avg_day_tq: "98,426.48",
+    },
+    {
+      branch: "9043",
+      brh_name: "上海XX路X营业部",
+      account: "7892000689",
+      cust_code: "358051401",
+      cust_name: "彭X春",
+      balance_avg_day: "0.00",
+      balance_avg_day_tq: "0.00",
+    },
+    {
+      branch: "90119",
+      brh_name: "深圳XX路B营业部",
+      account: "12359000006",
+      cust_code: "345968591",
+      cust_name: "傅X珍",
+      balance_avg_day: "345,636.77",
+      balance_avg_day_tq: "1,045,315.56",
+    },
+    {
+      branch: "9043",
+      brh_name: "上海XX路X营业部",
+      account: "1864000508",
+      cust_code: "879060888",
+      cust_name: "黄X娟",
+      balance_avg_day: "42,824.06",
+      balance_avg_day_tq: "57,194.30",
+    },
+    {
+      branch: "9043",
+      brh_name: "上海XX路X营业部",
+      account: "3467000368",
+      cust_code: "865272856",
+      cust_name: "朱X齐",
+      balance_avg_day: "9,748.50",
+      balance_avg_day_tq: "9,748.50",
+    },
+    {
+      branch: "9043",
+      brh_name: "上海XX路X营业部",
+      account: "8764000580",
+      cust_code: "679565578",
+      cust_name: "陈X",
+      balance_avg_day: "80,667.16",
+      balance_avg_day_tq: "89,232.14",
+    },
+    {
+      branch: "9043",
+      brh_name: "上海XX路X营业部",
+      account: "2365000712",
+      cust_code: "126679044",
+      cust_name: "伍X勇",
+      balance_avg_day: "614,159.83",
+      balance_avg_day_tq: "214,835.39",
+    },
+    {
+      branch: "9043",
+      brh_name: "上海XX路X营业部",
+      account: "8245000168",
+      cust_code: "809017169",
+      cust_name: "储X青",
+      balance_avg_day: "38,928.71",
+      balance_avg_day_tq: "89,088.18",
+    },
+    {
+      branch: "9078",
+      brh_name: "上海XX路B营业部",
+      account: "8335000015",
+      cust_code: "200218589",
+      cust_name: "汪X英",
+      balance_avg_day: "20,413.07",
+      balance_avg_day_tq: "42,508.99",
+    },
+    {
+      branch: "9078",
+      brh_name: "上海XX路B营业部",
+      account: "6767000856",
+      cust_code: "469683311",
+      cust_name: "倪X付",
+      balance_avg_day: "59,227.35",
+      balance_avg_day_tq: "0.00",
+    },
+    {
+      branch: "9043",
+      brh_name: "上海XX路X营业部",
+      account: "2189000025",
+      cust_code: "107260381",
+      cust_name: "李X国",
+      balance_avg_day: "388,115.21",
+      balance_avg_day_tq: "508,183.75",
+    },
+  ],
+};
+
+// fisl 公司与市场余额对比
+const fisl_balance_GS_echarts_data: any = {
+  data: {
+    dates: [
+      "06-01",
+      "06-02",
+      "06-03",
+      "06-04",
+      "06-05",
+      "06-06",
+      "06-07",
+      "06-08",
+      "06-09",
+      "06-10",
+      "06-11",
+      "06-12",
+      "06-13",
+      "06-14",
+      "06-15",
+      "06-16",
+      "06-17",
+      "06-18",
+      "06-19",
+      "06-20",
+      "06-21",
+      "06-22",
+      "06-23",
+      "06-24",
+      "06-25",
+      "06-26",
+      "06-27",
+      "06-28",
+      "06-29",
+      "06-30",
+    ],
+    balance_gs: [
+      17349.1, 17269.1, 17269.1, 16269.1, 17169.1, 17869.1, 18269.1, 16219.1,
+      17267.1, 17969.1, 17269.1, 17269.1, 17269.1, 17467.1, 16269.1, 16289.1,
+      17969.1, 17269.1, 17469.1, 18269.1, 17299.1, 18269.1, 18269.1, 16269.1,
+      19269.1, 15969.1, 19269.1, 18289.1, 16369.1, 15769.1,
+    ],
+    balance_sc: [
+      166.38, 186.38, 167.38, 165.38, 161.38, 164.38, 171.38, 172.38, 176.98,
+      166.38, 156.38, 156.38, 186.38, 166.98, 166.18, 169.98, 146.38, 141.38,
+      146.98, 156.18, 156.99, 163.18, 163.18, 156.48, 146.38, 186.38, 167.98,
+      167.38, 167.98, 169.58,
+    ],
+  },
+};
+
+// fisl 开户与激活对比
+const fisl_cust_open_echarts_data: any = {
+  data: {
+    dates: [
+      "06-01",
+      "06-02",
+      "06-03",
+      "06-04",
+      "06-05",
+      "06-06",
+      "06-07",
+      "06-08",
+      "06-09",
+      "06-10",
+      "06-11",
+      "06-12",
+      "06-13",
+      "06-14",
+      "06-15",
+      "06-16",
+      "06-17",
+      "06-18",
+      "06-19",
+      "06-20",
+      "06-21",
+      "06-22",
+      "06-23",
+      "06-24",
+      "06-25",
+      "06-26",
+      "06-27",
+      "06-28",
+      "06-29",
+      "06-30",
+    ],
+    open_count: [
+      15, 25, 23, 26, 30, 25, 33, 34, 39, 26, 31, 40, 32, 39, 33, 40, 12, 35,
+      32, 33, 41, 56, 35, 26, 36, 24, 25, 26, 37, 39,
+    ],
+    jh_count: [
+      16, 24, 22, 20, 26, 23, 35, 30, 36, 25, 31, 38, 32, 42, 21, 38, 16, 30,
+      31, 30, 40, 60, 35, 16, 46, 23, 20, 23, 33, 35,
+    ],
+  },
+};
+
+// fisl 利息收入数据
+const fisl_int_echarts_data: any = {
+  data: {
+    dates: [
+      "06-01",
+      "06-02",
+      "06-03",
+      "06-04",
+      "06-05",
+      "06-06",
+      "06-07",
+      "06-08",
+      "06-09",
+      "06-10",
+      "06-11",
+      "06-12",
+      "06-13",
+      "06-14",
+      "06-15",
+      "06-16",
+      "06-17",
+      "06-18",
+      "06-19",
+      "06-20",
+      "06-21",
+      "06-22",
+      "06-23",
+      "06-24",
+      "06-25",
+      "06-26",
+      "06-27",
+      "06-28",
+      "06-29",
+      "06-30",
+    ],
+    int_list: [
+      310.56, 290.74, 295.88, 323.75, 312.98, 346.12, 329.78, 293.55, 289.46,
+      199.53, 286.45, 286.45, 300.45, 250.64, 296.87, 333.15, 333.15, 233.15,
+      362.86, 433.69, 401.87, 456.22, 435.65, 326.58, 336.95, 324.65, 325.15,
+      326.56, 337.82, 315.35,
+    ],
+  },
+};
+
+// wxup 公众号数据
+const wxup_wechat_data: any = {
+  tableData: [
+    {
+      id: "D299AC4B-B2B2-40BB-9D18-1FE3361ECD8B",
+      account: "Datafirst114",
+      type: "1",
+      type_zh: "服务号",
+      name: "数据头等舱",
+      appID: "wx16472qwertysdfghjs",
+      appSecret: "659428e50b1cefhjgjghjgh81e110d",
+      access_token:
+        "71_hSDFGHXCVBNM_DCFVBNMFGHJKCVBNWER_FSGDKFGHYEWIFNSKGHSKDGHSKFYSIF",
+      expires_in: "1690528337",
+      expires_in_format: "2023-07-28 15:12:17",
+      validity_Seconds: 1720,
+      access_token_status: "1",
+      access_token_status_zh: "即将失效",
+      wechat_status: "1",
+      wechat_status_zh: "正常",
+      ExpiredTime: "-",
+      originalID: "gh_1234567380",
+      status: "0",
+      status_zh: "启动",
+      createTime: "2021-03-15 10:35:16",
+      lastTime: "2023-07-28 13:12:25",
+    },
+    {
+      id: "D299AC4B-B2B2-40BB-9D18-1FE3361ECD8B",
+      account: "DatafirstA1",
+      type: "1",
+      type_zh: "服务号",
+      name: "数据头等舱A1",
+      appID: "wx16472zxcvbnsdfghrt",
+      appSecret: "659428e50b1cef8ebf451643981e110d",
+      access_token:
+        "71_hSDFGHXCVBNMSFDGFDGSGHJKCVBNWER_FSGDKFGHFDDGDGDGFDSDSDGHSKFYSIF",
+      expires_in: "1690528337",
+      expires_in_format: "2023-07-28 15:12:17",
+      validity_Seconds: 1720,
+      access_token_status: "1",
+      access_token_status_zh: "即将失效",
+      wechat_status: "1",
+      wechat_status_zh: "正常",
+      ExpiredTime: "-",
+      originalID: "gh_123456780A",
+      status: "1",
+      status_zh: "停止",
+      createTime: "2021-03-15 10:35:16",
+      lastTime: "2023-07-28 13:12:25",
+    },
+    {
+      id: "D299AC4B-B2B2-40BB-9D18-1FE3361ECD8B",
+      account: "DatafirstA2",
+      type: "1",
+      type_zh: "服务号",
+      name: "数据头等舱A2",
+      appID: "wx16472zxcvbnsdfghrt",
+      appSecret: "659428e50b1cef8ebf451643981e110d",
+      access_token:
+        "71_hSDFGFDFGDGDFGDFGDFBNWER_FSGDKFGDFGDGFDSDSDGHSKFYSCVBCBDGDFGIF",
+      expires_in: "1690528337",
+      expires_in_format: "2023-07-28 15:12:17",
+      validity_Seconds: 1720,
+      access_token_status: "2",
+      access_token_status_zh: "已失效",
+      wechat_status: "1",
+      wechat_status_zh: "过期",
+      ExpiredTime: "-",
+      originalID: "gh_123456780A2",
+      status: "1",
+      status_zh: "删除",
+      createTime: "2021-03-15 10:35:16",
+      lastTime: "2023-07-28 13:12:25",
+    },
+    {
+      id: "D299AC4B-B2B2-40BB-9D18-1FE3361ECD8B",
+      account: "DatafirstA3",
+      type: "1",
+      type_zh: "服务号",
+      name: "数据头等舱A3",
+      appID: "wx16472zxcvbnsdfghrt",
+      appSecret: "659428sdfsdgdfgfd643981e110d",
+      access_token:
+        "71_hSDFGFDFCBDFGGGJBFBNWER_FSGDKFGDFGDGFDSDSDFGDFGSCBDGDFGIF",
+      expires_in: "1690528337",
+      expires_in_format: "2023-07-28 15:12:17",
+      validity_Seconds: 1720,
+      access_token_status: "2",
+      access_token_status_zh: "已失效",
+      wechat_status: "1",
+      wechat_status_zh: "正常",
+      ExpiredTime: "-",
+      originalID: "gh_123456780A3",
+      status: "1",
+      status_zh: "停止",
+      createTime: "2021-03-15 10:35:16",
+      lastTime: "2023-07-28 13:12:25",
+    },
+    {
+      id: "D299AC4B-B2B2-40BB-9D18-1FE3361ECD8B",
+      account: "DatafirstB1",
+      type: "1",
+      type_zh: "订阅号",
+      name: "数据头等舱B1",
+      appID: "wx16472zxcvbnsdfghrt",
+      appSecret: "659428sdfsdgdfgfd643981e110d",
+      access_token:
+        "71_hSDFGFDFCBDFGGGJBFBNWER_FSGDKFGDFGDGFDSDSDFGDFGSCBDGDFGIF",
+      expires_in: "1690528337",
+      expires_in_format: "2023-07-28 15:12:17",
+      validity_Seconds: 1720,
+      access_token_status: "2",
+      access_token_status_zh: "已失效",
+      wechat_status: "1",
+      wechat_status_zh: "正常",
+      ExpiredTime: "-",
+      originalID: "gh_123456780A3",
+      status: "1",
+      status_zh: "停止",
+      createTime: "2021-03-15 10:35:16",
+      lastTime: "2023-07-28 13:12:25",
+    },
+    {
+      id: "D299AC4B-B2B2-40BB-9D18-1FE3361ECD8B",
+      account: "DatafirstB1",
+      type: "1",
+      type_zh: "订阅号",
+      name: "数据头等舱B1",
+      appID: "wx16472zxcvbnsdfghrt",
+      appSecret: "659428sdfsdgdfgfd643981e110d",
+      access_token:
+        "71_hSDFGFDFCBDFGGGJBFBNWER_FSGDKFGDFGDGFDSDSDFGDFGSCBDGDFGIF",
+      expires_in: "1690528337",
+      expires_in_format: "2023-07-28 15:12:17",
+      validity_Seconds: 1720,
+      access_token_status: "2",
+      access_token_status_zh: "已失效",
+      wechat_status: "2",
+      wechat_status_zh: "即将过期",
+      ExpiredTime: "2023-08-26 15:43:23",
+      originalID: "gh_123456780A3",
+      status: "1",
+      status_zh: "停止",
+      createTime: "2021-03-15 10:35:16",
+      lastTime: "2023-07-28 13:12:25",
+    },
+    {
+      id: "D299AC4B-B2B2-40BB-9D18-1FE3361ECD8B",
+      account: "DatafirstC1",
+      type: "1",
+      type_zh: "订阅号",
+      name: "数据头等舱C1",
+      appID: "wx16472zxcvbnsdfghrt",
+      appSecret: "659428sdfsdgdfgfd643981e110d",
+      access_token:
+        "71_hSDFGFDFCBDFGGGJBFBNWER_FSGDKFGDFGDGFDSDSDFGDFGSCBDGDFGIF",
+      expires_in: "1690528337",
+      expires_in_format: "2023-07-28 15:12:17",
+      validity_Seconds: 1720,
+      access_token_status: "2",
+      access_token_status_zh: "正常",
+      wechat_status: "2",
+      wechat_status_zh: "正常",
+      ExpiredTime: "2023-12-26 12:43:23",
+      originalID: "gh_123456780A3",
+      status: "1",
+      status_zh: "启动",
+      createTime: "2021-03-15 10:35:16",
+      lastTime: "2023-07-28 13:12:25",
+    },
+    {
+      id: "D299AC4B-B2B2-40BB-9D18-1FE3361ECD8B",
+      account: "DatafirstC2",
+      type: "1",
+      type_zh: "订阅号",
+      name: "数据头等舱C2",
+      appID: "wx16472zxcvbnsdfghrt",
+      appSecret: "659428sdfsdgdfgfd643981e110d",
+      access_token:
+        "71_hSDFGFDFCBDFGGGJBFBNWER_FSGDKFGDFGDGFDSDSDFGDFGSCBDGDFGIF",
+      expires_in: "1690528337",
+      expires_in_format: "2023-07-28 15:12:17",
+      validity_Seconds: 1720,
+      access_token_status: "2",
+      access_token_status_zh: "正常",
+      wechat_status: "2",
+      wechat_status_zh: "正常",
+      ExpiredTime: "2023-12-26 12:43:23",
+      originalID: "gh_123456780A3",
+      status: "1",
+      status_zh: "启动",
+      createTime: "2021-03-15 10:35:16",
+      lastTime: "2023-07-28 13:12:25",
+    },
+    {
+      id: "D299AC4B-B2B2-40BB-9D18-1FE3361ECD8B",
+      account: "DatafirstC3",
+      type: "1",
+      type_zh: "订阅号",
+      name: "数据头等舱C3",
+      appID: "wx16472zxcvbnsdfghrt",
+      appSecret: "659428sdfsdgdfgfd643981e110d",
+      access_token:
+        "71_hSDFGFDFCBDFGGGJBFBNWER_FSGDKFGDFGDGFDSDSDFGDFGSCBDGDFGIF",
+      expires_in: "1690528337",
+      expires_in_format: "2023-07-28 15:12:17",
+      validity_Seconds: 1720,
+      access_token_status: "2",
+      access_token_status_zh: "正常",
+      wechat_status: "2",
+      wechat_status_zh: "正常",
+      ExpiredTime: "2023-12-26 12:43:23",
+      originalID: "gh_123456780A3",
+      status: "1",
+      status_zh: "启动",
+      createTime: "2021-03-15 10:35:16",
+      lastTime: "2023-07-28 13:12:25",
+    },
+    {
+      id: "D299AC4B-B2B2-40BB-9D18-1FE3361ECD8B",
+      account: "DatafirstC4",
+      type: "1",
+      type_zh: "订阅号",
+      name: "数据头等舱C4",
+      appID: "wx16472zxcvbnsdfghrt",
+      appSecret: "659428sdfsdgdfgfd643981e110d",
+      access_token:
+        "71_hSDFGFDFCBDFGGGJBFBNWER_FSGDKFGDFGDGFDSDSDFGDFGSCBDGDFGIF",
+      expires_in: "1690528337",
+      expires_in_format: "2023-07-28 15:12:17",
+      validity_Seconds: 1720,
+      access_token_status: "2",
+      access_token_status_zh: "正常",
+      wechat_status: "2",
+      wechat_status_zh: "正常",
+      ExpiredTime: "2023-12-26 12:43:23",
+      originalID: "gh_123456780A3",
+      status: "1",
+      status_zh: "启动",
+      createTime: "2021-03-15 10:35:16",
+      lastTime: "2023-07-28 13:12:25",
+    },
+    {
+      id: "D299AC4B-B2B2-40BB-9D18-1FE3361ECD8B",
+      account: "DatafirstC5",
+      type: "1",
+      type_zh: "订阅号",
+      name: "数据头等舱C5",
+      appID: "wx16472zxcvbnsdfghrt",
+      appSecret: "659428sdfsdgdfgfd643981e110d",
+      access_token:
+        "71_hSDFGFDFCBDFGGGJBFBNWER_FSGDKFGDFGDGFDSDSDFGDFGSCBDGDFGIF",
+      expires_in: "1690528337",
+      expires_in_format: "2023-07-28 15:12:17",
+      validity_Seconds: 1720,
+      access_token_status: "2",
+      access_token_status_zh: "正常",
+      wechat_status: "2",
+      wechat_status_zh: "正常",
+      ExpiredTime: "2023-12-26 12:43:23",
+      originalID: "gh_123456780A3",
+      status: "1",
+      status_zh: "启动",
+      createTime: "2021-03-15 10:35:16",
+      lastTime: "2023-07-28 13:12:25",
+    },
+    {
+      id: "D299AC4B-B2B2-40BB-9D18-1FE3361ECD8B",
+      account: "DatafirstC6",
+      type: "1",
+      type_zh: "订阅号",
+      name: "数据头等舱C6",
+      appID: "wx16472zxcvbnsdfghrt",
+      appSecret: "659428sdfsdgdfgfd643981e110d",
+      access_token:
+        "71_hSDFGFDFCBDFGGGJBFBNWER_FSGDKFGDFGDGFDSDSDFGDFGSCBDGDFGIF",
+      expires_in: "1690528337",
+      expires_in_format: "2023-07-28 15:12:17",
+      validity_Seconds: 1720,
+      access_token_status: "2",
+      access_token_status_zh: "正常",
+      wechat_status: "2",
+      wechat_status_zh: "正常",
+      ExpiredTime: "2023-12-26 12:43:23",
+      originalID: "gh_123456780A3",
+      status: "1",
+      status_zh: "启动",
+      createTime: "2021-03-15 10:35:16",
+      lastTime: "2023-07-28 13:12:25",
+    },
+  ],
+  headerData: [
+    // { slot: "date" },
+    // { label: "名称", prop: "userId" },
+    // { label: "链接", prop: "userName" },
+    // { slot: "cardType" },
+    // { slot: "operate" },
+    {
+      id: 100,
+      label: "账号类型",
+      prop: "type_zh",
+      width: "150",
+    },
+    {
+      id: 100,
+      label: "微信账号",
+      prop: "account",
+      width: "150",
+    },
+    {
+      id: 100,
+      label: "微信名称",
+      prop: "name",
+      width: "150",
+    },
+    { slot: "status_zh" },
+    // {
+    //   id: 100,
+    //   label: "状态",
+    //   prop: "status_zh",
+    //   width: "150",
+    // },
+    { slot: "access_token_status_zh" },
+    // {
+    //   id: 100,
+    //   label: "凭证状态",
+    //   prop: "access_token_status_zh",
+    //   width: "150",
+    // },
+    { slot: "wechat_status_zh" },
+    // {
+    //   id: 100,
+    //   label: "认证状态",
+    //   prop: "wechat_status_zh",
+    //   width: "150",
+    // },
+    {
+      id: 100,
+      label: "认证到期日期",
+      prop: "ExpiredTime",
+      width: "200",
+    },
+    {
+      id: 100,
+      label: "开发者ID",
+      prop: "appID",
+      width: "200",
+    },
+    {
+      id: 100,
+      label: "开发者密码",
+      prop: "appSecret",
+      width: "280",
+    },
+    {
+      id: 100,
+      label: "获取到的凭证",
+      prop: "access_token",
+      width: "660",
+    },
+    {
+      id: 100,
+      label: "微信原始ID",
+      prop: "originalID",
+      width: "150",
+    },
+    {
+      id: 100,
+      label: "录入时间",
+      prop: "createTime",
+      width: "200",
+    },
+    {
+      id: 100,
+      label: "更新时间",
+      prop: "lastTime",
+      width: "200",
+    },
+  ],
+  controlAtrr: {
+    pageObj: {
+      //分页对象
+      position: "left", //分页组件位置 right left
+      background: false, // 带有背景色的分页 false / true
+      small: false, // 小型分页 false / true
+      hide_on_single_page: false, // 当只有一页时隐藏分页
+      pager_count: 8, // 设置最大页码按钮数
+      page_sizes: [10, 15, 20, 30, 50, 200], // 接受一个整型数组，数组元素为展示的选择每页显示个数的选项
+      layout: "total,sizes,prev, pager, next,jumper", // 表示需要显示的内容，用逗号分隔，布局元素会依次显示。
+      total: 12, // 总条数
+      pageData: {
+        page: 1, // 页数
+        size: 10, // 每页条数
+      },
+    },
+  },
+};
+
+// wxup 关注与取关对比
+const wxup_follow_echarts_data: any = {
+  data: {
+    dates: [
+      "06-01",
+      "06-02",
+      "06-03",
+      "06-04",
+      "06-05",
+      "06-06",
+      "06-07",
+      "06-08",
+      "06-09",
+      "06-10",
+      "06-11",
+      "06-12",
+      "06-13",
+      "06-14",
+      "06-15",
+      "06-16",
+      "06-17",
+      "06-18",
+      "06-19",
+      "06-20",
+      "06-21",
+      "06-22",
+      "06-23",
+      "06-24",
+      "06-25",
+      "06-26",
+      "06-27",
+      "06-28",
+      "06-29",
+      "06-30",
+    ],
+    gz_count: [
+      215, 225, 223, 226, 230, 225, 233, 224, 239, 226, 231, 240, 232, 139, 133,
+      240, 212, 235, 232, 233, 241, 256, 235, 226, 316, 224, 225, 226, 237, 239,
+    ],
+    qg_count: [
+      16, 14, 22, 20, 26, 23, 15, 20, 36, 25, 31, 28, 32, 12, 11, 28, 16, 30,
+      31, 20, 10, 10, 15, 16, 26, 23, 20, 23, 13, 15,
+    ],
+  },
+};
+// wxup 推文浏览量趋势图
+const wxup_read_echarts_data: any = {
+  data: {
+    dates: [
+      "06-01",
+      "06-02",
+      "06-03",
+      "06-04",
+      "06-05",
+      "06-06",
+      "06-07",
+      "06-08",
+      "06-09",
+      "06-10",
+      "06-11",
+      "06-12",
+      "06-13",
+      "06-14",
+      "06-15",
+      "06-16",
+      "06-17",
+      "06-18",
+      "06-19",
+      "06-20",
+      "06-21",
+      "06-22",
+      "06-23",
+      "06-24",
+      "06-25",
+      "06-26",
+      "06-27",
+      "06-28",
+      "06-29",
+      "06-30",
+    ],
+    cs: [
+      2215, 1225, 2223, 2236, 2430, 2255, 6233, 2234, 1239, 2226, 2331, 2640,
+      2232, 1139, 3133, 4240, 2122, 2335, 2432, 2353, 2421, 2556, 2335, 2265,
+      3136, 2224, 2225, 1226, 2437, 1239,
+    ],
+    rc: [
+      1205, 925, 1223, 1036, 1400, 1055, 5203, 1034, 539, 1026, 1031, 1640,
+      1032, 539, 1153, 2640, 1022, 1135, 1032, 1053, 1321, 1056, 1035, 965,
+      1936, 924, 825, 526, 937, 439,
+    ],
+  },
+};
+
+// wxup 资金账号绑定量
+const wxup_account_echarts_data: any = {
+  data: {
+    dates: [
+      "06-01",
+      "06-02",
+      "06-03",
+      "06-04",
+      "06-05",
+      "06-06",
+      "06-07",
+      "06-08",
+      "06-09",
+      "06-10",
+      "06-11",
+      "06-12",
+      "06-13",
+      "06-14",
+      "06-15",
+      "06-16",
+      "06-17",
+      "06-18",
+      "06-19",
+      "06-20",
+      "06-21",
+      "06-22",
+      "06-23",
+      "06-24",
+      "06-25",
+      "06-26",
+      "06-27",
+      "06-28",
+      "06-29",
+      "06-30",
+    ],
+    bd: [
+      215, 125, 223, 236, 230, 225, 633, 224, 129, 226, 331, 640, 232, 139, 333,
+      240, 122, 335, 432, 353, 221, 556, 335, 265, 136, 224, 225, 226, 437, 139,
+    ],
+  },
+};
+
+// wxup 文章数据
+const wxup_articles_data: any = {
+  data: [
+    {
+      cover_img: require("./files/0.jpg"),
+      title: "【1】行到水穷处 坐看云起时",
+      update_time: "2023/08/04 09:40",
+      article_other: [
+        {
+          title: "其他文章01",
+          cover_img: require("./files/0.jpg"),
+        },
+        {
+          title: "其他文章02",
+          cover_img: require("./files/2.jpg"),
+        },
+        {
+          title: "其他文章03",
+          cover_img: require("./files/13.jpg"),
+        },
+      ],
+    },
+    {
+      cover_img: require("./files/5.jpg"),
+      title: "【2】动机至善 私心了无",
+      update_time: "2023/08/00 19:40",
+      article_other: [
+        {
+          title: "其他文章01",
+          cover_img: require("./files/0.jpg"),
+        },
+      ],
+    },
+    {
+      cover_img: require("./files/2.jpg"),
+      title: "【3】悦高十年，感恩相伴",
+      update_time: "2023/08/03 09:55",
+    },
+    {
+      cover_img: require("./files/8.png"),
+      title: "【4】证券大佬都在收藏的一张图，太惊艳了！",
+      update_time: "2023/08/02 11:40",
+      article_other: [
+        {
+          title: "其他文章01",
+          cover_img: require("./files/0.jpg"),
+        },
+
+        {
+          title: "其他文章03",
+          cover_img: require("./files/13.jpg"),
+        },
+      ],
+    },
+    {
+      cover_img: require("./files/7.gif"),
+      title: "【5】行到水穷处，坐看云起时",
+      update_time: "2023/07/01 09:40",
+      article_other: [
+        {
+          title: "其他文章01",
+          cover_img: require("./files/9.png"),
+        },
+        {
+          title: "其他文章02",
+          cover_img: require("./files/12.jpg"),
+        },
+        {
+          title: "其他文章03",
+          cover_img: require("./files/13.jpg"),
+        },
+      ],
+    },
+    {
+      cover_img: require("./files/0.jpg"),
+      title: "【6】行到水穷处，坐看云起时",
+      update_time: "2023/06/14 19:10",
+      article_other: [
+        {
+          title: "其他文章01",
+          cover_img: require("./files/0.jpg"),
+        },
+        {
+          title: "其他文章02",
+          cover_img: require("./files/12.jpg"),
+        },
+        {
+          title: "其他文章03",
+          cover_img: require("./files/15.jpg"),
+        },
+      ],
+    },
+    {
+      cover_img: require("./files/9.png"),
+      title: "【7】行到水穷处，坐看云起时",
+      update_time: "2022/12/26 23:36",
+      article_other: [
+        {
+          title: "其他文章01",
+          cover_img: require("./files/0.jpg"),
+        },
+        {
+          title: "其他文章02",
+          cover_img: require("./files/16.jpg"),
+        },
+        {
+          title: "其他文章03",
+          cover_img: require("./files/15.jpg"),
+        },
+      ],
+    },
+    {
+      cover_img: require("./files/10.png"),
+      title: "【8】中国股市30年的走势回顾",
+      update_time: "2022/12/26 23:36",
+      article_other: [
+        {
+          title: "其他文章02",
+          cover_img: require("./files/11.png"),
+        },
+        {
+          title: "其他文章03",
+          cover_img: require("./files/12.jpg"),
+        },
+      ],
+    },
+    {
+      cover_img: require("./files/14.jpg"),
+      title: "【9】行到水穷处，坐看云起时",
+      update_time: "2022/12/26 23:36",
+    },
+    {
+      cover_img: require("./files/6.png"),
+      title: "【10】行到水穷处，坐看云起时",
+      update_time: "2022/12/26 23:36",
+      article_other: [
+        {
+          title: "其他文章01",
+          cover_img: require("./files/0.jpg"),
+        },
+        {
+          title: "其他文章02",
+          cover_img: require("./files/2.jpg"),
+        },
+        {
+          title: "其他文章03",
+          cover_img: require("./files/3.jpg"),
+        },
+      ],
+    },
+    {
+      cover_img: require("./files/13.jpg"),
+      title: "【11】行到水穷处，坐看云起时",
+      update_time: "2022/12/26 23:36",
+      article_other: [
+        {
+          title: "其他文章01",
+          cover_img: require("./files/0.jpg"),
+        },
+        {
+          title: "其他文章02",
+          cover_img: require("./files/2.jpg"),
+        },
+        {
+          title: "其他文章03",
+          cover_img: require("./files/13.jpg"),
+        },
+      ],
+    },
+    {
+      cover_img: require("./files/0.jpg"),
+      title: "【12】行到水穷处，坐看云起时",
+      update_time: "2022/12/26 23:36",
+      article_other: [
+        {
+          title: "其他文章01",
+          cover_img: require("./files/0.jpg"),
+        },
+        {
+          title: "其他文章02",
+          cover_img: require("./files/12.jpg"),
+        },
+      ],
+    },
+    {
+      cover_img: require("./files/9.png"),
+      title: "【13】行到水穷处，坐看云起时",
+      update_time: "2022/12/26 23:36",
+    },
+    {
+      cover_img: require("./files/2.jpg"),
+      title: "【14】行到水穷处，坐看云起时",
+      update_time: "2022/12/26 23:36",
+      article_other: [
+        {
+          title: "其他文章01",
+          cover_img: require("./files/11.png"),
+        },
+        {
+          title: "其他文章02",
+          cover_img: require("./files/2.jpg"),
+        },
+        {
+          title: "其他文章03",
+          cover_img: require("./files/15.jpg"),
+        },
+      ],
+    },
+  ],
+};
+
+// wxip 素材数据
+const wxup_covers_data: any = {
+  data: [
+    {
+      cover_img: require("./files/0.jpg"),
+    },
+    {
+      cover_img: require("./files/2.jpg"),
+    },
+    {
+      cover_img: require("./files/5.jpg"),
+    },
+    {
+      cover_img: require("./files/6.png"),
+    },
+    {
+      cover_img: require("./files/7.gif"),
+    },
+    {
+      cover_img: require("./files/8.png"),
+    },
+    {
+      cover_img: require("./files/9.png"),
+    },
+    {
+      cover_img: require("./files/10.png"),
+    },
+    {
+      cover_img: require("./files/11.png"),
+    },
+    {
+      cover_img: require("./files/12.jpg"),
+    },
+    {
+      cover_img: require("./files/13.jpg"),
+    },
+    {
+      cover_img: require("./files/14.jpg"),
+    },
+    {
+      cover_img: require("./files/15.jpg"),
+    },
+    {
+      cover_img: require("./files/16.jpg"),
+    },
+  ],
+};
+
+// MITT 禁用事件名列表
+const mitt_disable_even: any = {
+  data: ["comp_mitt-comment_index1"],
+};
+
+// gtja 资产负债表数据
+const gtja_zcfz_data: any = {
+  tableData: [
+    {
+      zc_type: "货币资金",
+      balance_qm: "1,667.32",
+      balance_lastyear_qm: "0.00",
+      fzjzc_type: "短期借款",
+      balance_qm2: "0.00",
+      balance_lastyear_qm2: "0.00",
+    },
+    {
+      zc_type: "应收清算款",
+      balance_qm: "0.00",
+      balance_lastyear_qm: "0.00",
+      fzjzc_type: "应付管理人报酬",
+      balance_qm2: "10,530.86",
+      balance_lastyear_qm2: "0.00",
+    },
+    {
+      zc_type: "买入返售金融资产",
+      balance_qm: "2,012,020.12",
+      balance_lastyear_qm: "0.00",
+      fzjzc_type: "应交税费",
+      balance_qm2: "133.84",
+      balance_lastyear_qm2: "0.00",
+    },
+    {
+      zc_type: "买入返售金融资产",
+      balance_qm: "2,012,020.12",
+      balance_lastyear_qm: "0.00",
+      fzjzc_type: "应交税费",
+      balance_qm2: "133.84",
+      balance_lastyear_qm2: "0.00",
+    },
+    {
+      zc_type: "买入返售金融资产",
+      balance_qm: "2,012,020.12",
+      balance_lastyear_qm: "0.00",
+      fzjzc_type: "应交税费",
+      balance_qm2: "133.84",
+      balance_lastyear_qm2: "0.00",
+    },
+    {
+      zc_type: "买入返售金融资产",
+      balance_qm: "2,012,020.12",
+      balance_lastyear_qm: "0.00",
+      fzjzc_type: "应交税费",
+      balance_qm2: "133.84",
+      balance_lastyear_qm2: "0.00",
+    },
+    {
+      zc_type: "买入返售金融资产",
+      balance_qm: "2,012,020.12",
+      balance_lastyear_qm: "0.00",
+      fzjzc_type: "应交税费",
+      balance_qm2: "133.84",
+      balance_lastyear_qm2: "0.00",
+    },
+    {
+      zc_type: "买入返售金融资产",
+      balance_qm: "2,012,020.12",
+      balance_lastyear_qm: "0.00",
+      fzjzc_type: "应交税费",
+      balance_qm2: "133.84",
+      balance_lastyear_qm2: "0.00",
+    },
+    {
+      zc_type: "买入返售金融资产",
+      balance_qm: "2,012,020.12",
+      balance_lastyear_qm: "0.00",
+      fzjzc_type: "应交税费",
+      balance_qm2: "133.84",
+      balance_lastyear_qm2: "0.00",
+    },
+    {
+      zc_type: "买入返售金融资产",
+      balance_qm: "2,012,020.12",
+      balance_lastyear_qm: "0.00",
+      fzjzc_type: "应交税费",
+      balance_qm2: "133.84",
+      balance_lastyear_qm2: "0.00",
+    },
+    {
+      zc_type: "买入返售金融资产",
+      balance_qm: "2,012,020.12",
+      balance_lastyear_qm: "0.00",
+      fzjzc_type: "应交税费",
+      balance_qm2: "133.84",
+      balance_lastyear_qm2: "0.00",
+    },
+    {
+      zc_type: "买入返售金融资产",
+      balance_qm: "2,012,020.12",
+      balance_lastyear_qm: "0.00",
+      fzjzc_type: "应交税费",
+      balance_qm2: "133.84",
+      balance_lastyear_qm2: "0.00",
+    },
+    {
+      zc_type: "买入返售金融资产",
+      balance_qm: "2,012,020.12",
+      balance_lastyear_qm: "0.00",
+      fzjzc_type: "应交税费",
+      balance_qm2: "133.84",
+      balance_lastyear_qm2: "0.00",
+    },
+    {
+      zc_type: "买入返售金融资产",
+      balance_qm: "2,012,020.12",
+      balance_lastyear_qm: "0.00",
+      fzjzc_type: "应交税费",
+      balance_qm2: "133.84",
+      balance_lastyear_qm2: "0.00",
+    },
+  ],
+  headerData: [
+    {
+      id: 100,
+      label: "资产",
+      prop: "zc_type",
+      width: "150",
+    },
+    {
+      id: 100,
+      label: "期末余额",
+      prop: "balance_qm",
+      width: "150",
+    },
+    {
+      id: 100,
+      label: "上年年末余额",
+      prop: "balance_lastyear_qm",
+      width: "150",
+    },
+
+    {
+      id: 100,
+      label: "负债和净资产",
+      prop: "fzjzc_type",
+      width: "200",
+    },
+    {
+      id: 100,
+      label: "期末余额",
+      prop: "balance_qm2",
+      width: "200",
+    },
+    {
+      id: 100,
+      label: "上年年末余额",
+      prop: "balance_lastyear_qm2",
+      width: "280",
+    },
+  ],
+  controlAtrr: {
+    pageObj: {
+      //分页对象
+      position: "left", //分页组件位置 right left
+      background: false, // 带有背景色的分页 false / true
+      small: false, // 小型分页 false / true
+      hide_on_single_page: false, // 当只有一页时隐藏分页
+      pager_count: 8, // 设置最大页码按钮数
+      page_sizes: [10, 15, 20, 30, 50, 200], // 接受一个整型数组，数组元素为展示的选择每页显示个数的选项
+      layout: "total,sizes,prev, pager, next,jumper", // 表示需要显示的内容，用逗号分隔，布局元素会依次显示。
+      total: 12, // 总条数
+      pageData: {
+        page: 1, // 页数
+        size: 10, // 每页条数
+      },
+    },
+  },
+};
+
+// gtja 单位净值图表数据
+const gtja_dwjz_echarts_data: any = {
+  data: {
+    dates: [
+      "2023-06-01",
+      "2023-06-02",
+      "2023-06-03",
+      "2023-06-04",
+      "2023-06-05",
+      "2023-06-06",
+      "2023-06-07",
+      "2023-06-08",
+      "2023-06-09",
+      "2023-06-10",
+      "2023-06-11",
+      "2023-06-12",
+      "2023-06-13",
+      "2023-06-14",
+      "2023-06-15",
+      "2023-06-16",
+      "2023-06-17",
+      "2023-06-18",
+      "2023-06-19",
+      "2023-06-20",
+      "2023-06-21",
+      "2023-06-22",
+      "2023-06-23",
+      "2023-06-24",
+      "2023-06-25",
+      "2023-06-26",
+      "2023-06-27",
+      "2023-06-28",
+      "2023-06-29",
+      "2023-06-30",
+    ],
+    int_list: [
+      1.001, 1.001, 1.001, 1.001, 1.0012, 1.0012, 1.0012, 1.0012, 1.0014,
+      1.0014, 1.0014, 1.0014, 1.0014, 1.0014, 1.0016, 1.0016, 1.0016, 1.0016,
+      1.0016, 1.0018, 1.0018, 1.0018, 1.0019, 1.0019, 1.0019, 1.0019, 1.002,
+      1.002, 1.002, 1.002,
+    ],
+  },
+};
+
+// gtja 单位净值表数据
+const gtja_dwjz_data: any = {
+  tableData: [
+    {
+      cpdm: "SZD813",
+      cpmc: "悦宏吉庆有余2号私募证券投资基金",
+      jzrq: "2023-06-19",
+      dwjz: "1.0011",
+      dwjzzzl: "0.00%",
+      ljjz: "1.0011",
+      ljjzzzl: "0.00%",
+    },
+    {
+      cpdm: "SZD811",
+      cpmc: "悦宏吉庆有余1号私募证券投资基金",
+      jzrq: "2023-06-19",
+      dwjz: "1.0011",
+      dwjzzzl: "0.00%",
+      ljjz: "1.0011",
+      ljjzzzl: "0.00%",
+    },
+    {
+      cpdm: "SZD803",
+      cpmc: "悦宏吉庆有余3号私募证券投资基金",
+      jzrq: "2023-06-19",
+      dwjz: "1.0011",
+      dwjzzzl: "0.00%",
+      ljjz: "1.0011",
+      ljjzzzl: "0.00%",
+    },
+  ],
+};
+// gtja 投资者信息总览表数据
+const gtja_tzzxxzl_data: any = {
+  tableData: [
+    {
+      tzz_type: "个人",
+      count: "0",
+      fezs: "0.00",
+      zfezb: "0%",
+      zzc: "0.00",
+      zczb: "0%",
+    },
+    {
+      tzz_type: "机构",
+      count: "2",
+      fezs: "2,000,000.00",
+      zfezb: "100%",
+      zzc: "2,003,800.00",
+      zczb: "100%",
+    },
+    {
+      tzz_type: "产品",
+      count: "0",
+      fezs: "0.00",
+      zfezb: "0%",
+      zzc: "0.00",
+      zczb: "0%",
+    },
+  ],
+};
+// gtja 销售机构总览表数据
+const gtja_xsjgzl_data: any = {
+  tableData: [
+    {
+      xsjg: "管理人直销",
+      tzzsl: "2",
+      fezs: "2,000,000.00",
+      zfezb: "100%",
+      zzc: "2,003,800",
+      zczb: "100%",
+    },
+  ],
+};
+
 export default [
   // GetUserMenuInfo
   {
@@ -6859,6 +8673,749 @@ export default [
       meta.success = true;
       meta.message = "ok";
       return resultSuccess(io_logstash_data, meta, pageInfo);
+    },
+  },
+  {
+    url: "/api/data/fisl_branch_list",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(fisl_branch_list, meta, pageInfo);
+    },
+  },
+  {
+    url: "/api/data/fisl_branch_balance_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(fisl_branch_balance_data, meta, pageInfo);
+    },
+  },
+  {
+    url: "/api/data/fisl_account_balance_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(fisl_account_balance_data, meta, pageInfo);
+    },
+  },
+
+  {
+    url: "/api/data/fisl_balance_GS_echarts_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(fisl_balance_GS_echarts_data, meta, pageInfo);
+    },
+  },
+  {
+    url: "/api/data/fisl_cust_open_echarts_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(fisl_cust_open_echarts_data, meta, pageInfo);
+    },
+  },
+  {
+    url: "/api/data/fisl_int_echarts_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(fisl_int_echarts_data, meta, pageInfo);
+    },
+  },
+  {
+    url: "/api/data/wxup_wechat_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(wxup_wechat_data, meta, pageInfo);
+    },
+  },
+  {
+    url: "/api/data/wxup_follow_echarts_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(wxup_follow_echarts_data, meta, pageInfo);
+    },
+  },
+  {
+    url: "/api/data/wxup_read_echarts_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(wxup_read_echarts_data, meta, pageInfo);
+    },
+  },
+  {
+    url: "/api/data/wxup_articles_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(wxup_articles_data, meta, pageInfo);
+    },
+  },
+  {
+    url: "/api/data/wxup_covers_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(wxup_covers_data, meta, pageInfo);
+    },
+  },
+
+  {
+    url: "/api/data/wxup_account_echarts_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(wxup_account_echarts_data, meta, pageInfo);
+    },
+  },
+  {
+    url: "/api/data/mitt_disable_even",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(mitt_disable_even, meta, pageInfo);
+    },
+  },
+
+  {
+    url: "/api/data/gtja_zcfz_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(gtja_zcfz_data, meta, pageInfo);
+    },
+  },
+  {
+    url: "/api/data/gtja_dwjz_echarts_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(gtja_dwjz_echarts_data, meta, pageInfo);
+    },
+  },
+
+  {
+    url: "/api/data/gtja_dwjz_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(gtja_dwjz_data, meta, pageInfo);
+    },
+  },
+
+  {
+    url: "/api/data/gtja_tzzxxzl_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(gtja_tzzxxzl_data, meta, pageInfo);
+    },
+  },
+  {
+    url: "/api/data/gtja_xsjgzl_data",
+    timeout: 200,
+    type: "post",
+    //response: ({config}) => {
+    response: function (option: any) {
+      const meta: Meta = {
+        code: ResultEnum.INVALID_TOKEN,
+        message: "Invalid token!",
+        success: true,
+      };
+      const pageInfo: PageInfo = {
+        PageNum: "",
+        PageSize: "",
+        Pages: "",
+        Total: "",
+      };
+      const token = getRequestToken(option);
+      //console.log("--------------/api/menu/usermenu----------------",token);
+      if (!token) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Incorrect account or password！";
+        return resultSuccess(null, meta, pageInfo);
+      }
+      const checkUser = createFakeUserList().find(
+        (item) => item.token === token
+      );
+      if (!checkUser) {
+        meta.code = ResultEnum.SUCCESS;
+        meta.success = true;
+        meta.message = "Invalid user token!";
+        return resultSuccess(null, meta, pageInfo);
+      }
+
+      meta.code = ResultEnum.SUCCESS;
+      meta.success = true;
+      meta.message = "ok";
+      return resultSuccess(gtja_xsjgzl_data, meta, pageInfo);
     },
   },
 ];

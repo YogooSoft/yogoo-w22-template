@@ -181,7 +181,7 @@ export default defineComponent({
 
     const dialogVisible = ref(false);
     const handleClose = (done: () => void) => {
-      console.log("--------handleClose--------")
+      console.log("--------handleClose--------");
     };
 
     return {
