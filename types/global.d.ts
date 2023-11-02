@@ -44,6 +44,9 @@ declare global {
     VUE_APP_MOCK: string;
     VUE_APP_GLOB_APP_TITLE: string;
     VUE_APP_GLOB_APP_SHORT_NAME: string;
+    VUE_APP_GLOB_Version: string;
+    VUE_APP_GLOB_APP_LOCAL_CACHE_KEY: string;
+    VUE_APP_GLOB_NODE_ENV: string;
   }
 
   declare function parseInt(s: string | number, radix?: number): number;

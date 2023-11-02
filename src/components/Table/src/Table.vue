@@ -1,6 +1,7 @@
 <template>
   <div class="table_div">
     <el-table
+      ref="excelTable"
       :style="style"
       :data="rowData"
       :class="[table_size, summaryCellStyleClass]"
@@ -41,6 +42,7 @@
           :fixed="item.fixed"
           :type="item.type"
           :sortable="item.sortable"
+          :align="item.align"
         >
         </el-table-column>
       </template>
@@ -80,6 +82,7 @@ import TableColumn from "./components/TableColumn.vue";
 import { defineComponent, computed, ref } from "vue";
 // 引入yuiTable大小样式
 import { yuiTableClass } from "@/enums/tableEnum";
+import { exportExcel } from "@/utils/helper/exportHelper";
 
 export default defineComponent({
   name: "Table",
@@ -292,6 +295,11 @@ export default defineComponent({
         height: this.pageDivHeight,
         position: "relative",
       };
+    },
+
+    // 导出表格
+    exportExcel(excel_name) {
+      exportExcel(this.$refs.excelTable, excel_name, excel_name + ".xlsx");
     },
   },
   watch: {

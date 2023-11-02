@@ -13,25 +13,24 @@
         :prop="item.prop"
         :width="item.width"
         :sortable="item.sortable"
+        :align="item.align"
       >
-
       </el-table-column>
     </template>
   </el-table-column>
 </template>
 
 <script>
-  export default {
-    name: "tableColumn",
-    props: {
-      // 子列头数据
-      coloumnHeader: {
-        type: Object,
-        required: true,
-      },
+export default {
+  name: "tableColumn",
+  props: {
+    // 子列头数据
+    coloumnHeader: {
+      type: Object,
+      required: true,
     },
-  };
+  },
+};
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

@@ -224,13 +224,13 @@ let options1 = ref([
   width: 100%;
   padding: 15px;
 }
-.content_box /deep/ .el-calendar-table .el-calendar-day {
+.content_box :deep(.el-calendar-table .el-calendar-day) {
   height: 50px;
 }
 .is-selected {
   color: #1989fa;
 }
-.content_box /deep/ .el-calendar__body {
+.content_box :deep(.el-calendar__body) {
   padding: 12px 20px 0;
 }
 </style>

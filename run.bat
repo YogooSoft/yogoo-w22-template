@@ -1,6 +1,6 @@
 @title Yogoo W22 Development framework 
 @echo.==============================================================
-@echo.Yogoo W22 Development Framework 
+@echo.Yogoo W22 Development Framework  
 @echo.==============================================================
 @echo off
 @echo.

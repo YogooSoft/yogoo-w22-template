@@ -85,6 +85,7 @@ const tableData: any = {
       width: "150",
       sortable: true,
       fixed: true, // 固定列 true left right
+      align: "left",
     },
     {
       id: 210,
@@ -92,6 +93,7 @@ const tableData: any = {
       prop: "name",
       width: "120",
       sortable: true,
+      align: "left",
     },
     {
       id: 220,
@@ -99,6 +101,7 @@ const tableData: any = {
       prop: "address",
       width: "300",
       sortable: true,
+      align: "right",
     },
     { slot: "age" },
     {
@@ -106,6 +109,7 @@ const tableData: any = {
       label: "数值",
       prop: "num",
       width: "100",
+      align: "right",
     },
   ],
   controlAtrr: {

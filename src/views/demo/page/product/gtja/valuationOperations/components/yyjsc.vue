@@ -365,12 +365,28 @@
     <div class="content_box" v-if="check_button == '划款指令'">
       <span>要求划款日期</span>&nbsp;&nbsp;&nbsp;&nbsp;
       <el-date-picker
-        v-model="value4"
+        v-model="value5"
         type="daterange"
         start-placeholder="开始日期"
         end-placeholder="截止日期"
         :default-value="[new Date(2023, 9, 1), new Date(2023, 10, 1)]"
       />
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="re_box" style="display: inline-block">
+        <el-icon
+          color="#409EFF"
+          style="
+            font-size: 14px;
+            float: left;
+            margin-top: -2px;
+            margin-right: 5px;
+          "
+          ><Refresh
+        /></el-icon>
+        <!-- <el-link style="margin-right: 10px" type="primary">刷新一下</el-link> -->
+        <span>刷新一下</span>&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+
       <br />
       <div class="zl_box">
         <div
@@ -502,6 +518,7 @@ import { ElDescriptions, ElDescriptionsItem, ElTag } from "element-plus";
 let check_button = ref("产品概况");
 let value1 = ref(1);
 let value4 = ref("");
+let value5 = ref("");
 let options1 = ref([
   {
     value: 0,

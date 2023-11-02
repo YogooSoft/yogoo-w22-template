@@ -40,7 +40,15 @@
       :can-expan="true"
       help-message="基础表格yui-table"
     >
+      <el-button
+        style="margin-bottom: 10px"
+        type="primary"
+        @click="export_excel"
+        >导出</el-button
+      >
+      <!-- @export-excel="export_excel" -->
       <yui-table
+        ref="yuiTableRef"
         :load_staus="load_staus"
         :border="true"
         :table_size="elTableClass"
@@ -112,6 +120,13 @@ export default defineComponent({
     };
   },
   methods: {
+    // 下载表格
+    export_excel() {
+      const yuiTableRef: any = this.$refs.yuiTableRef;
+      // let aa = this.$refs.yuiTableRef as any;
+      yuiTableRef.exportExcel("基础表格下载");
+    },
+
     change_loading() {
       if (this.radio2 == "加载中") {
         this.load_staus = true;
@@ -142,14 +157,10 @@ export default defineComponent({
         this.load_staus = false;
 
         console.log(this.rowData);
-        console.log(this.headerData);
+        console.log("==headerData=", this.headerData);
         console.log(this.controlAtrr);
       }
     });
-  },
-
-  setup(props) {
-    return {};
   },
 });
 </script>

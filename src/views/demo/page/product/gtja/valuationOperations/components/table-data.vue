@@ -48,13 +48,23 @@
       >
         <el-table-column prop="tzz_type" label="投资者类型" width="180">
         </el-table-column>
-        <el-table-column prop="count" label="数量" width="180" align="left">
+        <el-table-column prop="count" label="数量" width="80" align="left">
         </el-table-column>
-        <el-table-column prop="fezs" label="份额总数" align="right">
+        <el-table-column prop="fezs" label="份额总数" width="180" align="right">
         </el-table-column>
-        <el-table-column prop="zfezb" label="总份额占比" align="left">
+        <el-table-column
+          prop="zfezb"
+          label="总份额占比"
+          width="100"
+          align="left"
+        >
         </el-table-column>
-        <el-table-column prop="zzc" label="总资产 (元)" align="right">
+        <el-table-column
+          prop="zzc"
+          label="总资产(元)"
+          width="180"
+          align="right"
+        >
         </el-table-column>
         <el-table-column prop="zczb" label="资产占比" align="right">
         </el-table-column>
@@ -75,15 +85,25 @@
         <el-table-column
           prop="tzzsl"
           label="投资者数量"
-          width="180"
+          width="120"
           align="left"
         >
         </el-table-column>
-        <el-table-column prop="fezs" label="份额总数" align="right">
+        <el-table-column prop="fezs" label="份额总数" width="180" align="right">
         </el-table-column>
-        <el-table-column prop="zfezb" label="总份额占比" align="left">
+        <el-table-column
+          prop="zfezb"
+          label="总份额占比"
+          width="120"
+          align="left"
+        >
         </el-table-column>
-        <el-table-column prop="zzc" label="总资产 (元)" align="right">
+        <el-table-column
+          prop="zzc"
+          label="总资产(元)"
+          width="180"
+          align="right"
+        >
         </el-table-column>
         <el-table-column prop="zczb" label="资产占比" align="right">
         </el-table-column>
