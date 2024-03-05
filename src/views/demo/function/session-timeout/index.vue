@@ -1,5 +1,5 @@
 <template>
-  <page-wrapper title="登录过期示例" content="">
+  <page-wrapper title="" content="">
     <collapse-container
       class="cl-mb-10"
       title="登录过期示例"

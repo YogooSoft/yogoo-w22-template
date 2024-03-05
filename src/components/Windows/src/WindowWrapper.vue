@@ -13,10 +13,18 @@
   >
     <template #title="{ close, titleId, titleClass }">
       <div class="my-header">
-        <h4 :id="titleId" class="windows-title">{{ getMergeProps.title }}</h4>
+        <h4 :id="titleId" class="windows-title">
+          {{ getMergeProps.title
+          }}<span style="font-size: 12px; color: #999999; margin-left: 10px"
+            >{{ getMergeProps.subtitle }}
+          </span>
+        </h4>
+
         <div class="tools">
+          <!-- 控制显示全屏 -->
           <el-button
             :disabled="!getMergeProps.canFullscreen"
+            v-if="getMergeProps.showFullscreen"
             plain
             icon="FullScreen"
             size="small"
@@ -219,8 +227,9 @@ export default defineComponent({
 //   padding: 5px 10px 10px 10px;
 // }
 .windows-title {
-  font-size: 13px;
-  color: #606266;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222222;
   padding: 5px 2px;
   text-align: center;
   text-decoration: none;

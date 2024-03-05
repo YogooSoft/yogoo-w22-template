@@ -1,6 +1,7 @@
 <template>
-  <div class="layout">
-    <!-- <el-card class="box-card" shadow="hover">
+  <page-wrapper title="首页" content="">
+    <div class="layout">
+      <!-- <el-card class="box-card" shadow="hover">
       <template #header>
         <div class="card-header">
           <div><span>访问数</span></div>
@@ -36,51 +37,53 @@
         </div>
       </template>
     </el-card> -->
-    <el-card class="box-card view-home" shadow="hover">
-      <template #header>
-        <div class="card-header">
-          <span>全站流量</span>
+      <el-card class="box-card view-home" shadow="hover">
+        <template #header>
+          <div class="card-header">
+            <span>全站流量</span>
+          </div>
+        </template>
+        <div class="card"><count-flow /></div>
+      </el-card>
+      <el-card class="box-card view-home" shadow="hover">
+        <template #header>
+          <div class="card-header">
+            <span>全站日活</span>
+          </div>
+        </template>
+        <div class="card">
+          <count-daily />
         </div>
-      </template>
-      <div class="card"><count-flow /></div>
-    </el-card>
-    <el-card class="box-card view-home" shadow="hover">
-      <template #header>
-        <div class="card-header">
-          <span>全站日活</span>
+      </el-card>
+      <el-card class="box-card view-home" shadow="hover">
+        <template #header>
+          <div class="card-header">
+            <span>注册用户数</span>
+          </div>
+        </template>
+        <div class="card">
+          <count-regusers />
         </div>
-      </template>
-      <div class="card">
-        <count-daily />
-      </div>
-    </el-card>
-    <el-card class="box-card view-home" shadow="hover">
-      <template #header>
-        <div class="card-header">
-          <span>注册用户数</span>
+      </el-card>
+      <el-card class="box-card view-home" shadow="hover">
+        <template #header>
+          <div class="card-header">
+            <span>下单人数</span>
+          </div>
+        </template>
+        <div class="card">
+          <count-sales />
         </div>
-      </template>
-      <div class="card">
-        <count-regusers />
-      </div>
-    </el-card>
-    <el-card class="box-card view-home" shadow="hover">
-      <template #header>
-        <div class="card-header">
-          <span>下单人数</span>
-        </div>
-      </template>
-      <div class="card">
-        <count-sales />
-      </div>
-    </el-card>
-  </div>
+      </el-card>
+    </div>
+  </page-wrapper>
+
   <!-- </div> -->
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-
+import { PageWrapper } from "@/components/Page";
 import { defineComponent, computed, ref, reactive } from "vue";
 
 import CountSales from "./components/count-sales.vue";
@@ -90,7 +93,7 @@ import CountRegusers from "./components/count-regusers.vue";
 
 export default defineComponent({
   name: "LockModal",
-  components: { CountSales, CountFlow, CountDaily, CountRegusers },
+  components: { CountSales, CountFlow, CountDaily, CountRegusers, PageWrapper },
   setup() {
     const input = ref("");
     const input_text = reactive({ user: "" });

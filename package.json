@@ -47,6 +47,7 @@
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
     "vue-cli-plugin-style-resources-loader": "^0.1.5",
+    "vue-currency-input": "^3.0.5",
     "vue-echarts": "6.2.3",
     "vue-masonry": "^0.16.0",
     "vue-router": "^4.0.0-0",

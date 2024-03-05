@@ -95,7 +95,7 @@ yarn build
 
 ## 技术交流微信群
 
-<!-- ![图片名称](resources/w22-template-QQ-QRcode.png) -->
+<!-- ![图片名称](resources/w22-template-QQ-QRcode.png)  -->
 <img src="resources/w22-template-QQ-QRcode.png" width="20%">
 
 ## 免责声明

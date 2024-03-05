@@ -3,7 +3,9 @@
     width="600px"
     @register="register"
     :title="data.title"
-    :canFullscreen=false 
+    :canFullscreen="false"
+    :showFullscreen="false"
+    subtitle="副标题"
   >
     <collapse-container
       class="cl-mb-10"
@@ -18,7 +20,12 @@
             >点击触发用户登陆过期</el-button
           > -->
           <el-button @click="setTitle">修改窗口标题属性</el-button>
-        <el-button @click="setMaximize(true)">修改最大化按钮禁用属性</el-button>
+          <el-button @click="setMaximize(true)"
+            >修改最大化按钮禁用属性</el-button
+          >
+          <el-button @click="setMaxshow(true)"
+            >修改最大化按钮显示属性</el-button
+          >
         </span>
       </div>
     </collapse-container>
@@ -64,8 +71,12 @@ export default defineComponent({
       setModalProps({ canFullscreen: value });
     };
 
+    const setMaxshow = (value: boolean) => {
+      setModalProps({ showFullscreen: value });
+    };
+
     const setTitle = (value: string) => {
-      setModalProps({ title: 'Modal New Title' });
+      setModalProps({ title: "Modal New Title" });
     };
 
     return {
@@ -73,6 +84,7 @@ export default defineComponent({
       sessionTimeout,
       setTitle,
       setMaximize,
+      setMaxshow,
       data,
       closeModal,
     };

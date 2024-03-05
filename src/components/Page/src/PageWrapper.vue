@@ -1,9 +1,16 @@
 <template>
   <div :class="getClass" ref="wrapperRef">
     <!-- <div class="page-wrapper" > -->
-      <div v-if="dense"  style="margin-bottom: 10px;">
-      <div style="font-size:medium;">{{ title }}</div>
-      <div style="margin-top: 3px;">
+    <!-- 面包屑 -->
+    <breadcrumbtop
+      v-if="userinfo.menuPosition == 'top'"
+      id="breadcrumb-container"
+      class="breadcrumb-container"
+      :key="new Date().getTime()"
+    />
+    <div v-if="dense" style="margin-bottom: 10px">
+      <div style="font-size: medium">{{ title }}</div>
+      <div style="margin-top: 3px">
         {{ content }}
       </div>
     </div>
@@ -26,6 +33,7 @@ import {
   computed,
   watch,
   ref,
+  reactive,
   unref,
   CSSProperties,
   PropType,
@@ -35,10 +43,12 @@ import { propTypes } from "@/utils/propTypes";
 import { useDesign } from "@/hooks/web/useDesign";
 import { useContentHeight } from "@/hooks/web/useContentHeight";
 import { PageWrapperFixedHeightKey } from "..";
+import breadcrumbtop from "@/components/BreadcrumbTop/index.vue";
+import { useUserStore } from "@/store/modules/user";
 
 export default defineComponent({
   name: "PageWrapper",
-  components: {},
+  components: { breadcrumbtop },
   inheritAttrs: false,
   props: {
     title: { type: String },
@@ -61,6 +71,8 @@ export default defineComponent({
     const contentRef = ref(null);
     const footerRef = ref(null);
     const { prefixCls } = useDesign("page-wrapper");
+    const userStore = useUserStore();
+    const userinfo = reactive(userStore.getUserInfo);
 
     provide(
       PageWrapperFixedHeightKey,
@@ -122,6 +134,7 @@ export default defineComponent({
       footerRef,
       getClass,
       getContentClass,
+      userinfo,
     };
   },
 });

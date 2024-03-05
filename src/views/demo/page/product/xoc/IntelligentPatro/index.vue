@@ -1,585 +1,614 @@
 <template>
-  <div class="Intelligent_patro_info_list">
-    <!-- 搜索栏 -->
-    <div class="fix">
-      <span class="lable">ES集群</span>
-      <el-select
-        style="min-width: 160px; width: 160px"
-        v-model="values2"
-        placeholder="请选择ES集群"
-        filterable
-        @change="change_es"
-      >
-        <el-option
-          v-for="item in es_ids"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        ></el-option>
-      </el-select>
+  <page-wrapper title="" content="">
+    <div class="Intelligent_patro_info_list">
+      <!-- 搜索栏 -->
+      <div class="fix">
+        <span class="lable">ES集群</span>
+        <el-select
+          style="min-width: 160px; width: 160px"
+          v-model="values2"
+          placeholder="请选择ES集群"
+          filterable
+          @change="change_es"
+        >
+          <el-option
+            v-for="item in es_ids"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
 
-      <span class="lable" style="margin-left: 10px">巡检项目</span>
-      <el-select
-        style="min-width: 120px"
-        v-model="values3"
-        placeholder="选择巡检项目"
-        multiple
-        collapse-tags
-        collapse-tags-tooltip
-        clearable
-        @change="changeSelect"
-      >
-        <el-checkbox v-model="checked" @change="selectAll">全选</el-checkbox>
-        <el-option
-          v-for="item in items_ids"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        ></el-option>
-      </el-select>
+        <span class="lable" style="margin-left: 10px">巡检项目</span>
+        <el-select
+          style="min-width: 120px"
+          v-model="values3"
+          placeholder="选择巡检项目"
+          multiple
+          collapse-tags
+          collapse-tags-tooltip
+          clearable
+          @change="changeSelect"
+        >
+          <el-checkbox v-model="checked" @change="selectAll">全选</el-checkbox>
+          <el-option
+            v-for="item in items_ids"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
 
-      <el-button
-        v-if="XJ_show === true"
-        type="primary"
-        :icon="Refresh"
-        class="button"
-        @click="do_GETDiagnoseRun()"
-      >
-        巡检
-      </el-button>
-      <el-button
-        v-if="XJ_show === false"
-        type="danger"
-        :icon="CircleClose"
-        class="button"
-        @click="do_GETDiagnoseCancelTask()"
-      >
-        取消巡检
-      </el-button>
+        <el-button
+          v-if="XJ_show === true"
+          type="primary"
+          :icon="Refresh"
+          class="button"
+          @click="do_GETDiagnoseRun()"
+        >
+          巡检
+        </el-button>
+        <el-button
+          v-if="XJ_show === false"
+          type="danger"
+          :icon="CircleClose"
+          class="button"
+          @click="do_GETDiagnoseCancelTask()"
+        >
+          取消巡检
+        </el-button>
 
-      <el-button class="button" :icon="RefreshRight" @click="removes()">
-        重置
-      </el-button>
-    </div>
-
-    <div class="fix">
-      <span class="lable">自动巡检时间</span>
-      <el-config-provider :locale="locale">
-        <el-time-picker
-          style="width: 100px"
-          v-model="value_time"
-          format="HH:mm"
-          :picker-options="{
-            selectableRange: '00:00 - 24:00',
-          }"
-          @change="change_time"
-        ></el-time-picker>
-      </el-config-provider>
-
-      <span class="lable" style="margin-left: 10px">自动巡检</span>
-      <el-switch
-        v-model="values1"
-        active-color="rgba(64, 158, 255, 1)"
-        inactive-color="rgba(235, 238, 245, 1)"
-        class="table-center"
-        @change="change_diagnose_auto(1)"
-      ></el-switch>
-    </div>
-  </div>
-  <!-- 功能展示 -->
-
-  <div class="reportBar">
-    <el-row :gutter="10">
-      <el-col :span="7">
-        <div>
-          <check-re ref="CheckRe"></check-re>
-        </div>
-      </el-col>
-      <el-col :span="10">
-        <div>
-          <check-chart ref="CheckChart"></check-chart>
-        </div>
-      </el-col>
-      <el-col :span="7">
-        <div>
-          <check-day ref="CheckDay"></check-day>
-        </div>
-      </el-col>
-    </el-row>
-  </div>
-
-  <div class="report">
-    <el-card shadow="hover" :body-style="{ padding: '0px', height: '101%' }">
-      <div class="model_item_box_card_top">
-        <div class="model_item_box_card_top_title">
-          <svg-icon icon-name="DataLine" element-icons="true" />
-          <div class="model_item_box_card_top_title_text">&nbsp;巡检报告</div>
-        </div>
+        <el-button class="button" :icon="RefreshRight" @click="removes()">
+          重置
+        </el-button>
       </div>
-      <div class="model_item_box_card_bottom">
-        <div class="model_item_box_card_bottom_left">
-          <div class="model_item_box_card_bottom_left_title">
-            集群巡检报告【{{ diagnose_type }}】
+
+      <div class="fix">
+        <span class="lable">自动巡检时间</span>
+        <el-config-provider :locale="locale">
+          <el-time-picker
+            style="width: 100px"
+            v-model="value_time"
+            format="HH:mm"
+            :picker-options="{
+              selectableRange: '00:00 - 24:00',
+            }"
+            @change="change_time"
+          ></el-time-picker>
+        </el-config-provider>
+
+        <span class="lable" style="margin-left: 10px">自动巡检</span>
+        <el-switch
+          v-model="values1"
+          active-color="rgba(64, 158, 255, 1)"
+          inactive-color="rgba(235, 238, 245, 1)"
+          class="table-center"
+          @change="change_diagnose_auto(1)"
+        ></el-switch>
+      </div>
+    </div>
+    <!-- 功能展示 -->
+
+    <div class="reportBar">
+      <el-row :gutter="10">
+        <el-col :span="7">
+          <div>
+            <check-re ref="CheckRe"></check-re>
           </div>
-          <div class="model_item_box_card_bottom_left_info">
-            <div class="text_box">
-              <span class="text_box_left" style="width: 70px">巡检时间</span>
-              <span class="text_box_right" style="width: 150px">
-                {{ report_data["create_time"] }}
-              </span>
-
-              <span class="text_box_left" style="width: 55px">集群ID</span>
-              <span class="text_box_right" style="padding-right: 10px">
-                {{ report_data["cluster_name"] }}
-              </span>
-
-              <span class="text_box_left" style="width: 70px">巡检个数</span>
-              <span class="text_box_right" style="width: 50px">
-                {{ diagnose_count }}
-              </span>
-            </div>
-            <div class="text_box">
-              <span class="text_box_left" style="width: 70px">报告摘要</span>
-              <span class="text_box_right" style="width: 85%; height: auto">
-                集群存在高风险巡检项&nbsp;
-                <span style="color: #f56c6c">
-                  {{ report_data["high_risks"] }}
-                </span>
-                &nbsp;个， 低风险巡检项&nbsp;
-                <span style="color: #e7a442">
-                  {{ report_data["low_risks"] }}
-                </span>
-                &nbsp;个，
-                {{ report_data["summary"] }}
-              </span>
-            </div>
+        </el-col>
+        <el-col :span="10">
+          <div>
+            <check-chart ref="CheckChart"></check-chart>
           </div>
+        </el-col>
+        <el-col :span="7">
+          <div>
+            <check-day ref="CheckDay"></check-day>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
 
-          <div class="model_item_box_card_bottom_left_content">
-            <div
-              class="model_item_box_card_bottom_left_content_title"
-              @click="GFXXJX_show_change()"
-            >
-              <span class="model_item_box_card_bottom_left_content_icon">
-                <svg-icon
-                  icon-name="CaretRight"
-                  v-if="GFXXJX_show === false"
-                  style="color: #606266"
-                  element-icons="true"
-                />
-                <svg-icon
-                  icon-name="CaretBottom"
-                  v-if="GFXXJX_show === true"
-                  style="color: #606266"
-                  element-icons="true"
-                />
-                高风险巡检项目:
-                <span style="color: #f67c7c">
-                  {{ report_data["high_risks"] }}
-                </span>
-              </span>
+    <div class="report">
+      <el-card shadow="hover" :body-style="{ padding: '0px', height: '101%' }">
+        <div class="model_item_box_card_top">
+          <div class="model_item_box_card_top_title">
+            <svg-icon icon-name="DataLine" element-icons="true" />
+            <div class="model_item_box_card_top_title_text">&nbsp;巡检报告</div>
+          </div>
+        </div>
+        <div class="model_item_box_card_bottom">
+          <div class="model_item_box_card_bottom_left">
+            <div class="model_item_box_card_bottom_left_title">
+              集群巡检报告【{{ diagnose_type }}】
             </div>
-            <div
-              class="model_item_box_card_bottom_left_content_info"
-              v-if="GFXXJX_show === true"
-            >
-              <div
-                v-for="(risk_data, index) in report_data['risk_report'][
-                  '高风险巡检项'
-                ]"
-              >
-                <div class="text_box">
-                  <span>
-                    <svg-icon
-                      icon-name="Warning"
-                      style="color: #f67a7a"
-                      element-icons="true"
-                    />
-                    {{ risk_data.item_name }}
-                  </span>
-                </div>
-                <div class="bottom_left_content_info_text_box">
-                  <span class="bottom_left_content_info_text_box_left">
-                    巡检项说明
-                  </span>
-                  <span
-                    class="bottom_left_content_info_text_box_right"
-                    v-if="risk_data.result_explain == ''"
-                  >
-                    --
-                  </span>
-                  <span class="bottom_left_content_info_text_box_right" v-else>
-                    {{ risk_data.result_explain }}
-                  </span>
-                </div>
-                <div class="bottom_left_content_info_text_box">
-                  <span
-                    class="bottom_left_content_info_text_box_left"
-                    @click="risk_res_high_show(risk_data.table_show, index)"
-                  >
-                    巡检结果
+            <div class="model_item_box_card_bottom_left_info">
+              <div class="text_box">
+                <span class="text_box_left" style="width: 70px">巡检时间</span>
+                <span class="text_box_right" style="width: 150px">
+                  {{ report_data["create_time"] }}
+                </span>
 
-                    <div
-                      v-if="risk_data.has_table"
-                      style="display: inline-block"
-                    >
-                      <i
-                        v-if="risk_data.table_show == false"
-                        class="el-icon-caret-right"
-                        style="color: #606266"
-                      ></i>
-                      <i
-                        v-if="risk_data.table_show == true"
-                        class="el-icon-caret-top"
-                        style="color: #606266"
-                      ></i>
-                    </div>
-                  </span>
-                  <span
-                    class="bottom_left_content_info_text_box_right"
-                    v-if="risk_data.check_result == ''"
-                  >
-                    --
-                  </span>
-                  <span class="bottom_left_content_info_text_box_right" v-else>
-                    {{ risk_data.check_result }}
-                  </span>
-                </div>
+                <span class="text_box_left" style="width: 55px">集群ID</span>
+                <span class="text_box_right" style="padding-right: 10px">
+                  {{ report_data["cluster_name"] }}
+                </span>
 
-                <div
-                  class="bottom_left_content_info_text_box"
-                  v-if="risk_data.table_show == true"
-                >
-                  <el-table
-                    :data="risk_data.table_data.slice(0, 3)"
-                    ref="table"
-                    size="small"
-                    :border="false"
-                    max-height="250"
-                    style="width: 100%; max-height: 250px"
-                    :cell-style="{ padding: '0' }"
-                    :row-style="{ height: '0' }"
-                    :header-cell-style="{ color: '#606266', fontWeight: 400 }"
-                  >
-                    <template v-for="item in risk_data.headers">
-                      <el-table-column
-                        :label="item.label"
-                        :prop="item.prop"
-                        :width="item.width"
-                      ></el-table-column>
-                    </template>
-                  </el-table>
-                </div>
-
-                <div class="bottom_left_content_info_text_box">
-                  <span class="bottom_left_content_info_text_box_left">
-                    巡检建议
+                <span class="text_box_left" style="width: 70px">巡检个数</span>
+                <span class="text_box_right" style="width: 50px">
+                  {{ diagnose_count }}
+                </span>
+              </div>
+              <div class="text_box">
+                <span class="text_box_left" style="width: 70px">报告摘要</span>
+                <span class="text_box_right" style="width: 85%; height: auto">
+                  集群存在高风险巡检项&nbsp;
+                  <span style="color: #f56c6c">
+                    {{ report_data["high_risks"] }}
                   </span>
-                  <span
-                    class="bottom_left_content_info_text_box_right"
-                    v-if="risk_data.suggestion == ''"
-                  >
-                    --
+                  &nbsp;个， 低风险巡检项&nbsp;
+                  <span style="color: #e7a442">
+                    {{ report_data["low_risks"] }}
                   </span>
-                  <span class="bottom_left_content_info_text_box_right" v-else>
-                    {{ risk_data.suggestion }}
-                  </span>
-                </div>
+                  &nbsp;个，
+                  {{ report_data["summary"] }}
+                </span>
               </div>
             </div>
 
-            <div
-              class="model_item_box_card_bottom_left_content_title"
-              @click="DFXXJX_show_change()"
-            >
-              <span class="model_item_box_card_bottom_left_content_icon">
-                <svg-icon
-                  icon-name="CaretRight"
-                  v-if="DFXXJX_show === false"
-                  style="color: #606266"
-                  element-icons="true"
-                />
-                <svg-icon
-                  icon-name="CaretBottom"
-                  v-if="DFXXJX_show === true"
-                  style="color: #606266"
-                  element-icons="true"
-                />
-
-                低风险巡检项目:
-
-                <span style="color: #e6a440">
-                  {{ report_data["low_risks"] }}
-                </span>
-              </span>
-            </div>
-            <div
-              class="model_item_box_card_bottom_left_content_info"
-              v-if="DFXXJX_show === true"
-            >
+            <div class="model_item_box_card_bottom_left_content">
               <div
-                v-for="(risk_data, index) in report_data['risk_report'][
-                  '低风险巡检项'
-                ]"
+                class="model_item_box_card_bottom_left_content_title"
+                @click="GFXXJX_show_change()"
               >
-                <div class="text_box">
-                  <span>
-                    <svg-icon
-                      icon-name="Warning"
-                      style="color: #e6a440"
-                      element-icons="true"
-                    />
-
-                    {{ risk_data.item_name }}
+                <span class="model_item_box_card_bottom_left_content_icon">
+                  <svg-icon
+                    icon-name="CaretRight"
+                    v-if="GFXXJX_show === false"
+                    style="color: #606266"
+                    element-icons="true"
+                  />
+                  <svg-icon
+                    icon-name="CaretBottom"
+                    v-if="GFXXJX_show === true"
+                    style="color: #606266"
+                    element-icons="true"
+                  />
+                  高风险巡检项目:
+                  <span style="color: #f67c7c">
+                    {{ report_data["high_risks"] }}
                   </span>
-                </div>
-                <div class="bottom_left_content_info_text_box">
-                  <span class="bottom_left_content_info_text_box_left">
-                    巡检项说明
-                  </span>
-                  <span
-                    class="bottom_left_content_info_text_box_right"
-                    v-if="risk_data.result_explain == ''"
-                  >
-                    --
-                  </span>
-                  <span class="bottom_left_content_info_text_box_right" v-else>
-                    {{ risk_data.result_explain }}
-                  </span>
-                </div>
-                <div class="bottom_left_content_info_text_box">
-                  <span
-                    class="bottom_left_content_info_text_box_left"
-                    @click="risk_res_low_show(risk_data.table_show, index)"
-                  >
-                    巡检结果
-                    <div
-                      v-if="risk_data.has_table"
-                      style="display: inline-block"
-                    >
-                      <i
-                        v-if="risk_data.table_show == false"
-                        class="el-icon-caret-right"
-                        style="color: #606266"
-                      ></i>
-                      <i
-                        v-if="risk_data.table_show == true"
-                        class="el-icon-caret-top"
-                        style="color: #606266"
-                      ></i>
-                    </div>
-                  </span>
-
-                  <span
-                    class="bottom_left_content_info_text_box_right"
-                    v-if="risk_data.check_result == ''"
-                  >
-                    --
-                  </span>
-
-                  <span class="bottom_left_content_info_text_box_right" v-else>
-                    {{ risk_data.check_result }}
-                  </span>
-                </div>
+                </span>
+              </div>
+              <div
+                class="model_item_box_card_bottom_left_content_info"
+                v-if="GFXXJX_show === true"
+              >
                 <div
-                  class="bottom_left_content_info_text_box"
-                  v-if="risk_data.table_show == true"
+                  v-for="(risk_data, index) in report_data['risk_report'][
+                    '高风险巡检项'
+                  ]"
                 >
-                  <el-table
-                    :data="risk_data.table_data.slice(0, 3)"
-                    ref="table"
-                    size="small"
-                    :border="false"
-                    max-height="250"
-                    style="width: 100%; max-height: 250px"
-                    :cell-style="{ padding: '0' }"
-                    :row-style="{ height: '0' }"
-                    :header-cell-style="{ color: '#606266', fontWeight: 400 }"
-                  >
-                    <template v-for="item in risk_data.headers">
-                      <el-table-column
-                        :label="item.label"
-                        :prop="item.prop"
-                        :width="item.width"
-                      ></el-table-column>
-                    </template>
-                  </el-table>
+                  <div class="text_box">
+                    <span>
+                      <svg-icon
+                        icon-name="Warning"
+                        style="color: #f67a7a"
+                        element-icons="true"
+                      />
+                      {{ risk_data.item_name }}
+                    </span>
+                  </div>
+                  <div class="bottom_left_content_info_text_box">
+                    <span class="bottom_left_content_info_text_box_left">
+                      巡检项说明
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-if="risk_data.result_explain == ''"
+                    >
+                      --
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-else
+                    >
+                      {{ risk_data.result_explain }}
+                    </span>
+                  </div>
+                  <div class="bottom_left_content_info_text_box">
+                    <span
+                      class="bottom_left_content_info_text_box_left"
+                      @click="risk_res_high_show(risk_data.table_show, index)"
+                    >
+                      巡检结果
+
+                      <div
+                        v-if="risk_data.has_table"
+                        style="display: inline-block"
+                      >
+                        <i
+                          v-if="risk_data.table_show == false"
+                          class="el-icon-caret-right"
+                          style="color: #606266"
+                        ></i>
+                        <i
+                          v-if="risk_data.table_show == true"
+                          class="el-icon-caret-top"
+                          style="color: #606266"
+                        ></i>
+                      </div>
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-if="risk_data.check_result == ''"
+                    >
+                      --
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-else
+                    >
+                      {{ risk_data.check_result }}
+                    </span>
+                  </div>
+
                   <div
-                    style="display: flex; margin-top: 10px"
-                    v-if="risk_data.table_data.length > 3"
+                    class="bottom_left_content_info_text_box"
+                    v-if="risk_data.table_show == true"
                   >
-                    <!--                      <el-button @click="index_detail(risk_data,risk_data.item_name)">-->
-                    <!--                        点击查看更多{{risk_data.table_data.length-3}}条记录-->
-                    <!--                      </el-button>-->
+                    <el-table
+                      :data="risk_data.table_data.slice(0, 3)"
+                      ref="table"
+                      size="small"
+                      :border="false"
+                      max-height="250"
+                      style="width: 100%; max-height: 250px"
+                      :cell-style="{ padding: '0' }"
+                      :row-style="{ height: '0' }"
+                      :header-cell-style="{ color: '#606266', fontWeight: 400 }"
+                    >
+                      <template v-for="item in risk_data.headers">
+                        <el-table-column
+                          :label="item.label"
+                          :prop="item.prop"
+                          :width="item.width"
+                        ></el-table-column>
+                      </template>
+                    </el-table>
+                  </div>
+
+                  <div class="bottom_left_content_info_text_box">
+                    <span class="bottom_left_content_info_text_box_left">
+                      巡检建议
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-if="risk_data.suggestion == ''"
+                    >
+                      --
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-else
+                    >
+                      {{ risk_data.suggestion }}
+                    </span>
                   </div>
                 </div>
+              </div>
 
-                <div class="bottom_left_content_info_text_box">
-                  <span class="bottom_left_content_info_text_box_left">
-                    巡检建议
+              <div
+                class="model_item_box_card_bottom_left_content_title"
+                @click="DFXXJX_show_change()"
+              >
+                <span class="model_item_box_card_bottom_left_content_icon">
+                  <svg-icon
+                    icon-name="CaretRight"
+                    v-if="DFXXJX_show === false"
+                    style="color: #606266"
+                    element-icons="true"
+                  />
+                  <svg-icon
+                    icon-name="CaretBottom"
+                    v-if="DFXXJX_show === true"
+                    style="color: #606266"
+                    element-icons="true"
+                  />
+
+                  低风险巡检项目:
+
+                  <span style="color: #e6a440">
+                    {{ report_data["low_risks"] }}
                   </span>
-                  <span
-                    class="bottom_left_content_info_text_box_right"
-                    v-if="risk_data.suggestion == ''"
+                </span>
+              </div>
+              <div
+                class="model_item_box_card_bottom_left_content_info"
+                v-if="DFXXJX_show === true"
+              >
+                <div
+                  v-for="(risk_data, index) in report_data['risk_report'][
+                    '低风险巡检项'
+                  ]"
+                >
+                  <div class="text_box">
+                    <span>
+                      <svg-icon
+                        icon-name="Warning"
+                        style="color: #e6a440"
+                        element-icons="true"
+                      />
+
+                      {{ risk_data.item_name }}
+                    </span>
+                  </div>
+                  <div class="bottom_left_content_info_text_box">
+                    <span class="bottom_left_content_info_text_box_left">
+                      巡检项说明
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-if="risk_data.result_explain == ''"
+                    >
+                      --
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-else
+                    >
+                      {{ risk_data.result_explain }}
+                    </span>
+                  </div>
+                  <div class="bottom_left_content_info_text_box">
+                    <span
+                      class="bottom_left_content_info_text_box_left"
+                      @click="risk_res_low_show(risk_data.table_show, index)"
+                    >
+                      巡检结果
+                      <div
+                        v-if="risk_data.has_table"
+                        style="display: inline-block"
+                      >
+                        <i
+                          v-if="risk_data.table_show == false"
+                          class="el-icon-caret-right"
+                          style="color: #606266"
+                        ></i>
+                        <i
+                          v-if="risk_data.table_show == true"
+                          class="el-icon-caret-top"
+                          style="color: #606266"
+                        ></i>
+                      </div>
+                    </span>
+
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-if="risk_data.check_result == ''"
+                    >
+                      --
+                    </span>
+
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-else
+                    >
+                      {{ risk_data.check_result }}
+                    </span>
+                  </div>
+                  <div
+                    class="bottom_left_content_info_text_box"
+                    v-if="risk_data.table_show == true"
                   >
-                    --
-                  </span>
-                  <span class="bottom_left_content_info_text_box_right" v-else>
-                    {{ risk_data.suggestion }}
-                  </span>
+                    <el-table
+                      :data="risk_data.table_data.slice(0, 3)"
+                      ref="table"
+                      size="small"
+                      :border="false"
+                      max-height="250"
+                      style="width: 100%; max-height: 250px"
+                      :cell-style="{ padding: '0' }"
+                      :row-style="{ height: '0' }"
+                      :header-cell-style="{ color: '#606266', fontWeight: 400 }"
+                    >
+                      <template v-for="item in risk_data.headers">
+                        <el-table-column
+                          :label="item.label"
+                          :prop="item.prop"
+                          :width="item.width"
+                        ></el-table-column>
+                      </template>
+                    </el-table>
+                    <div
+                      style="display: flex; margin-top: 10px"
+                      v-if="risk_data.table_data.length > 3"
+                    >
+                      <!--                      <el-button @click="index_detail(risk_data,risk_data.item_name)">-->
+                      <!--                        点击查看更多{{risk_data.table_data.length-3}}条记录-->
+                      <!--                      </el-button>-->
+                    </div>
+                  </div>
+
+                  <div class="bottom_left_content_info_text_box">
+                    <span class="bottom_left_content_info_text_box_left">
+                      巡检建议
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-if="risk_data.suggestion == ''"
+                    >
+                      --
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-else
+                    >
+                      {{ risk_data.suggestion }}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div
-              class="model_item_box_card_bottom_left_content_title"
-              @click="AQXJX_show_change()"
-            >
-              <span class="model_item_box_card_bottom_left_content_icon">
-                <svg-icon
-                  icon-name="CaretRight"
-                  v-if="AQXJX_show === false"
-                  style="color: #606266"
-                  element-icons="true"
-                />
-                <svg-icon
-                  icon-name="CaretBottom"
-                  v-if="AQXJX_show === true"
-                  style="color: #606266"
-                  element-icons="true"
-                />
-                安全巡检项目:
-
-                <span style="color: #68c23b">
-                  {{ report_data["no_risks"] }}
-                </span>
-              </span>
-            </div>
-            <div
-              class="model_item_box_card_bottom_left_content_info"
-              v-if="AQXJX_show === true"
-            >
               <div
-                v-for="(risk_data, index) in report_data['risk_report'][
-                  '安全巡检项'
-                ]"
+                class="model_item_box_card_bottom_left_content_title"
+                @click="AQXJX_show_change()"
               >
-                <div class="text_box">
-                  <span>
-                    <svg-icon
-                      icon-name="Warning"
-                      style="color: #68c23b"
-                      element-icons="true"
-                    />
-                    {{ risk_data.item_name }}
-                  </span>
-                </div>
-                <div class="bottom_left_content_info_text_box">
-                  <span class="bottom_left_content_info_text_box_left">
-                    巡检项说明
-                  </span>
-                  <span
-                    class="bottom_left_content_info_text_box_right"
-                    v-if="risk_data.result_explain == ''"
-                  >
-                    --
-                  </span>
-                  <span class="bottom_left_content_info_text_box_right" v-else>
-                    {{ risk_data.result_explain }}
-                  </span>
-                </div>
-                <div class="bottom_left_content_info_text_box">
-                  <span
-                    class="bottom_left_content_info_text_box_left"
-                    @click="risk_res_safe_show(risk_data.table_show, index)"
-                  >
-                    巡检结果
-                    <div
-                      v-if="risk_data.has_table"
-                      style="display: inline-block"
-                    >
-                      <i
-                        v-if="risk_data.table_show == false"
-                        class="el-icon-caret-right"
-                        style="color: #606266"
-                      ></i>
-                      <i
-                        v-if="risk_data.table_show == true"
-                        class="el-icon-caret-top"
-                        style="color: #606266"
-                      ></i>
-                    </div>
-                  </span>
-                  <span
-                    class="bottom_left_content_info_text_box_right"
-                    v-if="risk_data.check_result == ''"
-                  >
-                    --
-                  </span>
-                  <span class="bottom_left_content_info_text_box_right" v-else>
-                    {{ risk_data.check_result }}
-                  </span>
-                </div>
-                <div
-                  class="bottom_left_content_info_text_box"
-                  v-if="risk_data.table_show == true"
-                >
-                  <el-table
-                    :data="risk_data.table_data.slice(0, 3)"
-                    ref="table"
-                    size="small"
-                    :border="false"
-                    max-height="250"
-                    style="width: 100%; max-height: 250px"
-                    :cell-style="{ padding: '0' }"
-                    :row-style="{ height: '0' }"
-                    :header-cell-style="{ color: '#606266', fontWeight: 400 }"
-                  >
-                    <template v-for="item in risk_data.headers">
-                      <el-table-column
-                        :label="item.label"
-                        :prop="item.prop"
-                        :width="item.width"
-                      ></el-table-column>
-                    </template>
-                  </el-table>
-                </div>
+                <span class="model_item_box_card_bottom_left_content_icon">
+                  <svg-icon
+                    icon-name="CaretRight"
+                    v-if="AQXJX_show === false"
+                    style="color: #606266"
+                    element-icons="true"
+                  />
+                  <svg-icon
+                    icon-name="CaretBottom"
+                    v-if="AQXJX_show === true"
+                    style="color: #606266"
+                    element-icons="true"
+                  />
+                  安全巡检项目:
 
-                <div class="bottom_left_content_info_text_box">
-                  <span class="bottom_left_content_info_text_box_left">
-                    巡检建议
+                  <span style="color: #68c23b">
+                    {{ report_data["no_risks"] }}
                   </span>
-                  <span
-                    class="bottom_left_content_info_text_box_right"
-                    v-if="risk_data.suggestion == ''"
+                </span>
+              </div>
+              <div
+                class="model_item_box_card_bottom_left_content_info"
+                v-if="AQXJX_show === true"
+              >
+                <div
+                  v-for="(risk_data, index) in report_data['risk_report'][
+                    '安全巡检项'
+                  ]"
+                >
+                  <div class="text_box">
+                    <span>
+                      <svg-icon
+                        icon-name="Warning"
+                        style="color: #68c23b"
+                        element-icons="true"
+                      />
+                      {{ risk_data.item_name }}
+                    </span>
+                  </div>
+                  <div class="bottom_left_content_info_text_box">
+                    <span class="bottom_left_content_info_text_box_left">
+                      巡检项说明
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-if="risk_data.result_explain == ''"
+                    >
+                      --
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-else
+                    >
+                      {{ risk_data.result_explain }}
+                    </span>
+                  </div>
+                  <div class="bottom_left_content_info_text_box">
+                    <span
+                      class="bottom_left_content_info_text_box_left"
+                      @click="risk_res_safe_show(risk_data.table_show, index)"
+                    >
+                      巡检结果
+                      <div
+                        v-if="risk_data.has_table"
+                        style="display: inline-block"
+                      >
+                        <i
+                          v-if="risk_data.table_show == false"
+                          class="el-icon-caret-right"
+                          style="color: #606266"
+                        ></i>
+                        <i
+                          v-if="risk_data.table_show == true"
+                          class="el-icon-caret-top"
+                          style="color: #606266"
+                        ></i>
+                      </div>
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-if="risk_data.check_result == ''"
+                    >
+                      --
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-else
+                    >
+                      {{ risk_data.check_result }}
+                    </span>
+                  </div>
+                  <div
+                    class="bottom_left_content_info_text_box"
+                    v-if="risk_data.table_show == true"
                   >
-                    --
-                  </span>
-                  <span class="bottom_left_content_info_text_box_right" v-else>
-                    {{ risk_data.suggestion }}
-                  </span>
+                    <el-table
+                      :data="risk_data.table_data.slice(0, 3)"
+                      ref="table"
+                      size="small"
+                      :border="false"
+                      max-height="250"
+                      style="width: 100%; max-height: 250px"
+                      :cell-style="{ padding: '0' }"
+                      :row-style="{ height: '0' }"
+                      :header-cell-style="{ color: '#606266', fontWeight: 400 }"
+                    >
+                      <template v-for="item in risk_data.headers">
+                        <el-table-column
+                          :label="item.label"
+                          :prop="item.prop"
+                          :width="item.width"
+                        ></el-table-column>
+                      </template>
+                    </el-table>
+                  </div>
+
+                  <div class="bottom_left_content_info_text_box">
+                    <span class="bottom_left_content_info_text_box_left">
+                      巡检建议
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-if="risk_data.suggestion == ''"
+                    >
+                      --
+                    </span>
+                    <span
+                      class="bottom_left_content_info_text_box_right"
+                      v-else
+                    >
+                      {{ risk_data.suggestion }}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="model_item_box_card_bottom_right" @click="setHisDivStyle">
-          <el-tree
-            :data="hist_data"
-            :props="defaultProps"
-            @node-click="handleNodeClick"
-          ></el-tree>
+          <div class="model_item_box_card_bottom_right" @click="setHisDivStyle">
+            <el-tree
+              :data="hist_data"
+              :props="defaultProps"
+              @node-click="handleNodeClick"
+            ></el-tree>
+          </div>
         </div>
-      </div>
-    </el-card>
-  </div>
+      </el-card>
+    </div>
+  </page-wrapper>
 </template>
 <script lang="ts">
 import { defineComponent, computed, ref, unref } from "vue";
 import { ElConfigProvider, ElMessage } from "element-plus";
 import zhCn from "element-plus/lib/locale/lang/zh-cn";
-
+import { PageWrapper } from "@/components/Page";
 import CheckRe from "./components/check-re.vue";
 import CheckChart from "./components/check-chart.vue";
 import CheckDay from "./components/check-day.vue";
@@ -617,6 +646,7 @@ export default defineComponent({
     CheckRe,
     CheckChart,
     CheckDay,
+    PageWrapper,
   },
 
   data() {

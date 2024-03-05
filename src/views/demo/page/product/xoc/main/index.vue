@@ -1,263 +1,269 @@
 <template>
-  <div class="view-home">
-    <!-- Elasticsearch集群 -->
-    <el-row :gutter="15">
-      <el-col :span="17">
-        <div class="card">
-          <overview-elasticsearch
-            ref="OverviewElasticsearch"
-          ></overview-elasticsearch>
-        </div>
-      </el-col>
-      <el-col :span="7">
-        <div class="card">
-          <div class="card__header">
-            <span class="value">巡检概览</span>
+  <page-wrapper title="" content="">
+    <div class="view-home">
+      <!-- Elasticsearch集群 -->
+      <el-row :gutter="15">
+        <el-col :span="17">
+          <div class="card">
+            <overview-elasticsearch
+              ref="OverviewElasticsearch"
+            ></overview-elasticsearch>
           </div>
-          <div class="card__container" style="height: initial">
-            <el-table
-              :data="alert_list"
-              ref="table"
-              :border="false"
-              :show-header="false"
-              style="width: 100%; height: 70px"
-              :cell-style="{ padding: '0' }"
-              :row-style="{ height: '0' }"
-              :header-cell-style="{ color: '#303133' }"
-            >
-              <el-table-column prop="key" label=""></el-table-column>
-              <el-table-column prop="doc_count" label=""></el-table-column>
-            </el-table>
-          </div>
-        </div>
-      </el-col>
-    </el-row>
-    <!-- Logstash实例 -->
-    <el-row :gutter="15">
-      <el-col :span="17">
-        <div class="card">
-          <overview-logstash ref="OverviewLogstash"></overview-logstash>
-        </div>
-      </el-col>
-    </el-row>
-    <!-- Beats采集器 -->
-    <el-row :gutter="15">
-      <el-col :span="17">
-        <div class="card">
-          <overview-beats ref="OverviewBeats"></overview-beats>
-        </div>
-      </el-col>
-    </el-row>
-    <!-- 关键指标 -->
-    <el-row :gutter="15">
-      <el-col :span="17">
-        <div class="card">
-          <!--  使用卡片插件-->
-          <div class="card__header">
-            <svg-icon
-              icon-name="DataLine"
-              style="font-size: 16px; margin-right: 5px"
-              element-icons="true"
-            />
-            <span class="value">关键指标</span>
-          </div>
-
-          <div class="card__container" style="height: auto">
-            <div class="model_item_box_card_content">
-              <div class="model_2_left_top" @click="ES_zb_show_change()">
-                <span class="lable1">
-                  Elasticsearch集群
-                  <svg-icon
-                    icon-name="CaretRight"
-                    v-if="Elasticsearch_zb_show === false"
-                    element-icons="true"
-                  />
-                  <svg-icon
-                    icon-name="CaretBottom"
-                    v-if="Elasticsearch_zb_show === true"
-                    element-icons="true"
-                  />
-                </span>
-              </div>
-              <div class="search" v-if="Elasticsearch_zb_show === true">
-                <div class="searchTitle">指标:</div>
-                <el-select
-                  v-model="io_charts_name"
-                  @change="charts_search(1)"
-                  multiple
-                  size="small"
-                  collapse-tags
-                  collapse-tags-tooltip
-                  clearable
-                  style="width: 180px"
-                  placeholder="请选择指标"
-                >
-                  <el-option
-                    v-for="item in options1"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  ></el-option>
-                </el-select>
-
-                <div class="searchTitle">集群:</div>
-                <el-select
-                  v-model="es_id"
-                  @change="charts_search(1)"
-                  placeholder="选择ES集群"
-                  clearable
-                  multiple
-                  size="small"
-                  collapse-tags
-                  collapse-tags-tooltip
-                  style="width: 180px"
-                >
-                  <el-option
-                    v-for="item in es_ids"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  ></el-option>
-                </el-select>
-
-                <div class="searchTitle">时间区间:</div>
-                <el-select
-                  v-model="datetime_value"
-                  @change="charts_search(2)"
-                  placeholder="请选择时间"
-                  clearable
-                  size="small"
-                  style="width: 160px"
-                >
-                  <el-option
-                    v-for="item in datetime_list"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  ></el-option>
-                </el-select>
-              </div>
-              <div class="charts_box" v-if="Elasticsearch_zb_show === true">
-                <div class="echart_box_s" v-if="draw_CXSL_show === true">
-                  <charts-es-cxsl ref="ChartsEsCxsl"></charts-es-cxsl>
-                </div>
-
-                <div class="echart_box_s" v-if="draw_XRSL_show === true">
-                  <charts-es-xrsl ref="ChartsEsXrsl"></charts-es-xrsl>
-                </div>
-              </div>
+        </el-col>
+        <el-col :span="7">
+          <div class="card">
+            <div class="card__header">
+              <span class="value">巡检概览</span>
             </div>
-            <br />
-            <div class="model_item_box_card_content">
-              <div class="model_2_left_top" @click="LS_zb_show_change()">
-                <span class="lable1">
-                  logstash实时监控
-                  <svg-icon
-                    icon-name="CaretRight"
-                    v-if="Elasticsearch_zb_ls_show === false"
-                    element-icons="true"
-                  />
-                  <svg-icon
-                    icon-name="CaretBottom"
-                    v-if="Elasticsearch_zb_ls_show === true"
-                    element-icons="true"
-                  />
-                </span>
-              </div>
-              <div class="search" v-if="Elasticsearch_zb_ls_show === true">
-                <div class="searchTitle">指标:</div>
-                <el-select
-                  v-model="LS_charts_name"
-                  @change="LS_charts_search(1)"
-                  multiple
-                  collapse-tags
-                  clearable
-                  size="small"
-                  collapse-tags-tooltip
-                  style="width: 250px"
-                  placeholder="请选择图表"
-                >
-                  <el-option
-                    v-for="item in options2"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  ></el-option>
-                </el-select>
-
-                <div class="searchTitle">集群:</div>
-                <el-select
-                  v-model="es_id_ls"
-                  @change="LS_charts_search(1)"
-                  placeholder="选择ES集群"
-                  clearable
-                  multiple
-                  size="small"
-                  collapse-tags
-                  collapse-tags-tooltip
-                  style="width: 180px"
-                >
-                  <el-option
-                    v-for="item in es_ids"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  ></el-option>
-                </el-select>
-
-                <div class="searchTitle">时间区间:</div>
-                <el-select
-                  v-model="datetime_value2"
-                  @change="LS_charts_search(2)"
-                  placeholder="请选择时间"
-                  clearable
-                  size="small"
-                  style="width: 160px"
-                >
-                  <el-option
-                    v-for="item in datetime_list"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  ></el-option>
-                </el-select>
-              </div>
-              <div
-                class="charts_box"
-                style="width: 100%"
-                v-if="Elasticsearch_zb_ls_show === true"
+            <div class="card__container" style="height: initial">
+              <el-table
+                :data="alert_list"
+                ref="table"
+                :border="false"
+                :show-header="false"
+                style="width: 100%; height: 70px"
+                :cell-style="{ padding: '0' }"
+                :row-style="{ height: '0' }"
+                :header-cell-style="{ color: '#303133' }"
               >
-                <div class="echart_box_s" v-if="draw_LS_EVJSSL_show === true">
-                  <charts-ls-jssl ref="ChartsLsJssl"></charts-ls-jssl>
-                </div>
+                <el-table-column prop="key" label=""></el-table-column>
+                <el-table-column prop="doc_count" label=""></el-table-column>
+              </el-table>
+            </div>
+          </div>
+        </el-col>
+      </el-row>
+      <!-- Logstash实例 -->
+      <el-row :gutter="15">
+        <el-col :span="17">
+          <div class="card">
+            <overview-logstash ref="OverviewLogstash"></overview-logstash>
+          </div>
+        </el-col>
+      </el-row>
+      <!-- Beats采集器 -->
+      <el-row :gutter="15">
+        <el-col :span="17">
+          <div class="card">
+            <overview-beats ref="OverviewBeats"></overview-beats>
+          </div>
+        </el-col>
+      </el-row>
+      <!-- 关键指标 -->
+      <el-row :gutter="15">
+        <el-col :span="17">
+          <div class="card">
+            <!--  使用卡片插件-->
+            <div class="card__header">
+              <svg-icon
+                icon-name="DataLine"
+                style="font-size: 16px; margin-right: 5px"
+                element-icons="true"
+              />
+              <span class="value">关键指标</span>
+            </div>
 
-                <div class="echart_box_s" v-if="draw_LS_EVFSSL_show === true">
-                  <charts-ls-fssl ref="ChartsLsFssl"></charts-ls-fssl>
+            <div class="card__container" style="height: auto">
+              <div class="model_item_box_card_content">
+                <div class="model_2_left_top" @click="ES_zb_show_change()">
+                  <span class="lable1">
+                    Elasticsearch集群
+                    <svg-icon
+                      icon-name="CaretRight"
+                      v-if="Elasticsearch_zb_show === false"
+                      element-icons="true"
+                    />
+                    <svg-icon
+                      icon-name="CaretBottom"
+                      v-if="Elasticsearch_zb_show === true"
+                      element-icons="true"
+                    />
+                  </span>
                 </div>
+                <div class="search" v-if="Elasticsearch_zb_show === true">
+                  <div class="searchTitle">指标:</div>
+                  <el-select
+                    v-model="io_charts_name"
+                    @change="charts_search(1)"
+                    multiple
+                    size="small"
+                    collapse-tags
+                    collapse-tags-tooltip
+                    clearable
+                    style="width: 180px"
+                    placeholder="请选择指标"
+                  >
+                    <el-option
+                      v-for="item in options1"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select>
 
-                <div class="echart_box_s" v-if="draw_LS_EVYC_show === true">
-                  <charts-ls-yc ref="ChartsLsYc"></charts-ls-yc>
+                  <div class="searchTitle">集群:</div>
+                  <el-select
+                    v-model="es_id"
+                    @change="charts_search(1)"
+                    placeholder="选择ES集群"
+                    clearable
+                    multiple
+                    size="small"
+                    collapse-tags
+                    collapse-tags-tooltip
+                    style="width: 180px"
+                  >
+                    <el-option
+                      v-for="item in es_ids"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select>
+
+                  <div class="searchTitle">时间区间:</div>
+                  <el-select
+                    v-model="datetime_value"
+                    @change="charts_search(2)"
+                    placeholder="请选择时间"
+                    clearable
+                    size="small"
+                    style="width: 160px"
+                  >
+                    <el-option
+                      v-for="item in datetime_list"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select>
                 </div>
+                <div class="charts_box" v-if="Elasticsearch_zb_show === true">
+                  <div class="echart_box_s" v-if="draw_CXSL_show === true">
+                    <charts-es-cxsl ref="ChartsEsCxsl"></charts-es-cxsl>
+                  </div>
 
-                <div class="echart_box_s" v-if="draw_LS_CPUSYL_show === true">
-                  <charts-ls-cpu ref="ChartsLsCpu"></charts-ls-cpu>
+                  <div class="echart_box_s" v-if="draw_XRSL_show === true">
+                    <charts-es-xrsl ref="ChartsEsXrsl"></charts-es-xrsl>
+                  </div>
                 </div>
+              </div>
+              <br />
+              <div class="model_item_box_card_content">
+                <div class="model_2_left_top" @click="LS_zb_show_change()">
+                  <span class="lable1">
+                    logstash实时监控
+                    <svg-icon
+                      icon-name="CaretRight"
+                      v-if="Elasticsearch_zb_ls_show === false"
+                      element-icons="true"
+                    />
+                    <svg-icon
+                      icon-name="CaretBottom"
+                      v-if="Elasticsearch_zb_ls_show === true"
+                      element-icons="true"
+                    />
+                  </span>
+                </div>
+                <div class="search" v-if="Elasticsearch_zb_ls_show === true">
+                  <div class="searchTitle">指标:</div>
+                  <el-select
+                    v-model="LS_charts_name"
+                    @change="LS_charts_search(1)"
+                    multiple
+                    collapse-tags
+                    clearable
+                    size="small"
+                    collapse-tags-tooltip
+                    style="width: 250px"
+                    placeholder="请选择图表"
+                  >
+                    <el-option
+                      v-for="item in options2"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select>
 
-                <div class="echart_box_s" v-if="draw_LS_JVMNCSYL_show === true">
-                  <charts-ls-jvm ref="ChartsLsJvm"></charts-ls-jvm>
+                  <div class="searchTitle">集群:</div>
+                  <el-select
+                    v-model="es_id_ls"
+                    @change="LS_charts_search(1)"
+                    placeholder="选择ES集群"
+                    clearable
+                    multiple
+                    size="small"
+                    collapse-tags
+                    collapse-tags-tooltip
+                    style="width: 180px"
+                  >
+                    <el-option
+                      v-for="item in es_ids"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select>
+
+                  <div class="searchTitle">时间区间:</div>
+                  <el-select
+                    v-model="datetime_value2"
+                    @change="LS_charts_search(2)"
+                    placeholder="请选择时间"
+                    clearable
+                    size="small"
+                    style="width: 160px"
+                  >
+                    <el-option
+                      v-for="item in datetime_list"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select>
+                </div>
+                <div
+                  class="charts_box"
+                  style="width: 100%"
+                  v-if="Elasticsearch_zb_ls_show === true"
+                >
+                  <div class="echart_box_s" v-if="draw_LS_EVJSSL_show === true">
+                    <charts-ls-jssl ref="ChartsLsJssl"></charts-ls-jssl>
+                  </div>
+
+                  <div class="echart_box_s" v-if="draw_LS_EVFSSL_show === true">
+                    <charts-ls-fssl ref="ChartsLsFssl"></charts-ls-fssl>
+                  </div>
+
+                  <div class="echart_box_s" v-if="draw_LS_EVYC_show === true">
+                    <charts-ls-yc ref="ChartsLsYc"></charts-ls-yc>
+                  </div>
+
+                  <div class="echart_box_s" v-if="draw_LS_CPUSYL_show === true">
+                    <charts-ls-cpu ref="ChartsLsCpu"></charts-ls-cpu>
+                  </div>
+
+                  <div
+                    class="echart_box_s"
+                    v-if="draw_LS_JVMNCSYL_show === true"
+                  >
+                    <charts-ls-jvm ref="ChartsLsJvm"></charts-ls-jvm>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="model_item_box_card_top_title"></div>
-      </el-col>
-    </el-row>
-  </div>
+          <div class="model_item_box_card_top_title"></div>
+        </el-col>
+      </el-row>
+    </div>
+  </page-wrapper>
 </template>
 <script lang="ts">
 import { defineComponent, computed, ref } from "vue";
+import { PageWrapper } from "@/components/Page";
 import { ElMessage } from "element-plus";
 import * as echarts from "echarts";
 
@@ -306,6 +312,7 @@ export default defineComponent({
     ChartsLsYc,
     //logstash实例 接收速率展示组件
     ChartsLsJssl,
+    PageWrapper,
   },
   data() {
     return {

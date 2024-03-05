@@ -1,116 +1,122 @@
 <template>
-  <div class="view-home">
-    <div v-if="show_type === '0'" style="margin-bottom: 10px">
-      <span>公众号选择：</span>
-      <el-select
-        v-model="value1"
-        collapse-tags
-        collapse-tags-tooltip
-        placeholder="选择公众号"
-        style="width: 150px"
-        @change="GetWxupArticleDataFun"
-      >
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        />
-      </el-select>
+  <page-wrapper title="" content="">
+    <div class="view-home">
+      <div v-if="show_type === '0'" style="margin-bottom: 10px">
+        <span>公众号选择：</span>
+        <el-select
+          v-model="value1"
+          collapse-tags
+          collapse-tags-tooltip
+          placeholder="选择公众号"
+          style="width: 150px"
+          @change="GetWxupArticleDataFun"
+        >
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          />
+        </el-select>
 
-      <el-button
-        style="margin-left: 10px; margin-bottom: 2px"
-        :icon="Search"
-        type="primary"
-        @click="GetWxupArticleDataFun"
-        >查询</el-button
-      >
+        <el-button
+          style="margin-left: 10px; margin-bottom: 2px"
+          :icon="Search"
+          type="primary"
+          @click="GetWxupArticleDataFun"
+          >查询</el-button
+        >
 
-      <el-button
-        style="margin-left: 10px; margin-bottom: 2px"
-        :icon="CirclePlus"
-        type="primary"
-        @click="article_create"
-        >添加图文</el-button
-      >
-    </div>
-    <div v-if="show_type === '1'" style="margin-bottom: 10px">
-      <el-button
-        style="margin-left: 10px; margin-bottom: 2px"
-        :icon="ArrowLeftBold"
-        type="primary"
-        @click="GetWxupArticleDataFun"
-        >返回</el-button
-      >
-
-      <el-input
-        v-model="value2"
-        placeholder="请输入OA流程号"
-        style="width: 150px; margin-left: 10px"
-      />
-
-      <span class="wechat_name">{{ value1 }}</span>
-    </div>
-  </div>
-
-  <div v-masonry class="container" v-if="show_type === '0'">
-    <div
-      v-masonry-tile
-      v-for="(item, index) in articles"
-      class="art_list"
-      :key="index"
-    >
-      <div class="art_main">
-        <img style="width: 250px" :src="item['cover_img']" alt="" />
-        <a
-          class="art_title"
-          :title="item.title"
-          href="http://www.baidu.com"
-          target="_blank"
-          >{{ item.title }}</a
+        <el-button
+          style="margin-left: 10px; margin-bottom: 2px"
+          :icon="CirclePlus"
+          type="primary"
+          @click="article_create"
+          >添加图文</el-button
         >
       </div>
-
-      <div class="art_other" v-for="(item_other, index) in item.article_other">
-        <a
-          class="art_other_title"
-          :title="item_other.title"
-          href="http://www.baidu.com"
-          >{{ item_other.title }}</a
+      <div v-if="show_type === '1'" style="margin-bottom: 10px">
+        <el-button
+          style="margin-left: 10px; margin-bottom: 2px"
+          :icon="ArrowLeftBold"
+          type="primary"
+          @click="GetWxupArticleDataFun"
+          >返回</el-button
         >
-        <img
-          style="width: 48px !important; height: 48px !important"
-          :src="item_other['cover_img']"
-          alt=""
-        />
-      </div>
 
-      <div class="status">
-        <span>更新于{{ item.update_time }}</span>
-        <el-icon class="edit" @click="wechat_update(item)">
-          <Edit />
-        </el-icon>
-        <el-icon class="Position" @click="card_detail(item)" title="推送">
-          <Position />
-        </el-icon>
-        <el-icon class="delete" @click="wechat_del">
-          <delete />
-        </el-icon>
+        <el-input
+          v-model="value2"
+          placeholder="请输入OA流程号"
+          style="width: 150px; margin-left: 10px"
+        />
+
+        <span class="wechat_name">{{ value1 }}</span>
       </div>
     </div>
-  </div>
-  <!-- <article-list v-if="show_type === '0'" ref="ArticleListRef"></article-list>-->
-  <div v-show="show_type === '1'">
-    <article-create
-      ref="ArticleCreateRef"
-      :article_data="article_data"
-      @getValue="getArticleCreateValue"
-    ></article-create>
-  </div>
+
+    <div v-masonry class="container" v-if="show_type === '0'">
+      <div
+        v-masonry-tile
+        v-for="(item, index) in articles"
+        class="art_list"
+        :key="index"
+      >
+        <div class="art_main">
+          <img style="width: 250px" :src="item['cover_img']" alt="" />
+          <a
+            class="art_title"
+            :title="item.title"
+            href="http://www.baidu.com"
+            target="_blank"
+            >{{ item.title }}</a
+          >
+        </div>
+
+        <div
+          class="art_other"
+          v-for="(item_other, index) in item.article_other"
+        >
+          <a
+            class="art_other_title"
+            :title="item_other.title"
+            href="http://www.baidu.com"
+            >{{ item_other.title }}</a
+          >
+          <img
+            style="width: 48px !important; height: 48px !important"
+            :src="item_other['cover_img']"
+            alt=""
+          />
+        </div>
+
+        <div class="status">
+          <span>更新于{{ item.update_time }}</span>
+          <el-icon class="edit" @click="wechat_update(item)">
+            <Edit />
+          </el-icon>
+          <el-icon class="Position" @click="card_detail(item)" title="推送">
+            <Position />
+          </el-icon>
+          <el-icon class="delete" @click="wechat_del">
+            <delete />
+          </el-icon>
+        </div>
+      </div>
+    </div>
+    <!-- <article-list v-if="show_type === '0'" ref="ArticleListRef"></article-list>-->
+    <div v-show="show_type === '1'">
+      <article-create
+        ref="ArticleCreateRef"
+        :article_data="article_data"
+        @getValue="getArticleCreateValue"
+      ></article-create>
+    </div>
+  </page-wrapper>
 </template>
 
 <script lang="ts" setup>
 import { Ref, ref, reactive } from "vue";
+import { PageWrapper } from "@/components/Page";
 import {
   Search,
   Plus,

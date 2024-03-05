@@ -9,7 +9,7 @@
     </div>
     <div class="content_box">
       <div class="mater_box">
-        <span>产品信息</span>&nbsp;&nbsp;
+        <span style="font-size: 14px">产品信息</span>&nbsp;&nbsp;
         <el-select
           v-model="value1"
           collapse-tags
@@ -131,14 +131,14 @@ let options1 = ref([
 }
 .title_not_check {
   color: #8e8e8e;
-  font-size: 17px;
+  font-size: 16px;
 
   display: inline-block;
   margin-top: 4px;
   margin-right: 20px;
 }
 .title_check {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: bold;
   display: inline-block;
   margin-top: 4px;
@@ -206,18 +206,6 @@ let options1 = ref([
         color: #f21e37;
       }
     }
-    .info_num {
-      font-size: 24px;
-      margin-bottom: 18px;
-    }
-    .info_corner_desc {
-      margin-bottom: 10px;
-      margin-left: -5px;
-      color: #dbddde;
-    }
-    .info_corner_num {
-      margin-bottom: 10px;
-    }
   }
 }
 .content_box {
@@ -232,5 +220,9 @@ let options1 = ref([
 }
 .content_box :deep(.el-calendar__body) {
   padding: 12px 20px 0;
+}
+.el-select .el-input,
+.el-select-dropdown .el-select-dropdown__item {
+  font-size: 14px;
 }
 </style>

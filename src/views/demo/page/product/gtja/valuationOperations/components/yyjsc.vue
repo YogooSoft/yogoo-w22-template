@@ -133,7 +133,7 @@
         </div>
       </div>
       <el-divider />
-      <span>产品名称：</span>
+      <span style="font-size: 14px">产品名称：</span>
       <el-select
         v-model="value1"
         collapse-tags
@@ -610,7 +610,7 @@ onMounted(() => {
   margin-bottom: 5px;
 }
 .title_box_span {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: bold;
   display: inline-block;
   float: left;
@@ -739,18 +739,9 @@ onMounted(() => {
         color: #f21e37;
       }
     }
-    .info_num {
-      font-size: 24px;
-      margin-bottom: 18px;
-    }
-    .info_corner_desc {
-      margin-bottom: 10px;
-      margin-left: -5px;
-      color: #dbddde;
-    }
-    .info_corner_num {
-      margin-bottom: 10px;
-    }
   }
+}
+.top_line_button {
+  font-size: 14px;
 }
 </style>

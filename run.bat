@@ -16,11 +16,13 @@ if %choice%==2 goto a2
 
 :a1
 @echo.Start Run...
+set NODE_OPTIONS=--openssl-legacy-provider
 yarn serve
 pause
 exit
 
 :a2
+set NODE_OPTIONS=--openssl-legacy-provider
 yarn build
 pause
 

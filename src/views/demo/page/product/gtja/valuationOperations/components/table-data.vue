@@ -167,14 +167,14 @@ onMounted(() => {
 }
 .title_not_check {
   color: #8e8e8e;
-  font-size: 17px;
+  font-size: 16px;
 
   display: inline-block;
   margin-top: 4px;
   margin-right: 20px;
 }
 .title_check {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: bold;
   display: inline-block;
   margin-top: 4px;
@@ -214,18 +214,6 @@ onMounted(() => {
       .rise {
         color: #f21e37;
       }
-    }
-    .info_num {
-      font-size: 24px;
-      margin-bottom: 18px;
-    }
-    .info_corner_desc {
-      margin-bottom: 10px;
-      margin-left: -5px;
-      color: #dbddde;
-    }
-    .info_corner_num {
-      margin-bottom: 10px;
     }
   }
 }

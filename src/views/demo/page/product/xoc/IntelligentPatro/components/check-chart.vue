@@ -228,7 +228,7 @@ defineExpose({
 
       .right {
         display: inline-block;
-        z-index: 1000;
+        z-index: 7;
         margin-right: 10px;
         position: relative;
       }

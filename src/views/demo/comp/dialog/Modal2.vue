@@ -5,6 +5,7 @@
     :title="data.Title"
     :canFullscreen="true"
     @visible-change="handleVisibleChange"
+    subtitle="副标题"
   >
     <collapse-container
       class="cl-mb-10"

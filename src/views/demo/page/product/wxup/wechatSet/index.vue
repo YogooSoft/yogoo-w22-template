@@ -1,191 +1,201 @@
 <template>
-  <div style="margin-bottom: 10px">
-    <span>公众号名称：</span>
+  <page-wrapper title="" content="">
+    <div style="margin-bottom: 10px">
+      <span>公众号名称：</span>
 
-    <el-input v-model="value1" placeholder="公众号名称" style="width: 120px" />
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <span>公众号类型：</span>
-    <el-select
-      v-model="value2"
-      collapse-tags
-      collapse-tags-tooltip
-      placeholder="选择公众号类型"
-      style="width: 150px"
-    >
-      <el-option
-        v-for="item in options1"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
+      <el-input
+        v-model="value1"
+        placeholder="公众号名称"
+        style="width: 120px"
       />
-    </el-select>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <span>公众号类型：</span>
+      <el-select
+        v-model="value2"
+        collapse-tags
+        collapse-tags-tooltip
+        placeholder="选择公众号类型"
+        style="width: 150px"
+      >
+        <el-option
+          v-for="item in options1"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        />
+      </el-select>
 
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <span>公众号状态：</span>
-    <el-select
-      v-model="value3"
-      collapse-tags
-      collapse-tags-tooltip
-      placeholder="选择状态"
-      style="width: 120px"
-    >
-      <el-option
-        v-for="item in options2"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <span>公众号状态：</span>
+      <el-select
+        v-model="value3"
+        collapse-tags
+        collapse-tags-tooltip
+        placeholder="选择状态"
+        style="width: 120px"
+      >
+        <el-option
+          v-for="item in options2"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        />
+      </el-select>
+
+      <el-button
+        class="top_line_button"
+        :icon="CirclePlus"
+        type="primary"
+        @click="openTargetModal(1)"
+        >添加</el-button
+      >
+      <el-button
+        v-if="show_type"
+        class="top_line_button"
+        :icon="Edit"
+        type="primary"
+        @click="send()"
+        >修改</el-button
+      >
+      <el-button
+        v-if="show_type"
+        class="top_line_button"
+        :icon="SetUp"
+        type="primary"
+        @click="sendStatus"
+        >设置状态</el-button
+      >
+      <el-button
+        class="top_line_button"
+        :icon="Search"
+        type="primary"
+        @click="GetWxupWechatListDataFun"
+        >查询</el-button
+      >
+      <el-switch
+        v-model="show_type"
+        class="mb-2"
+        style="float: right"
+        active-text="列表模式"
+        inactive-text="卡片模式"
       />
-    </el-select>
+    </div>
 
-    <el-button
-      class="top_line_button"
-      :icon="CirclePlus"
-      type="primary"
-      @click="openTargetModal(1)"
-      >添加</el-button
-    >
-    <el-button
+    <!-- 列表模式 -->
+    <yui-table
       v-if="show_type"
-      class="top_line_button"
-      :icon="Edit"
-      type="primary"
-      @click="send()"
-      >修改</el-button
+      :load_staus="load_staus"
+      :border="true"
+      :table_size="elTableClass"
+      :rowData="
+        tableData.length > 0
+          ? tableData.slice(
+              (controlAtrr['pageObj']['pageData']['page'] - 1) *
+                controlAtrr['pageObj']['pageData']['size'],
+              controlAtrr['pageObj']['pageData']['page'] *
+                controlAtrr['pageObj']['pageData']['size']
+            )
+          : ''
+      "
+      :headerData="headerData"
+      :controlAtrr="controlAtrr"
+      :highlight_current_row="true"
+      style="width: 100%"
+      @current-change="handleCurrentChange"
     >
-    <el-button
-      v-if="show_type"
-      class="top_line_button"
-      :icon="SetUp"
-      type="primary"
-      @click="sendStatus"
-      >设置状态</el-button
-    >
-    <el-button
-      class="top_line_button"
-      :icon="Search"
-      type="primary"
-      @click="GetWxupWechatListDataFun"
-      >查询</el-button
-    >
-    <el-switch
-      v-model="show_type"
-      class="mb-2"
-      style="float: right"
-      active-text="列表模式"
-      inactive-text="卡片模式"
-    />
-  </div>
-
-  <!-- 列表模式 -->
-  <yui-table
-    v-if="show_type"
-    :load_staus="load_staus"
-    :border="true"
-    :table_size="elTableClass"
-    :rowData="
-      tableData.length > 0
-        ? tableData.slice(
-            (controlAtrr['pageObj']['pageData']['page'] - 1) *
-              controlAtrr['pageObj']['pageData']['size'],
-            controlAtrr['pageObj']['pageData']['page'] *
-              controlAtrr['pageObj']['pageData']['size']
-          )
-        : ''
-    "
-    :headerData="headerData"
-    :controlAtrr="controlAtrr"
-    :highlight_current_row="true"
-    style="width: 100%"
-    @current-change="handleCurrentChange"
-  >
-    <template #status_zh>
-      <el-table-column prop="status_zh" label="状态" width="100" align="center">
-        <template #default="scope">
-          <el-tag
-            v-if="scope.row['status_zh'] == '删除'"
-            key="删除"
-            type="danger"
-            effect="dark"
-          >
-            删除
-          </el-tag>
-          <el-tag
-            v-if="scope.row['status_zh'] == '停止'"
-            key="停止"
-            type="warning"
-            effect="dark"
-          >
-            停止
-          </el-tag>
-          <el-tag
-            v-if="scope.row['status_zh'] == '启动'"
-            key="启动"
-            type=""
-            effect="dark"
-          >
-            启动
-          </el-tag>
-          <!-- 
+      <template #status_zh>
+        <el-table-column
+          prop="status_zh"
+          label="状态"
+          width="100"
+          align="center"
+        >
+          <template #default="scope">
+            <el-tag
+              v-if="scope.row['status_zh'] == '删除'"
+              key="删除"
+              type="danger"
+              effect="dark"
+            >
+              删除
+            </el-tag>
+            <el-tag
+              v-if="scope.row['status_zh'] == '停止'"
+              key="停止"
+              type="warning"
+              effect="dark"
+            >
+              停止
+            </el-tag>
+            <el-tag
+              v-if="scope.row['status_zh'] == '启动'"
+              key="启动"
+              type=""
+              effect="dark"
+            >
+              启动
+            </el-tag>
+            <!-- 
           <span
             class="row_span"
             style="background: #f66d6d"
             slot-scope="scope"
             >{{ scope.row["status_zh"] }}</span
           > -->
-          <!-- <span
+            <!-- <span
             class="row_span"
             v-if="scope.row['status_zh'] == '停止'"
             style="background: #f39c12"
             slot-scope="scope"
             >{{ scope.row["status_zh"] }}</span
           > -->
-          <!-- <span
+            <!-- <span
             class="row_span"
             v-if="scope.row['status_zh'] == '启动'"
             style="background: #409eff"
             slot-scope="scope"
             >{{ scope.row["status_zh"] }}</span
           > -->
-        </template>
-      </el-table-column>
-    </template>
+          </template>
+        </el-table-column>
+      </template>
 
-    <template #access_token_status_zh>
-      <el-table-column
-        prop="access_token_status_zh"
-        label="凭证状态"
-        width="150"
-        align="center"
-      >
-        <template #default="scope">
-          <el-tag
-            v-if="scope.row['access_token_status_zh'] == '已失效'"
-            key="已失效"
-            type="danger"
-            effect="dark"
-          >
-            已失效
-          </el-tag>
+      <template #access_token_status_zh>
+        <el-table-column
+          prop="access_token_status_zh"
+          label="凭证状态"
+          width="150"
+          align="center"
+        >
+          <template #default="scope">
+            <el-tag
+              v-if="scope.row['access_token_status_zh'] == '已失效'"
+              key="已失效"
+              type="danger"
+              effect="dark"
+            >
+              已失效
+            </el-tag>
 
-          <el-tag
-            v-if="scope.row['access_token_status_zh'] == '即将失效'"
-            key="即将失效"
-            type="warning"
-            effect="dark"
-          >
-            即将失效
-          </el-tag>
+            <el-tag
+              v-if="scope.row['access_token_status_zh'] == '即将失效'"
+              key="即将失效"
+              type="warning"
+              effect="dark"
+            >
+              即将失效
+            </el-tag>
 
-          <el-tag
-            v-if="scope.row['access_token_status_zh'] == '正常'"
-            key="正常"
-            type=""
-            effect="dark"
-          >
-            正常
-          </el-tag>
+            <el-tag
+              v-if="scope.row['access_token_status_zh'] == '正常'"
+              key="正常"
+              type=""
+              effect="dark"
+            >
+              正常
+            </el-tag>
 
-          <!-- 
+            <!-- 
           <span
             class="row_span"
             v-if="scope.row['access_token_status_zh'] == '已失效'"
@@ -207,46 +217,46 @@
             slot-scope="scope"
             >{{ scope.row["access_token_status_zh"] }}</span
           > -->
-        </template>
-      </el-table-column>
-    </template>
+          </template>
+        </el-table-column>
+      </template>
 
-    <template #wechat_status_zh>
-      <el-table-column
-        prop="wechat_status_zh"
-        label="认证状态"
-        width="150"
-        align="center"
-      >
-        <template #default="scope">
-          <el-tag
-            v-if="scope.row['wechat_status_zh'] == '过期'"
-            key="过期"
-            type="danger"
-            effect="dark"
-          >
-            过期
-          </el-tag>
+      <template #wechat_status_zh>
+        <el-table-column
+          prop="wechat_status_zh"
+          label="认证状态"
+          width="150"
+          align="center"
+        >
+          <template #default="scope">
+            <el-tag
+              v-if="scope.row['wechat_status_zh'] == '过期'"
+              key="过期"
+              type="danger"
+              effect="dark"
+            >
+              过期
+            </el-tag>
 
-          <el-tag
-            v-if="scope.row['wechat_status_zh'] == '即将过期'"
-            key="即将过期"
-            type="warning"
-            effect="dark"
-          >
-            即将过期
-          </el-tag>
+            <el-tag
+              v-if="scope.row['wechat_status_zh'] == '即将过期'"
+              key="即将过期"
+              type="warning"
+              effect="dark"
+            >
+              即将过期
+            </el-tag>
 
-          <el-tag
-            v-if="scope.row['wechat_status_zh'] == '正常'"
-            key="正常"
-            type=""
-            effect="dark"
-          >
-            正常
-          </el-tag>
+            <el-tag
+              v-if="scope.row['wechat_status_zh'] == '正常'"
+              key="正常"
+              type=""
+              effect="dark"
+            >
+              正常
+            </el-tag>
 
-          <!-- 
+            <!-- 
           <span
             class="row_span"
             v-if="scope.row['wechat_status_zh'] == '过期'"
@@ -268,62 +278,62 @@
             slot-scope="scope"
             >{{ scope.row["wechat_status_zh"] }}</span
           > -->
-        </template>
-      </el-table-column>
-    </template>
-  </yui-table>
+          </template>
+        </el-table-column>
+      </template>
+    </yui-table>
 
-  <div
-    class="task-list"
-    :class="{ 'is-mini': browser.isMini }"
-    v-if="show_type === false"
-  >
-    <div class="list">
-      <div
-        v-for="(item, index) in tableData"
-        :key="index"
-        class="item"
-        @click=""
-      >
-        <p class="name">
-          {{ item.name }}[{{ item.type_zh }}]
-          <el-tag
-            v-if="item.status_zh == '删除'"
-            key="xxxxx"
-            type="danger"
-            class="mx-1"
-            effect="dark"
-          >
-            {{ item.status_zh }}
-          </el-tag>
-          <!-- <span
+    <div
+      class="task-list"
+      :class="{ 'is-mini': browser.isMini }"
+      v-if="show_type === false"
+    >
+      <div class="list">
+        <div
+          v-for="(item, index) in tableData"
+          :key="index"
+          class="item"
+          @click=""
+        >
+          <p class="name">
+            {{ item.name }}[{{ item.type_zh }}]
+            <el-tag
+              v-if="item.status_zh == '删除'"
+              key="xxxxx"
+              type="danger"
+              class="mx-1"
+              effect="dark"
+            >
+              {{ item.status_zh }}
+            </el-tag>
+            <!-- <span
             class="row_span"
            
             style="background: #f66d6d; float: right"
             >{{ item.status_zh }}</span
           >-->
 
-          <el-tag
-            v-if="item.status_zh == '停止'"
-            key="xxxxx"
-            type="warning"
-            class="mx-1"
-            effect="dark"
-          >
-            {{ item.status_zh }}
-          </el-tag>
+            <el-tag
+              v-if="item.status_zh == '停止'"
+              key="xxxxx"
+              type="warning"
+              class="mx-1"
+              effect="dark"
+            >
+              {{ item.status_zh }}
+            </el-tag>
 
-          <el-tag
-            v-if="item.status_zh == '启动'"
-            key="xxxxx"
-            type=""
-            class="mx-1"
-            effect="dark"
-          >
-            {{ item.status_zh }}
-          </el-tag>
+            <el-tag
+              v-if="item.status_zh == '启动'"
+              key="xxxxx"
+              type=""
+              class="mx-1"
+              effect="dark"
+            >
+              {{ item.status_zh }}
+            </el-tag>
 
-          <!-- <span
+            <!-- <span
             class="row_span"
             v-if="item.status_zh == '停止'"
             style="background: #f39c12; float: right"
@@ -335,28 +345,28 @@
             style="background: #409eff; float: right"
             >{{ item.status_zh }}</span
           > -->
-        </p>
+          </p>
 
-        <ul class="cop">
-          <li>
-            <span>微信账号：{{ item.account }}</span>
-          </li>
-        </ul>
-        <ul class="cop">
-          <li>
-            <span>凭证状态：{{ item.access_token_status_zh }}</span>
-          </li>
+          <ul class="cop">
+            <li>
+              <span>微信账号：{{ item.account }}</span>
+            </li>
+          </ul>
+          <ul class="cop">
+            <li>
+              <span>凭证状态：{{ item.access_token_status_zh }}</span>
+            </li>
 
-          <li>
-            <span>认证状态：{{ item.wechat_status_zh }}</span>
-          </li>
-        </ul>
+            <li>
+              <span>认证状态：{{ item.wechat_status_zh }}</span>
+            </li>
+          </ul>
 
-        <div class="status">
-          <el-icon class="edit" @click="card_edit(item)">
-            <Edit />
-          </el-icon>
-          <!-- 
+          <div class="status">
+            <el-icon class="edit" @click="card_edit(item)">
+              <Edit />
+            </el-icon>
+            <!-- 
           <el-tag
             disable-transitions
             effect="dark"
@@ -364,38 +374,39 @@
             @click="card_edit(item)"
             >编辑1</el-tag
           > -->
-          <template v-if="item.status_zh == '启动'">
-            <el-icon class="pause" @click="wechat_stop" title="点击停止">
-              <video-pause />
-            </el-icon>
-          </template>
+            <template v-if="item.status_zh == '启动'">
+              <el-icon class="pause" @click="wechat_stop" title="点击停止">
+                <video-pause />
+              </el-icon>
+            </template>
 
-          <template v-if="item.status_zh == '停止'">
-            <el-icon class="play" @click="wechat_run" title="点击启动">
-              <video-play />
+            <template v-if="item.status_zh == '停止'">
+              <el-icon class="play" @click="wechat_run" title="点击启动">
+                <video-play />
+              </el-icon>
+            </template>
+            <div style="width: 300px"></div>
+            <el-icon class="log" @click="card_detail(item)" title="详情">
+              <tickets />
             </el-icon>
-          </template>
-          <div style="width: 300px"></div>
-          <el-icon class="log" @click="card_detail(item)" title="详情">
-            <tickets />
-          </el-icon>
-          <el-icon class="delete" @click="wechat_del">
-            <delete />
-          </el-icon>
+            <el-icon class="delete" @click="wechat_del">
+              <delete />
+            </el-icon>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <component
-    :is="currentModal"
-    v-model:visible="modalVisible"
-    :wechatUpdateData="wechatUpdateData"
-  />
-  <WeChatAddForm @register="register1" />
-  <WeChatUpdateForm @register="register2" />
-  <WeChatDetailForm @register="register3" />
-  <WeChatStatusForm @register="register4" />
+    <component
+      :is="currentModal"
+      v-model:visible="modalVisible"
+      :wechatUpdateData="wechatUpdateData"
+    />
+    <WeChatAddForm @register="register1" />
+    <WeChatUpdateForm @register="register2" />
+    <WeChatDetailForm @register="register3" />
+    <WeChatStatusForm @register="register4" />
+  </page-wrapper>
 </template>
 
 <script lang="ts">

@@ -1,12 +1,12 @@
 /**
  * @description 导出通用配置
  */
- module.exports = {
+module.exports = {
   // 标题，此项修改后需要重启项目！！！ (包括初次加载雪花屏的标题 页面的标题 浏览器的标题)
-  loginPageTitle:"悦高 W22 低代码应用开发平台",
+  loginPageTitle: "悦高 W22 低代码应用开发平台",
   title: "yogoo-w22-template",
   // 应用系统版本号
-  appVersion: "1.0.08",
+  appVersion: "1.0.13",
   // 标题分隔符
   titleSeparator: " - ",
   // 标题是否反转
@@ -56,4 +56,6 @@
   uniqueOpened: false,
   // 需要加loading层的请求，防止重复提交
   debounce: ["doEdit"],
+  // 菜单样式切换 left：左侧  top：顶部
+  appMenuShowType: "top",
 };

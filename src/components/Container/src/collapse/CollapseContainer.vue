@@ -1,6 +1,7 @@
 <template>
   <div :class="prefixCls">
-    <collapse-header v-if="showTitle"
+    <collapse-header
+      v-if="showTitle"
       v-bind="props"
       :prefixCls="prefixCls"
       :show="show"
@@ -17,7 +18,7 @@
     <div class="p-2">
       <collapse-transition :enable="canExpan">
         <el-skeleton v-if="loading" :active="loading" />
-        <div :class="`${prefixCls}__body`"  v-else v-show="show">
+        <div :class="`${prefixCls}__body`" v-else v-show="show">
           <slot></slot>
         </div>
       </collapse-transition>

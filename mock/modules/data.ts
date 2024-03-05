@@ -6639,6 +6639,45 @@ const fisl_account_balance_data: any = {
       balance_avg_day_tq: "508,183.75",
     },
   ],
+  headerData: [
+    {
+      id: 100,
+      label: "机构代码",
+      prop: "branch",
+      width: "100",
+    },
+    {
+      id: 210,
+      label: "分支机构",
+      prop: "brh_name",
+      width: "150",
+    },
+    {
+      id: 220,
+      label: "资金账号",
+      prop: "account",
+    },
+    {
+      id: 220,
+      label: "客户号",
+      prop: "cust_code",
+    },
+    {
+      id: 220,
+      label: "客户姓名",
+      prop: "cust_name",
+    },
+    {
+      id: 220,
+      label: "日均余额(元)",
+      prop: "balance_avg_day",
+    },
+    {
+      id: 220,
+      label: "日均余额同期(元)",
+      prop: "balance_avg_day_tq",
+    },
+  ],
 };
 
 // fisl 公司与市场余额对比
@@ -7826,6 +7865,51 @@ const gtja_dwjz_data: any = {
       dwjzzzl: "0.00%",
       ljjz: "1.0011",
       ljjzzzl: "0.00%",
+    },
+  ],
+  headerData: [
+    {
+      id: 100,
+      label: "产品代码",
+      prop: "cpdm",
+      width: "150",
+    },
+    {
+      id: 100,
+      label: "产品名称",
+      prop: "cpmc",
+      width: "150",
+    },
+    {
+      id: 100,
+      label: "净值日期",
+      prop: "jzrq",
+      width: "150",
+    },
+
+    {
+      id: 100,
+      label: "单位净值",
+      prop: "dwjz",
+      width: "200",
+    },
+    {
+      id: 100,
+      label: "单位净值增长率(%)",
+      prop: "dwjzzzl",
+      width: "200",
+    },
+    {
+      id: 100,
+      label: "累计净值",
+      prop: "ljjz",
+      width: "280",
+    },
+    {
+      id: 100,
+      label: "累计净值增长率(%)",
+      prop: "ljjzzzl",
+      width: "280",
     },
   ],
 };

@@ -8,6 +8,7 @@
     >
       <div class="demo-input-size">
         <div class="input-box">基础用法</div>
+        <div class="input-box">仅显示输入框</div>
         <div class="input-box">禁用状态</div>
       </div>
       <div class="demo-input-size">
@@ -16,6 +17,15 @@
             v-model="num"
             :min="1"
             :max="10"
+            @change="handleChange"
+          />
+        </div>
+        <div class="input-box-bottom">
+          <el-input-number
+            v-model="num"
+            :min="1"
+            :max="10"
+            :controls="false"
             @change="handleChange"
           />
         </div>

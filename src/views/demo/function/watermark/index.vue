@@ -6,7 +6,10 @@
       :can-expan="true"
       help-message=""
     >
-      <el-button type="primary" @click="setWatermark('上海悦高软件股份有限公司',mydate)">
+      <el-button
+        type="primary"
+        @click="setWatermark('上海悦高软件股份有限公司', mydate)"
+      >
         Create
       </el-button>
       <el-button @click="clear"> Clear </el-button>
@@ -20,7 +23,7 @@ import { defineComponent, computed, ref } from "vue";
 import { PageWrapper } from "@/components/Page";
 import { CollapseContainer } from "@/components/Container/index";
 import { useWatermark } from "@/hooks/web/useWatermark";
-import dayjs from "dayjs"; 
+import dayjs from "dayjs";
 
 export default defineComponent({
   name: "session-timeout",
@@ -35,7 +38,7 @@ export default defineComponent({
       setWatermark,
       clear,
       areaRef,
-      mydate
+      mydate,
     };
   },
 });

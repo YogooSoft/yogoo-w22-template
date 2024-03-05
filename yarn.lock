@@ -9021,6 +9021,11 @@ vue-cli-plugin-style-resources-loader@^0.1.5:
   resolved "https://registry.npmjs.org/vue-cli-plugin-style-resources-loader/-/vue-cli-plugin-style-resources-loader-0.1.5.tgz"
   integrity sha512-LluhjWTZmpGl3tiXg51EciF+T70IN/9t6UvfmgluJBqxbrb6OV9i7L5lTd+OKtcTeghDkhcBmYhtTxxU4w/8sQ==
 
+vue-currency-input@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/vue-currency-input/-/vue-currency-input-3.0.5.tgz#292cd735740fce1264c1dde47966385da0e2df07"
+  integrity sha512-HG1hKvAvUDt/mklm+2nEEOuvMNxXVd+O2v2PPOia0iNAs4a7B0fWEsHSoca60Ah9EA4nR0Do5UQUkR5Wqhcb/g==
+
 vue-demi@*, vue-demi@^0.13.2:
   version "0.13.11"
   resolved "https://registry.npmjs.org/vue-demi/-/vue-demi-0.13.11.tgz"

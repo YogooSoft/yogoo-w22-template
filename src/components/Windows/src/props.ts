@@ -1,8 +1,7 @@
-import type { PropType, CSSProperties } from 'vue';
-import type { ModalWrapperProps } from './typing';
+import type { PropType, CSSProperties } from "vue";
+import type { ModalWrapperProps } from "./typing";
 
 // import type { CSSProperties, VNodeChild, ComputedRef } from 'vue';
-
 
 // const { t } = useI18n();
 
@@ -15,17 +14,21 @@ export const modalProps = {
   // 启用可拖拽功能
   draggable: { type: Boolean, default: false },
   centered: { type: Boolean },
-  cancelText: { type: String, default: 'cancel' },
-  okText: { type: String, default: 'ok' },
+  cancelText: { type: String, default: "cancel" },
+  okText: { type: String, default: "ok" },
 
   closeFunc: Function as PropType<() => Promise<boolean>>,
 };
 
 export const basicProps = Object.assign({}, modalProps, {
   defaultFullscreen: { type: Boolean },
-  // Can it be full screen 
+  // 副标题
+  subtitle: { type: String, default: "" },
+  // Can it be full screen
   // 可以是全屏吗
   canFullscreen: { type: Boolean, default: true },
+  // 显示全屏吗
+  showFullscreen: { type: Boolean, default: true },
   // After enabling the wrapper, the bottom can be increased in height
   wrapperFooterOffset: { type: Number, default: 0 },
   // Warm reminder message
@@ -68,7 +71,7 @@ export const basicProps = Object.assign({}, modalProps, {
 
   maskStyle: Object as PropType<CSSProperties>,
 
-  okType: { type: String, default: 'primary' },
+  okType: { type: String, default: "primary" },
 
   okButtonProps: Object as PropType<string>,
 

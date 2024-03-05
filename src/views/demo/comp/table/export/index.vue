@@ -21,7 +21,7 @@
         <el-button
           style="margin-top: 8px; margin-left: 10px"
           type="primary"
-          @click="exportExcel"
+          @click="doexportExcel"
           >导出</el-button
         >
       </div>
@@ -115,63 +115,11 @@ export default defineComponent({
         this.elTableClass = yuiTableClass.ExtraSmall;
       }
     },
-    exportExcel() {
-      exportExcel(this.$refs.excelTable, "基础表格", "基础表格.xlsx");
+    doexportExcel() {
+      exportExcel(this.headerData, this.rowData, "基础表格", "基础表格.xlsx");
     },
     // exportExcel() {
-    //   //转换成excel时，使用原始的格式
-    //   var xlsxParam = { raw: true };
-    //   let fix = document.querySelector(".el-table__fixed");
-    //   //let wb = "";
-    //   //判断有无fixed定位，如果有的话去掉，后面再加上，不然数据会重复
-    //   if (fix) {
-    //     let wb = XLSX.utils.table_to_book(
-    //       document.querySelector("#tableId").removeChild(fix),
-    //       xlsxParam
-    //     );
-    //     document.querySelector("#tableId").appendChild(fix);
-    //   } else {
-    //     let wb = XLSX.utils.table_to_book(
-    //       document.querySelector("#tableId"),
-    //       xlsxParam
-    //     );
-    //   }
-    //   var wbout = XLSX.write(wb, {
-    //     bookType: "xlsx",
-    //     bookSST: true,
-    //     type: "array",
-    //   });
-    //   try {
-    //     FileSaver.saveAs(
-    //       new Blob([wbout], { type: "application/octet-stream" }),
-    //       "导出详情单.xlsx"
-    //     );
-    //   } catch (e) {
-    //     if (typeof console !== "undefined") console.log(e, wbout);
-    //   }
-    //   return wbout;
-    // },
-    // exportExcel() {
-    //   //时候按照表格的原样导出  不对表格数据进行处理
-    //   let xlsxParams = { row: true };
-
-    //   //根据表格导出  可以根据json数据导出 json_to_sheet
-    //   let wb = XLSX.utils.table_to_book(
-    //     document.querySelector("#aaaaa"),
-    //     xlsxParams
-    //   );
-
-    //   //写入
-    //   let wbout = XLSX.write(wb, {
-    //     bookType: "xlsx",
-    //     bookSST: true,
-    //     type: "array",
-    //   });
-
-    //   FileSaver.saveAs(
-    //     new Blob([wbout], { type: "application/octet-stream" }),
-    //     "数据导出.xlsx"
-    //   );
+    //   exportExcel(this.$refs.excelTable, "基础表格", "基础表格.xlsx");
     // },
   },
   created() {},

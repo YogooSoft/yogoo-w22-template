@@ -70,13 +70,13 @@
 }
 .title_box_left_num {
   background-color: #f56c6c;
-  font-size: 17px;
+  font-size: 16px;
   color: white;
   padding: 3px;
   margin-left: -12px;
 }
 .title_box_left {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: bold;
   display: inline-block;
   margin-top: 4px;

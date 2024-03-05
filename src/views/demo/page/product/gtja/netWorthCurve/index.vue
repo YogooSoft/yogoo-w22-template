@@ -1,149 +1,151 @@
 <template>
-  <div class="search_box">
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <span>产品信息：</span>
-    <el-select
-      v-model="value1"
-      collapse-tags
-      collapse-tags-tooltip
-      placeholder="选择产品"
-      style="width: 400px"
-    >
-      <el-option
-        v-for="item in options1"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
-      />
-    </el-select>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <span>比较指标：</span>
-    <el-select
-      v-model="value2"
-      collapse-tags
-      collapse-tags-tooltip
-      placeholder="选择指标"
-      style="width: 120px"
-    >
-      <el-option
-        v-for="item in options2"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
-      />
-    </el-select>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <span>展示频率：</span>
-    <el-select
-      v-model="value3"
-      collapse-tags
-      collapse-tags-tooltip
-      placeholder="选择频率"
-      style="width: 120px"
-    >
-      <el-option
-        v-for="item in options3"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
-      />
-    </el-select>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <span>估值日期：</span>
-    <el-date-picker
-      v-model="value4"
-      type="daterange"
-      start-placeholder="开始日期"
-      end-placeholder="截止日期"
-      :default-value="[new Date(2023, 9, 1), new Date(2023, 10, 1)]"
-    />
-
-    <el-button
-      class="top_line_button"
-      :icon="Search"
-      type="primary"
-      @click="GetDwjzDataFun"
-      >查询</el-button
-    >
-  </div>
-
-  <div class="file_box">
-    <div class="file_box_radio">
-      <span>基础指标：</span>
-      <el-radio-group v-model="radio1">
-        <el-radio :label="3">单位净值</el-radio>
-        <el-radio :label="6">累计单位净值</el-radio>
-      </el-radio-group>
-    </div>
-    <div class="file_box_radio">
-      <span>对比模式：</span>
-      <el-radio-group v-model="radio2">
-        <el-radio :label="3">净值对比</el-radio>
-        <el-radio :label="6">增长率对比</el-radio>
-      </el-radio-group>
-    </div>
-
-    <div class="file_box_checkbox">
-      <span>数据标识：</span>
-      <el-checkbox-group v-model="checkList">
-        <el-checkbox label="净值最高点" />
-        <el-checkbox label="增长最低点" />
-      </el-checkbox-group>
-    </div>
-
-    <el-button class="file_box_button_right" @click="exportExcel"
-      >导出图表</el-button
-    >
-  </div>
-  <div class="chart_box">
-    <chart-data />
-  </div>
-
-  <div class="file_box">
-    <el-button class="file_box_button_left">SZD813</el-button>
-
-    <el-button class="file_box_button_right" @click="exportExcel"
-      >导出Excel</el-button
-    >
-  </div>
-  <div class="table_box">
-    <el-table
-      ref="excelTable"
-      :stripe="true"
-      :data="tableData"
-      v-loading="load_staus"
-      :class="elTableClass"
-      style="width: 100%"
-      :header-cell-style="{
-        'background-color': '#F6F7F9',
-      }"
-    >
-      <el-table-column prop="cpdm" label="产品代码" width="180" align="left">
-      </el-table-column>
-      <el-table-column
-        prop="cpmc"
-        label="产品名称"
-        min-width="250"
-        align="left"
+  <page-wrapper title="" content="">
+    <div class="search_box">
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <span>产品信息：</span>
+      <el-select
+        v-model="value1"
+        collapse-tags
+        collapse-tags-tooltip
+        placeholder="选择产品"
+        style="width: 400px"
       >
-      </el-table-column>
-      <el-table-column
-        prop="jzrq"
-        label="净值日期"
-        max-width="120"
-        align="left"
+        <el-option
+          v-for="item in options1"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        />
+      </el-select>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <span>比较指标：</span>
+      <el-select
+        v-model="value2"
+        collapse-tags
+        collapse-tags-tooltip
+        placeholder="选择指标"
+        style="width: 120px"
       >
-      </el-table-column>
-      <el-table-column prop="dwjz" label="单位净值" align="right">
-      </el-table-column>
-      <el-table-column prop="dwjzzzl" label="单位净值增长率(%)" align="right">
-      </el-table-column>
-      <el-table-column prop="ljjz" label="累计净值" align="right">
-      </el-table-column>
-      <el-table-column prop="ljjzzzl" label="累计净值增长率(%)" align="right">
-      </el-table-column>
-    </el-table>
-  </div>
+        <el-option
+          v-for="item in options2"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        />
+      </el-select>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <span>展示频率：</span>
+      <el-select
+        v-model="value3"
+        collapse-tags
+        collapse-tags-tooltip
+        placeholder="选择频率"
+        style="width: 120px"
+      >
+        <el-option
+          v-for="item in options3"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        />
+      </el-select>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <span>估值日期：</span>
+      <el-date-picker
+        v-model="value4"
+        type="daterange"
+        start-placeholder="开始日期"
+        end-placeholder="截止日期"
+        :default-value="[new Date(2023, 9, 1), new Date(2023, 10, 1)]"
+      />
+
+      <el-button
+        class="top_line_button"
+        :icon="Search"
+        type="primary"
+        @click="GetDwjzDataFun"
+        >查询</el-button
+      >
+    </div>
+
+    <div class="file_box">
+      <div class="file_box_radio">
+        <span>基础指标：</span>
+        <el-radio-group v-model="radio1">
+          <el-radio :label="3">单位净值</el-radio>
+          <el-radio :label="6">累计单位净值</el-radio>
+        </el-radio-group>
+      </div>
+      <div class="file_box_radio">
+        <span>对比模式：</span>
+        <el-radio-group v-model="radio2">
+          <el-radio :label="3">净值对比</el-radio>
+          <el-radio :label="6">增长率对比</el-radio>
+        </el-radio-group>
+      </div>
+
+      <div class="file_box_checkbox">
+        <span>数据标识：</span>
+        <el-checkbox-group v-model="checkList">
+          <el-checkbox label="净值最高点" />
+          <el-checkbox label="增长最低点" />
+        </el-checkbox-group>
+      </div>
+
+      <el-button class="file_box_button_right" @click="doexportExcel"
+        >导出图表</el-button
+      >
+    </div>
+    <div class="chart_box">
+      <chart-data />
+    </div>
+
+    <div class="file_box">
+      <el-button class="file_box_button_left">SZD813</el-button>
+
+      <el-button class="file_box_button_right" @click="doexportExcel"
+        >导出Excel</el-button
+      >
+    </div>
+    <div class="table_box">
+      <el-table
+        ref="excelTable"
+        :stripe="true"
+        :data="tableData"
+        v-loading="load_staus"
+        :class="elTableClass"
+        style="width: 100%"
+        :header-cell-style="{
+          'background-color': '#F6F7F9',
+        }"
+      >
+        <el-table-column prop="cpdm" label="产品代码" width="180" align="left">
+        </el-table-column>
+        <el-table-column
+          prop="cpmc"
+          label="产品名称"
+          min-width="250"
+          align="left"
+        >
+        </el-table-column>
+        <el-table-column
+          prop="jzrq"
+          label="净值日期"
+          max-width="120"
+          align="left"
+        >
+        </el-table-column>
+        <el-table-column prop="dwjz" label="单位净值" align="right">
+        </el-table-column>
+        <el-table-column prop="dwjzzzl" label="单位净值增长率(%)" align="right">
+        </el-table-column>
+        <el-table-column prop="ljjz" label="累计净值" align="right">
+        </el-table-column>
+        <el-table-column prop="ljjzzzl" label="累计净值增长率(%)" align="right">
+        </el-table-column>
+      </el-table>
+    </div>
+  </page-wrapper>
 </template>
 
 <script lang="ts">
@@ -219,19 +221,30 @@ export default defineComponent({
       load_staus: false,
 
       tableData: [],
+      headerData: [],
     };
   },
   methods: {
     // 基础表格
-    exportExcel() {
-      // console.log("===excelTable==", "excelTable");
-      exportExcel(this.$refs.excelTable, "单位净值表格", "单位净值表格.xlsx");
+    doexportExcel() {
+      exportExcel(
+        this.headerData,
+        this.tableData,
+        "分支机构平均利率、日均余额、应计利息统计表",
+        "分支机构平均利率、日均余额、应计利息统计表.xlsx"
+      );
     },
+
+    // exportExcel() {
+    //   // console.log("===excelTable==", "excelTable");
+    //   exportExcel(this.$refs.excelTable, "单位净值表格", "单位净值表格.xlsx");
+    // },
 
     GetDwjzDataFun() {
       GetDwjzData("userid").then((res: any) => {
         if (res.meta.code == "0") {
           this.tableData = res.data.tableData;
+          this.headerData = res.data.headerData;
 
           this.load_staus = false;
 

@@ -1,15 +1,30 @@
 <template>
   <el-row>
-    <div class="navbar">
+    <div :class="navbarClass">
+      <!-- 顶部菜单 -->
+      <div class="header_menu" v-if="menuShowType == 'top'">
+        <top-menus
+          :my_menu_show="my_menu_show"
+          @get_main_menu_show="get_main_menu_show"
+          :key="new Date().getTime()"
+        />
+      </div>
+
+      <!-- 侧边菜单 -->
       <!-- 菜单折叠汉堡按钮 -->
       <hamburger
+        v-if="menuShowType == 'left'"
         id="hamburger-container"
         :is-active="!getIsCollapseFn"
         class="hamburger-container"
         @toggleClick="setIsCollapse"
       />
       <!-- 面包屑导航组件 -->
-      <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
+      <breadcrumb
+        v-if="menuShowType == 'left'"
+        id="breadcrumb-container"
+        class="breadcrumb-container"
+      />
       <div class="right-menu">
         <!-- 搜索 -->
         <!-- <div class="right-menu-item hover-effect"> -->
@@ -21,6 +36,27 @@
         <app-search
           :class="`${prefixCls}-action__item right-menu-item hover-effect`"
         />
+        <!-- 我的业务全景 -->
+        <el-link
+          v-if="menuShowType == 'top'"
+          class="my_menu"
+          :underline="false"
+          @click="my_menu_click"
+          style="
+            display: inline;
+            color: #fff;
+            background-color: #1c418e;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            line-height: 32px;
+          "
+        >
+          我的业务全景
+        </el-link>
         <!-- </div> -->
         <!-- 消息中心 -->
         <div class="right-menu-item hover-effect">
@@ -68,6 +104,18 @@
               <el-dropdown-item icon="Lock" @click="LockScreenFn"
                 >锁定屏幕</el-dropdown-item
               >
+              <el-dropdown-item
+                icon="Top"
+                v-if="menuShowType == 'left'"
+                @click="setMenuShowTypeFn('top')"
+                >顶部菜单</el-dropdown-item
+              >
+              <el-dropdown-item
+                icon="Back"
+                v-if="menuShowType == 'top'"
+                @click="setMenuShowTypeFn('left')"
+                >左侧菜单</el-dropdown-item
+              >
               <el-dropdown-item icon="switch-button" divided @click="logout"
                 >退出系统</el-dropdown-item
               >
@@ -79,9 +127,18 @@
   </el-row>
   <!-- 锁屏组件 -->
   <lock-screen id="lockscreen" class="icon-size-menu" />
+  <topMenusbox
+    :key_num="key_num"
+    :key="new Date().getTime()"
+    class="menus_box"
+    v-if="drawer === true"
+    @get_router_click="get_router_click"
+  ></topMenusbox>
 </template>
 <script lang="ts">
-var { appVersion } = require("@/config");
+var { appVersion, appMenuShowType } = require("@/config");
+import topMenus from "./comment/index.vue";
+import topMenusbox from "./comment/src/top-menus-box.vue";
 
 import {
   defineComponent,
@@ -121,9 +178,11 @@ export default defineComponent({
     LockScreen,
     AppSearch,
     SvgIcon,
+    topMenus,
+    topMenusbox,
   },
-
-  setup() {
+  props: ["MenuShowTypeFn"],
+  setup(props, { emit }) {
     const version = appVersion;
     const { getIsCollapse, setIsCollapse } = useRootSetting();
 
@@ -135,8 +194,25 @@ export default defineComponent({
     const LockStore = reactive(lockStore.getLockInfo);
 
     const { prefixCls } = useDesign("layout-header");
-
     const isDot = ref(true);
+    const drawer = ref(false);
+    const key_num = ref(0);
+    const my_menu_show = ref(false);
+
+    // 菜单显示类型
+    const menuShowType = ref("");
+    if (userinfo.menuPosition) {
+      menuShowType.value = userinfo.menuPosition.toString();
+      emit("MenuShowTypeFn", menuShowType.value);
+    } else {
+      menuShowType.value = appMenuShowType.toString();
+      // const menuShowType = ref(appMenuShowType);
+      emit("MenuShowTypeFn", menuShowType.value);
+    }
+    // 写入storage 切换时重新写sotrage加载页面
+    const navbarClass = ref("navbar" + menuShowType.value.toString());
+    console.log("==navbarClass==", navbarClass.value);
+    console.log("==menuShowType==", menuShowType.value);
 
     // MITT组件
     const {
@@ -224,6 +300,40 @@ export default defineComponent({
       quit();
     }
 
+    // 我的业务全景菜单
+    function my_menu_click() {
+      my_menu_show.value = false;
+      if (drawer.value) {
+        drawer.value = false;
+        key_num.value = 0;
+      } else {
+        key_num.value = 9999;
+        drawer.value = true;
+        my_menu_show.value = true;
+      }
+    }
+    function get_main_menu_show(params) {
+      console.log("父组件的方法被触发了one", params);
+      if (params) {
+        drawer.value = false;
+      }
+    }
+    function get_router_click(params) {
+      console.log("父组件的方法被触发了one", params);
+      if (!params) {
+        drawer.value = false;
+      }
+    }
+    // 顶部菜单样式
+    const setMenuShowTypeFn = (typeStr) => {
+      emit("MenuShowTypeFn", typeStr);
+      navbarClass.value = "navbar" + typeStr.toString();
+      // console.log("===", navbarClass.value);
+      menuShowType.value = typeStr;
+      // 将新的菜单显示位置写入store
+      userinfo.menuPosition = typeStr;
+    };
+
     return {
       version,
       userinfo,
@@ -235,13 +345,22 @@ export default defineComponent({
       GB_push,
       prefixCls,
       isDot,
+      drawer,
+      my_menu_click,
+      key_num,
+      my_menu_show,
+      get_main_menu_show,
+      get_router_click,
+      setMenuShowTypeFn,
+      menuShowType,
+      navbarClass,
     };
   },
 });
 </script>
 
 <style lang="less" scoped>
-.navbar {
+.navbarleft {
   height: 50px;
   width: 100%;
   overflow: hidden;
@@ -331,6 +450,96 @@ export default defineComponent({
   }
 }
 
+.navbartop {
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #1d2d4e;
+  box-shadow: 0 1px 1px rgba(0, 21, 41, 0.08);
+
+  .hamburger-container {
+    line-height: 46px;
+    height: 100%;
+    float: left;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    -webkit-tap-highlight-color: transparent;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.025);
+    }
+  }
+
+  .breadcrumb-container {
+    float: left;
+  }
+
+  .errLog-container {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .right-menu {
+    display: flex;
+    float: right;
+    height: 100%;
+    line-height: 50px;
+
+    &:focus {
+      outline: none;
+    }
+    // 5a5e66
+    .right-menu-item {
+      display: inline-block;
+      padding: 0 8px;
+      height: 100%;
+      font-size: 18px;
+      color: #fff;
+      vertical-align: text-bottom;
+
+      &.hover-effect {
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.025);
+        }
+      }
+    }
+    .avatar-container {
+      // 距离右边框的距离
+      margin-right: 0px;
+
+      .avatar-wrapper {
+        //line-height: 46px;
+        margin-top: 5px;
+        position: relative;
+        height: 20px;
+        vertical-align: 10px;
+
+        .user-avatar {
+          cursor: pointer;
+          width: 20px;
+          height: 20px;
+          border-radius: 10px;
+        }
+        .user-name {
+          padding: 0px 3px;
+        }
+
+        .el-icon-caret-bottom {
+          cursor: pointer;
+          position: absolute;
+          right: -20px;
+          top: 25px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
 .el-dropdown-link {
   height: 40px;
   display: flex;
@@ -368,5 +577,10 @@ export default defineComponent({
   max-height: 10px;
   position: relative;
   margin-bottom: 10px;
+}
+.header_menu {
+  display: flex;
+  float: left;
+  width: 70%;
 }
 </style>

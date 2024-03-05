@@ -67,7 +67,21 @@
           "
           ><component :is="item.meta.icon"></component
         ></el-icon>
-        <span>{{ item.meta.title }}</span>
+        <span
+          >{{ item.meta.title
+          }}<el-badge
+            v-if="item.speck_menu == true"
+            is-dot
+            class="menu_title_speck"
+          >
+          </el-badge>
+          <el-badge
+            v-if="item.new_menu == true"
+            :value="'new'"
+            class="menu_title_new"
+          >
+          </el-badge>
+        </span>
       </el-menu-item>
     </template>
   </div>
@@ -143,4 +157,10 @@ export default defineComponent({
 // .secondSubmenu.el-submenu__title {
 //   background-color: rgba(255, 255, 255, 0.1) !important;
 // }
+.menu_title_speck {
+  top: -22px;
+}
+.menu_title_new {
+  top: -22px;
+}
 </style>

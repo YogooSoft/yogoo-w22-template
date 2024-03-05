@@ -1,10 +1,13 @@
 <template>
   <el-container class="w22-vue-template-wrapper">
     <el-aside width="auto" class="el-aside">
-      <common-aside v-if="tabsFullScreen" />
+      <common-aside v-if="tabsFullScreen && MenuShowType == 'left'" />
     </el-aside>
     <el-container>
-      <common-header v-if="tabsFullScreen" />
+      <common-header
+        @MenuShowTypeFn="setMenuShowTypeFn"
+        v-if="tabsFullScreen"
+      />
       <el-header>
         <tags
           :tabsFullScreen="tabsFullScreen"
@@ -33,14 +36,20 @@ export default defineComponent({
   setup() {
     const version = appVersion;
     const tabsFullScreen = ref(true);
+    const MenuShowType = ref("left");
     const setTabsFullScreen = () => {
       tabsFullScreen.value = !tabsFullScreen.value;
+    };
+    const setMenuShowTypeFn = (typeStr) => {
+      MenuShowType.value = typeStr;
     };
 
     return {
       version,
       tabsFullScreen,
       setTabsFullScreen,
+      MenuShowType,
+      setMenuShowTypeFn,
     };
   },
 });

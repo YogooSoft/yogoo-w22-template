@@ -62,6 +62,7 @@
         <div class="input-box">方式1:oninput</div>
         <div class="input-box">方式2:@input methods</div>
         <div class="input-box">方式3:@input setup()</div>
+        <div class="input-box">金额格式化</div>
       </div>
       <div class="demo-input-size">
         <el-input
@@ -83,6 +84,12 @@
           placeholder="Please input"
           class="input-box"
         ></el-input>
+        <el-input
+          v-model="inputFormat4.value"
+          @input="formatNum4"
+          placeholder="金额格式化"
+          class="input-box"
+        />
       </div>
     </collapse-container>
     <collapse-container
@@ -342,6 +349,7 @@ export default defineComponent({
     const num = ref("");
     // 处理正则不生效问题 使用reactive方式定义变量
     let inputFormat3 = reactive({ value: "", value2: "" });
+    let inputFormat4 = reactive({ value: "", value2: "" });
 
     function formatNum3(val) {
       // console.log("-------formatNum--------", val);
@@ -357,6 +365,16 @@ export default defineComponent({
       inputFormat3.value = temp;
     }
 
+    function formatNum4(val) {
+      // console.log("-------formatNum--------", val);
+      let temp = val.toString();
+      temp = temp.replace(/\$\s?|(,*)/g, "");
+      temp = `$ ${temp}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+      // temp = temp.replaceAll("1", ",");
+      inputFormat4.value = temp;
+    }
+
     return {
       input,
       input1,
@@ -370,8 +388,10 @@ export default defineComponent({
       text,
       inputFormat1,
       inputFormat3,
+      inputFormat4,
       num,
       formatNum3,
+      formatNum4,
     };
   },
 });

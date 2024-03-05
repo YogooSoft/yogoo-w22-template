@@ -1,83 +1,86 @@
 <template>
-  <div class="view-home">
-    <div style="margin-bottom: 10px">
-      <span>公众号选择：</span>
-      <el-select
-        v-model="value1"
-        collapse-tags
-        collapse-tags-tooltip
-        placeholder="选择公众号"
-        style="width: 150px"
-      >
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        />
-      </el-select>
+  <page-wrapper title="" content="">
+    <div class="view-home">
+      <div style="margin-bottom: 10px">
+        <span>公众号选择：</span>
+        <el-select
+          v-model="value1"
+          collapse-tags
+          collapse-tags-tooltip
+          placeholder="选择公众号"
+          style="width: 150px"
+        >
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          />
+        </el-select>
+      </div>
+
+      <el-row :gutter="15" v-if="value1 === '0'">
+        <el-col :lg="24" :xs="24">
+          <div class="card">
+            <wechat-base />
+          </div>
+        </el-col>
+      </el-row>
+
+      <el-row :gutter="15">
+        <el-col :lg="7" :xs="24">
+          <div class="card">
+            <cust-info />
+          </div>
+        </el-col>
+        <el-col :lg="17" :xs="24">
+          <div class="card">
+            <article-info />
+          </div>
+        </el-col>
+      </el-row>
+
+      <el-row :gutter="15">
+        <el-col :lg="12" :xs="24">
+          <div class="card">
+            <tab-chart />
+          </div>
+        </el-col>
+        <el-col :lg="12" :xs="24">
+          <div class="card">
+            <tsmb-chart />
+            <!-- <follow-rank /> -->
+          </div>
+        </el-col>
+      </el-row>
+      <el-row :gutter="15">
+        <el-col :lg="14" :xs="24">
+          <div class="card">
+            <charts-account />
+          </div>
+          <div class="card card--last">
+            <charts-follow />
+          </div>
+          <div class="card card--last">
+            <charts-read />
+          </div>
+        </el-col>
+        <el-col :lg="10" :xs="24">
+          <div class="card">
+            <wechat-data-rank />
+          </div>
+          <div class="card">
+            <article-data-rank />
+          </div>
+        </el-col>
+      </el-row>
     </div>
-
-    <el-row :gutter="15" v-if="value1 === '0'">
-      <el-col :lg="24" :xs="24">
-        <div class="card">
-          <wechat-base />
-        </div>
-      </el-col>
-    </el-row>
-
-    <el-row :gutter="15">
-      <el-col :lg="7" :xs="24">
-        <div class="card">
-          <cust-info />
-        </div>
-      </el-col>
-      <el-col :lg="17" :xs="24">
-        <div class="card">
-          <article-info />
-        </div>
-      </el-col>
-    </el-row>
-
-    <el-row :gutter="15">
-      <el-col :lg="12" :xs="24">
-        <div class="card">
-          <tab-chart />
-        </div>
-      </el-col>
-      <el-col :lg="12" :xs="24">
-        <div class="card">
-          <tsmb-chart />
-          <!-- <follow-rank /> -->
-        </div>
-      </el-col>
-    </el-row>
-    <el-row :gutter="15">
-      <el-col :lg="14" :xs="24">
-        <div class="card">
-          <charts-account />
-        </div>
-        <div class="card card--last">
-          <charts-follow />
-        </div>
-        <div class="card card--last">
-          <charts-read />
-        </div>
-      </el-col>
-      <el-col :lg="10" :xs="24">
-        <div class="card">
-          <wechat-data-rank />
-        </div>
-        <div class="card">
-          <article-data-rank />
-        </div>
-      </el-col>
-    </el-row>
-  </div>
+  </page-wrapper>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import { PageWrapper } from "@/components/Page";
 import TabChart from "./components/tab-chart.vue";
 import CustInfo from "./components/cust-info.vue";
 import ArticleInfo from "./components/article-info.vue";

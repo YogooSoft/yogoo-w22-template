@@ -13,7 +13,7 @@
       :can-expan="false"
       help-message="从内部操作弹窗组件"
     >
-      <template v-if="loading" >
+      <template v-if="loading">
         <div class="empty-tips" v-loading="loading">加载中，稍等3秒……</div>
       </template>
       <template v-if="!loading">
@@ -98,7 +98,6 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-
 .flex-1 {
   flex: 1;
 }
@@ -129,8 +128,8 @@ export default defineComponent({
 }
 
 .empty-tips {
-    height: 100px;
-    line-height: 100px;
-    text-align: center;
-  }
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
 </style>

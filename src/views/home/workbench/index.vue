@@ -1,57 +1,60 @@
 <template>
-  <div class="view-home">
-    <el-row :gutter="15">
-      <el-col :lg="6" :md="12" :xs="24">
-        <div class="card">
-          <count-sales />
-        </div>
-      </el-col>
-      <el-col :lg="6" :md="12" :xs="24">
-        <div class="card">
-          <count-views />
-        </div>
-      </el-col>
-      <el-col :lg="6" :md="12" :xs="24">
-        <div class="card">
-          <count-paid />
-        </div>
-      </el-col>
-      <el-col :lg="6" :md="12" :xs="24">
-        <div class="card">
-          <count-effect />
-        </div>
-      </el-col>
-    </el-row>
+  <page-wrapper title="工作台" content="">
+    <div class="view-home">
+      <el-row :gutter="15">
+        <el-col :lg="6" :md="12" :xs="24">
+          <div class="card">
+            <count-sales />
+          </div>
+        </el-col>
+        <el-col :lg="6" :md="12" :xs="24">
+          <div class="card">
+            <count-views />
+          </div>
+        </el-col>
+        <el-col :lg="6" :md="12" :xs="24">
+          <div class="card">
+            <count-paid />
+          </div>
+        </el-col>
+        <el-col :lg="6" :md="12" :xs="24">
+          <div class="card">
+            <count-effect />
+          </div>
+        </el-col>
+      </el-row>
 
-    <el-row :gutter="15">
-      <el-col :lg="14" :xs="24">
-        <div class="card">
-          <tab-chart />
-        </div>
-      </el-col>
-      <el-col :lg="10" :xs="24">
-        <div class="card">
-          <sales-rank />
-        </div>
-      </el-col>
-    </el-row>
+      <el-row :gutter="15">
+        <el-col :lg="14" :xs="24">
+          <div class="card">
+            <tab-chart />
+          </div>
+        </el-col>
+        <el-col :lg="10" :xs="24">
+          <div class="card">
+            <sales-rank />
+          </div>
+        </el-col>
+      </el-row>
 
-    <el-row :gutter="15">
-      <el-col :lg="14" :sm="24">
-        <div class="card card--last">
-          <hot-search />
-        </div>
-      </el-col>
-      <el-col :lg="10" :sm="24">
-        <div class="card card--last">
-          <category-ratio />
-        </div>
-      </el-col>
-    </el-row>
-  </div>
+      <el-row :gutter="15">
+        <el-col :lg="14" :sm="24">
+          <div class="card card--last">
+            <hot-search />
+          </div>
+        </el-col>
+        <el-col :lg="10" :sm="24">
+          <div class="card card--last">
+            <category-ratio />
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+  </page-wrapper>
 </template>
 
 <script lang="ts" setup>
+import { PageWrapper } from "@/components/Page";
 import CategoryRatio from "./components/category-ratio.vue";
 import CountSales from "./components/count-sales.vue";
 import CountViews from "./components/count-views.vue";

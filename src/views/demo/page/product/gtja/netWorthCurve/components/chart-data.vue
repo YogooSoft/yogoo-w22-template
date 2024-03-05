@@ -197,79 +197,11 @@ defineExpose({
       color: #606266;
       // font-weight: bold;
       font-size: 14px;
-
-      .right {
-        display: inline-block;
-        z-index: 1000;
-        margin-right: 10px;
-        position: relative;
-      }
-
-      .label {
-        font-size: 12px;
-      }
-
-      .value {
-        font-size: 14px;
-        font-weight: bold;
-        /*margin-left: 10px;*/
-      }
     }
 
     &__container {
       padding: 0 10px;
       height: 50px;
-    }
-
-    .data_box {
-      width: 30%;
-      display: inline-block;
-      padding-left: 10%;
-
-      .highRisk {
-        font-size: 13px;
-        display: block;
-        // color: #303133;
-        padding-bottom: 8px;
-        padding-top: 10px;
-      }
-
-      .lowRisk {
-        font-size: 13px;
-        display: block;
-        // color: #303133;
-        padding-bottom: 8px;
-        padding-top: 10px;
-      }
-
-      .noRisk {
-        font-size: 13px;
-        display: block;
-        // color: #303133;
-        padding-bottom: 8px;
-        padding-top: 10px;
-      }
-    }
-
-    .text_box {
-      display: block;
-      padding-top: 10px;
-
-      .text_box_left {
-        font-size: 13px;
-        display: inline-block;
-        width: 20%;
-        // float:left;
-        color: #909399;
-      }
-
-      .text_box_right {
-        font-size: 13px;
-        display: block;
-        width: 70%;
-        float: left;
-        color: #909399;
-      }
     }
 
     &__footer {
@@ -281,14 +213,6 @@ defineExpose({
       margin: 0 5px;
       padding: 0 15px;
       box-sizing: border-box;
-
-      .label {
-        margin-right: 10px;
-      }
-
-      .value {
-        font-size: 13px;
-      }
     }
   }
 }

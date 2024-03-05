@@ -39,7 +39,7 @@ import { VueMasonryPlugin } from "vue-masonry";
 // 引入控制台模拟插件
 import Terminal from "vue-web-terminal";
 
-// 引入MITT
+// 引入MITT组件
 import mitt from "mitt";
 
 // 灰色模式

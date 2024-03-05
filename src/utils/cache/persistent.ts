@@ -1,6 +1,6 @@
 // 缓存持久化
 // 支持 LocalStorage, SessionStorage
-import type { LockInfo, UserInfo } from '#/store';
+import type { LockInfo, UserInfo } from "#/store";
 import { ref, reactive } from "vue";
 import type { ProjectConfig } from "#/config";
 
@@ -61,7 +61,7 @@ export class Persistent {
   static removeLocal(key: LocalKeys) {
     const { value } = localMemory;
     delete value.value[key];
-    //Reflect.deleteProperty(value.value, key); 
+    //Reflect.deleteProperty(value.value, key);
     //return (value.value.splice(0, 1));
   }
 
@@ -86,7 +86,7 @@ export class Persistent {
 
     //localMemory.value.value[MULTIPLE_TABS_KEY] = [] as RouteLocationNormalized[];
     //localMemory.value.value[USER_INFO_KEY] = {} as UserInfo;
-    
+
     //console.log("--------localMemory.value---------",localMemory.value);
     //localStorage.removeItem(localStoreName);
     //sessionStorage.removeItem(sessionStoreName);

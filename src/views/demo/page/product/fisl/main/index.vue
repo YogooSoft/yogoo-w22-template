@@ -1,75 +1,78 @@
 <template>
-  <div class="view-home">
-    <el-row :gutter="15">
-      <el-col :lg="7" :xs="24">
-        <div class="card">
-          <cust-info />
-        </div>
-      </el-col>
-      <el-col :lg="17" :md="12" :xs="24">
-        <div class="card">
-          <balance-info />
-        </div>
-      </el-col>
-    </el-row>
+  <page-wrapper title="" content="">
+    <div class="view-home">
+      <el-row :gutter="15">
+        <el-col :lg="7" :xs="24">
+          <div class="card">
+            <cust-info />
+          </div>
+        </el-col>
+        <el-col :lg="17" :md="12" :xs="24">
+          <div class="card">
+            <balance-info />
+          </div>
+        </el-col>
+      </el-row>
 
-    <el-row :gutter="15">
-      <el-col :lg="14" :xs="24">
-        <div class="card">
-          <tab-chart />
-        </div>
-      </el-col>
-      <el-col :lg="10" :xs="24">
-        <div class="card">
-          <balance-rank />
-        </div>
-      </el-col>
-    </el-row>
+      <el-row :gutter="15">
+        <el-col :lg="14" :xs="24">
+          <div class="card">
+            <tab-chart />
+          </div>
+        </el-col>
+        <el-col :lg="10" :xs="24">
+          <div class="card">
+            <balance-rank />
+          </div>
+        </el-col>
+      </el-row>
 
-    <el-row :gutter="15">
-      <el-col :lg="14" :sm="24">
-        <div class="card card--last">
-          <!-- <hot-search /> -->
-          <charts-balance-com />
-        </div>
-      </el-col>
-      <el-col :lg="10" :sm="24">
-        <div class="card card--last">
-          <!-- <category-ratio /> -->
-          <int-rank />
-        </div>
-      </el-col>
-    </el-row>
-    <el-row :gutter="15">
-      <el-col :lg="14" :sm="24">
-        <div class="card card--last">
-          <charts-cust-count />
-        </div>
-      </el-col>
-      <el-col :lg="10" :sm="24">
-        <div class="card card--last">
-          <!-- <category-ratio /> -->
-          <rate-rank />
-        </div>
-      </el-col>
-    </el-row>
-    <el-row :gutter="15">
-      <el-col :lg="14" :sm="24">
-        <div class="card card--last">
-          <charts-int />
-        </div>
-      </el-col>
-      <el-col :lg="10" :sm="24">
-        <div class="card card--last">
-          <!-- <category-ratio /> -->
-          <zzc-rank />
-        </div>
-      </el-col>
-    </el-row>
-  </div>
+      <el-row :gutter="15">
+        <el-col :lg="14" :sm="24">
+          <div class="card card--last">
+            <!-- <hot-search /> -->
+            <charts-balance-com />
+          </div>
+        </el-col>
+        <el-col :lg="10" :sm="24">
+          <div class="card card--last">
+            <!-- <category-ratio /> -->
+            <int-rank />
+          </div>
+        </el-col>
+      </el-row>
+      <el-row :gutter="15">
+        <el-col :lg="14" :sm="24">
+          <div class="card card--last">
+            <charts-cust-count />
+          </div>
+        </el-col>
+        <el-col :lg="10" :sm="24">
+          <div class="card card--last">
+            <!-- <category-ratio /> -->
+            <rate-rank />
+          </div>
+        </el-col>
+      </el-row>
+      <el-row :gutter="15">
+        <el-col :lg="14" :sm="24">
+          <div class="card card--last">
+            <charts-int />
+          </div>
+        </el-col>
+        <el-col :lg="10" :sm="24">
+          <div class="card card--last">
+            <!-- <category-ratio /> -->
+            <zzc-rank />
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+  </page-wrapper>
 </template>
 
 <script lang="ts" setup>
+import { PageWrapper } from "@/components/Page";
 import TabChart from "./components/tab-chart.vue";
 import CustInfo from "./components/cust-info.vue";
 import BalanceInfo from "./components/balance-info.vue";
