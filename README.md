@@ -15,8 +15,6 @@
 <img src="https://img.shields.io/github/last-commit/YogooSoft/yogoo-w22-template.svg" alt="GitHub tag"></a>
 </p>
 
-> ![](/resources/welcome.gif)
-
 ## 前言
 
 上海悦高软件股份有限公司（简称“悦高软件”）成立于 2012 年 9 月 10 日，以为金融行业提供卓越的金融科技服务为目标。2015 年 8 月 17 日在新三板市场挂牌（股票代码：833298），在业务系统、数据服务和大数据三个领域，与金融场景相融合提供优质的技术解决方案。
@@ -46,10 +44,12 @@ w22-template 是一个免费开源的中后台模板，采用最新的 Vue3、We
 - 账户：admin
 - 密码：123456
 
-## 案例截图
+## 案例
 
-<img src="resources/imageA.png" width="80%">
-<img src="resources/imageB.png" width="80%">
+<!-- <img src="resources/imageA.png" width="80%">
+<img src="resources/imageB.png" width="80%"> -->
+
+![](/resources/welcome.gif)
 
 ## 快速上手
 
