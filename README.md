@@ -14,7 +14,8 @@
 <a href=""><img src="https://img.shields.io/badge/Version-1.1.9-blue.svg" alt="GitHub tag"></a>
 <img src="https://img.shields.io/github/last-commit/YogooSoft/yogoo-w22-template.svg" alt="GitHub tag"></a>
 </p>
-
+ ![Image text](/resources/welcome.gif)
+ 
 ## 前言
 
 上海悦高软件股份有限公司（简称“悦高软件”）成立于 2012 年 9 月 10 日，以为金融行业提供卓越的金融科技服务为目标。2015 年 8 月 17 日在新三板市场挂牌（股票代码：833298），在业务系统、数据服务和大数据三个领域，与金融场景相融合提供优质的技术解决方案。
